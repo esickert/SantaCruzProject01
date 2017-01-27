@@ -14,6 +14,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.openqa.selenium.By.*;
 
 
 //import static org.junit.*;
@@ -35,7 +37,7 @@ public class JustPlayingTest {
 
        System.out.println("Need to play with this");
  //      Assert.assertEquals("Lets see if this works", 5, num);
-       Assert.assertEquals("hope this works", password, JustPlaying.getPassword());
+       assertEquals("hope this works", password, JustPlaying.getPassword());
        System.out.println(JustPlaying.getPassword());  //if the above test fails, the other test cases will not be executed
        assertTrue("is this false", 1==1);
     } //end of checkIfEqual
@@ -66,11 +68,11 @@ public class JustPlayingTest {
             Action compositeAction = buildMe.build();
             // Perforn the composite action.
             compositeAction.perform();
-            toSleep();
+ //           toSleep();
  //          sleep(5000);  //note: this will throw an exception which is passed as per line 43
            driver.close();
 
-        Assert.assertEquals("9", temp = "9");
+        assertEquals("9", temp = "9");
         } //end of letUsPlaySelenium
 
         @Test
@@ -78,14 +80,23 @@ public class JustPlayingTest {
         WebDriver erich = new FirefoxDriver();
         erich.get("http://www.google.com");
 
-        WebElement settings = erich.findElement(By.id("fsettl")); //settings
-        WebElement button = erich.findElement(By.id("advsl"));  //advance search
+        WebElement settings = erich.findElement(id("fsettl")); //settings
+        WebElement button = erich.findElement(id("advsl"));  //advance search
         //  the following generates the composite action.
         Actions builder = new Actions(erich);
             builder.click(settings)
                    .click(button);
         builder.perform();
+//        toSleep();
+
+        WebElement rick = erich.findElement(By.xpath(".//*[@id='_dKg']"));
+        rick.sendKeys("apple");
+        rick.getText();
+        System.out.println("This is the text " + rick.getText());
+        System.out.println("This worked!!!!...YEAH");
+        System.out.println("...but this failed!!!");
         toSleep();
-//        erich.close();
+        assertEquals("check the contents of textbox","apple",rick.getText());
+        erich.close();
         }
 }
