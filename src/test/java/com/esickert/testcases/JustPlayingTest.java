@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Action;   //NOTE: these are different!! 
 import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
+import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.By.*;
@@ -62,6 +63,7 @@ public class JustPlayingTest {
            buildMe.keyDown(Keys.CONTROL)     //okay this is weird!!!!!
                 .click(ten)
                 .click(eight)
+     //           .wait()
                 .click(six)
                 .keyUp(Keys.CONTROL);
             //generate the composite action.
@@ -75,6 +77,7 @@ public class JustPlayingTest {
         assertEquals("9", temp = "9");
         } //end of letUsPlaySelenium
 
+        @Ignore
         @Test
         public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()
         WebDriver erich = new FirefoxDriver();
@@ -83,20 +86,36 @@ public class JustPlayingTest {
         WebElement settings = erich.findElement(id("fsettl")); //settings
         WebElement button = erich.findElement(id("advsl"));  //advance search
         //  the following generates the composite action.
-        Actions builder = new Actions(erich);
+        Actions builder = new Actions(erich);  //erich is a instance of firefox webdriver
             builder.click(settings)
                    .click(button);
         builder.perform();
 //        toSleep();
 
-        WebElement rick = erich.findElement(By.xpath(".//*[@id='_dKg']"));
-        rick.sendKeys("apple");
-        rick.getText();
+        WebElement rick = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[2]/div[2]/div[2]/div/input"));
+        rick.sendKeys("meru networks");
+
         System.out.println("This is the text " + rick.getText());
         System.out.println("This worked!!!!...YEAH");
-        System.out.println("...but this failed!!!");
         toSleep();
-        assertEquals("check the contents of textbox","apple",rick.getText());
-        erich.close();
+        System.out.println("This is what's in the box: " + rick.getAttribute("value"));
+        assertEquals("check the contents of textbox","meru networks",rick.getAttribute("value")); //This now works.
+        WebElement claude = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[5]/div[9]/div[2]/input"));
+        claude.click();
+//        erich.close();
+        }
+
+        @Test
+        public void getText()   {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://www.google.com");
+        //this was experimenting with printing out text in web elements.
+        WebElement me = driver.findElement(By.name("btnK"));
+//        me.sendKeys("will this work");
+//        String txt = me.getText();
+//        System.out.println(txt);
+        System.out.println(me.getAttribute("value"));
+
         }
 }
