@@ -9,14 +9,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Action;   //NOTE: these are different!! One plural
+import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
-import static org.openqa.selenium.By.*;
+import static org.junit.Assert.assertFalse;
 
 
 //import static org.junit.*;
@@ -26,13 +26,13 @@ import static org.openqa.selenium.By.*;
  */
 public class JustPlayingTest {
 
-    public static final int number = 7;
-    public static final double aVariable = 8;
+    private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
+    private static final double aVariable = 8.00;
 
     @Ignore
     @Test
     public void checkIfEqual()  {
-        int num = 5;
+        final int num = 5;
         String password = "hello";
 //        SoftAssertions softly = new SoftAssertions();
 
@@ -40,7 +40,7 @@ public class JustPlayingTest {
  //      Assert.assertEquals("Lets see if this works", 5, num);
        assertEquals("hope this works", password, JustPlaying.getPassword());
        System.out.println(JustPlaying.getPassword());  //if the above test fails, the other test cases will not be executed
-       assertTrue("is this false", 1==1);
+       assertTrue("is this false", 2==1);
     } //end of checkIfEqual
 
 
@@ -83,8 +83,8 @@ public class JustPlayingTest {
         WebDriver erich = new FirefoxDriver();
         erich.get("http://www.google.com");
 
-        WebElement settings = erich.findElement(id("fsettl")); //settings
-        WebElement button = erich.findElement(id("advsl"));  //advance search
+        WebElement settings = erich.findElement(By.id("fsettl")); //settings
+        WebElement button = erich.findElement(By.id("advsl"));  //advance search
         //  the following generates the composite action.
         Actions builder = new Actions(erich);  //erich is a instance of firefox webdriver
             builder.click(settings)
@@ -102,20 +102,29 @@ public class JustPlayingTest {
         assertEquals("check the contents of textbox","meru networks",rick.getAttribute("value")); //This now works.
         WebElement claude = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[5]/div[9]/div[2]/input"));
         claude.click();
-//        erich.close();
+        erich.close();
         }
 
         @Test
-        public void getText()   {
+        public void chapEightStuff() throws Exception   {
 
+        String url =  "www.google.com";
+        assertFalse("http://www.google.com", url.equals("http://www.google.cm"));
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://www.google.com");
+        String url2 = addHttp(url);
+        driver.get(url2);
         //this was experimenting with printing out text in web elements.
         WebElement me = driver.findElement(By.name("btnK"));
 //        me.sendKeys("will this work");
 //        String txt = me.getText();
 //        System.out.println(txt);
         System.out.println(me.getAttribute("value"));
+        toSleep();  //sleeps for 5 secs
+        driver.close();
+        }  //end of method chapEightStuff()
 
-        }
-}
+        public String addHttp(String a)    {
+            String front = "http://";
+            return front + a;
+        }  //end of method addHttp
+} //end of class JustPlayingTest()
