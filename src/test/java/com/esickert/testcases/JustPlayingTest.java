@@ -113,6 +113,7 @@ public class JustPlayingTest {
         WebDriver driver = new FirefoxDriver();
         String url2 = addHttp(url);
         driver.get(url2);
+        assertEquals("are these equal??", url == url2);   // ERROR ERROR
         //this was experimenting with printing out text in web elements.
         WebElement me = driver.findElement(By.name("btnK"));
 //        me.sendKeys("will this work");
