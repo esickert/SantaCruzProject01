@@ -29,7 +29,7 @@ public class JustPlayingTest {
     private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
     private static final double aVariable = 8.00;
 
-    @Ignore
+//    @Ignore
     @Test
     public void checkIfEqual()  {
         final int num = 5;
@@ -44,7 +44,7 @@ public class JustPlayingTest {
     } //end of checkIfEqual
 
 
-    @Ignore
+ //   @Ignore
     @Test
         public void letUsPlay()  throws Exception {
            String temp;
@@ -77,7 +77,7 @@ public class JustPlayingTest {
         assertEquals("9", temp = "9");
         } //end of letUsPlaySelenium
 
-        @Ignore
+ //       @Ignore
         @Test
         public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()
         WebDriver erich = new FirefoxDriver();
@@ -105,7 +105,7 @@ public class JustPlayingTest {
         erich.close();
         }
 
-        @Test
+  //      @Test
         public void chapEightStuff() throws Exception   {
 
         String url =  "www.google.com";
@@ -128,4 +128,11 @@ public class JustPlayingTest {
             String front = "http://";
             return front + a;
         }  //end of method addHttp
-} //end of class JustPlayingTest()
+
+        @Test
+        public void chapEightMoreStuff01() throws Exception {
+
+            System.out.println("Various Chap 8 Test Cases... ");
+
+        }
+} //end of JustPlayingTest
