@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
  */
 public class Sleep {
 
-    public static void toSleep() throws Exception {
+    public static  void toSleep() throws Exception {
         sleep(5000);
     }
 }

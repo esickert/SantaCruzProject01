@@ -4,8 +4,6 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
 
-
-
 /**
  * Created by esickert on 2/1/2017.
  * Chapter 7 code examples

@@ -71,7 +71,7 @@ public class JustPlayingTest {
             // Perforn the composite action.
             compositeAction.perform();
  //           toSleep();
- //          sleep(5000);  //note: this will throw an exception which is passed as per line 43
+ //          sleep(5000);  
            driver.close();
 
         assertEquals("9", temp = "9");
@@ -105,7 +105,7 @@ public class JustPlayingTest {
         erich.close();
         }
 
-  //      @Test
+//      @Test
         public void chapEightStuff() throws Exception   {
 
         String url =  "www.google.com";
