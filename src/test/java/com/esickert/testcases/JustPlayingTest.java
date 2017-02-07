@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +18,7 @@ import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+
 
 
 //import static org.junit.*;
@@ -29,7 +31,7 @@ public class JustPlayingTest {
     private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
     private static final double aVariable = 8.00;
 
-//    @Ignore
+    @Ignore
     @Test
     public void checkIfEqual()  {
         final int num = 5;
@@ -90,7 +92,7 @@ public class JustPlayingTest {
             builder.click(settings)
                    .click(button);
         builder.perform();
-//        toSleep();
+        toSleep();
 
         WebElement rick = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[2]/div[2]/div[2]/div/input"));
         rick.sendKeys("meru networks");
@@ -105,7 +107,8 @@ public class JustPlayingTest {
         erich.close();
         }
 
-//      @Test
+      @Ignore
+      @Test
         public void chapEightStuff() throws Exception   {
 
         String url =  "www.google.com";
@@ -129,10 +132,18 @@ public class JustPlayingTest {
             return front + a;
         }  //end of method addHttp
 
+        @Ignore
         @Test
         public void chapEightMoreStuff01() throws Exception {
 
             System.out.println("Various Chap 8 Test Cases... ");
+
+
+//this WORKS!!!!!!!!!!!!!!!!!!!!!!!!!  yeah
+        System.out.println("Testing with chrome ...");
+        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+        driver.get("http://www.yahoo.com");
 
         }
 } //end of JustPlayingTest
