@@ -138,12 +138,16 @@ public class JustPlayingTest {
 
             System.out.println("Various Chap 8 Test Cases... ");
 
-
-//this WORKS!!!!!!!!!!!!!!!!!!!!!!!!!  yeah
-        System.out.println("Testing with chrome ...");
+        System.out.println("Testing with chrome 56 ...");
         System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://www.yahoo.com");
+      //  DOESN'T WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//        WebElement erich = driver.findElement(By.class("Fz(14px) Fw(b) C(#4d00ae)"));
+       // Actions stuff = new Actions(erich);
+//        erich.click();
+        toSleep();
+//        driver.close();
 
         }
 } //end of JustPlayingTest
