@@ -93,4 +93,24 @@ public class Chap7Test {
         assertTrue( (5 >= 4) ? true : false);
     }
 
+    @Test
+    public void someStringMethods() {
+
+        String stuff = "abcdef";
+
+        System.out.println(stuff.compareToIgnoreCase("ABCDEF") == 0);
+
+        assertEquals(6, stuff.length());
+        //note the folowing are assertTrue()
+        assertTrue(stuff.compareToIgnoreCase("ABCDEF") == 0);
+        assertTrue(stuff.contains("bcde"));
+        assertTrue(stuff.startsWith("abc"));
+
+        //string indexing starts at 0 ,assertEqauls()
+        assertEquals('c', stuff.charAt(2));
+        assertEquals("ef", stuff.substring(4));
+
+    }
+
+
 }
