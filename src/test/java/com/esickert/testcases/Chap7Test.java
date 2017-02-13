@@ -111,6 +111,4 @@ public class Chap7Test {
         assertEquals("ef", stuff.substring(4));
 
     }
-
-
 }

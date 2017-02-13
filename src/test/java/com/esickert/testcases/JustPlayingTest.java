@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Action;                          //NOTE:
 import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
+import static java.lang.Thread.sleep;
 import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -26,27 +27,25 @@ import static org.junit.Assert.assertFalse;
 /**
  * Created by esickert on 1/15/2017.
  */
-public class JustPlayingTest {
+public class JustPlayingTest  {
 
     private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
     private static final double aVariable = 8.00;
 
-    @Ignore
+ //   @Ignore
     @Test
     public void checkIfEqual()  {
         final int num = 5;
         String password = "hello";
-//        SoftAssertions softly = new SoftAssertions();
-
-       System.out.println("Need to play with this");
- //      Assert.assertEquals("Lets see if this works", 5, num);
+        System.out.println("Need to play with this");
+       Assert.assertEquals("Lets see if this works", 5, num);
        assertEquals("hope this works", password, JustPlaying.getPassword());
        System.out.println(JustPlaying.getPassword());  //if the above test fails, the other test cases will not be executed
-       assertTrue("is this false", 2==1);
+       assertTrue("is this false", 1==1);
     } //end of checkIfEqual
 
 
- //   @Ignore
+//    @Ignore
     @Test
         public void letUsPlay()  throws Exception {
            String temp;
@@ -65,23 +64,22 @@ public class JustPlayingTest {
            buildMe.keyDown(Keys.CONTROL)     //okay this is weird!!!!!
                 .click(ten)
                 .click(eight)
-     //           .wait()
                 .click(six)
                 .keyUp(Keys.CONTROL);
             //generate the composite action.
             Action compositeAction = buildMe.build();
             // Perforn the composite action.
             compositeAction.perform();
- //           toSleep();
- //          sleep(5000);  
+            toSleep();
+           sleep(5000);
            driver.close();
 
         assertEquals("9", temp = "9");
         } //end of letUsPlaySelenium
 
- //       @Ignore
+//        @Ignore
         @Test
-        public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()
+        public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()  THIS DOES'T WORK   GECKO DRIVER//        System.setProperty("webdriver.gecko.driver","\\Temp\\geckodriver.exe");
         WebDriver erich = new FirefoxDriver();
         erich.get("http://www.google.com");
 
@@ -99,29 +97,30 @@ public class JustPlayingTest {
 
         System.out.println("This is the text " + rick.getText());
         System.out.println("This worked!!!!...YEAH");
-        toSleep();
+       toSleep();
         System.out.println("This is what's in the box: " + rick.getAttribute("value"));
         assertEquals("check the contents of textbox","meru networks",rick.getAttribute("value")); //This now works.
         WebElement claude = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[5]/div[9]/div[2]/input"));
         claude.click();
-        erich.close();
+//        erich.close();
         }
 
-      @Ignore
+//      @Ignore
       @Test
         public void chapEightStuff() throws Exception   {
 
         String url =  "www.google.com";
         assertFalse("http://www.google.com", url.equals("http://www.google.cm"));
+          System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
         WebDriver driver = new FirefoxDriver();
         String url2 = addHttp(url);
         driver.get(url2);
-        assertEquals("are these equal??", url == url2);   // ERROR ERROR
+        assertTrue("checking urls??", url.equals(url2));            ************************************// ERROR ERROR
         //this was experimenting with printing out text in web elements.
         WebElement me = driver.findElement(By.name("btnK"));
-//        me.sendKeys("will this work");
-//        String txt = me.getText();
-//        System.out.println(txt);
+        me.sendKeys("will this work");
+        String txt = me.getText();
+        System.out.println(txt);
         System.out.println(me.getAttribute("value"));
         toSleep();  //sleeps for 5 secs
         driver.close();
@@ -132,7 +131,7 @@ public class JustPlayingTest {
             return front + a;
         }  //end of method addHttp
 
-        @Ignore
+//        @Ignore
         @Test
         public void chapEightMoreStuff01() throws Exception {
 
@@ -143,11 +142,11 @@ public class JustPlayingTest {
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://www.yahoo.com");
       //  DOESN'T WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//        WebElement erich = driver.findElement(By.class("Fz(14px) Fw(b) C(#4d00ae)"));
+      //  WebElement erich = driver.findElement(By.class("Fz(14px) Fw(b) C(#4d00ae)")));
        // Actions stuff = new Actions(erich);
-//        erich.click();
+ //       erich.click();
         toSleep();
-//        driver.close();
+        driver.close();
 
         }
 } //end of JustPlayingTest

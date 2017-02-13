@@ -14,6 +14,11 @@ public class Chap8Test {
         return "http://" + a;
     }
 
+    public String catOrCats(int x) {
+        String feline = (x==1 ? "cat" : "cats");
+        System.out.println(feline);
+        return feline;
+    }
 
     @Test                                     //Remember the @Test keyword
     public void thisIsForChapter8() {
@@ -48,11 +53,7 @@ public class Chap8Test {
     assertEquals("2 == cats", "cats" , catOrCats(2));  //interesting way of doing this with a assert statement.
     }
 
-    public String catOrCats(int x) {
-        String feline = (x==1 ? "cat" : "cats");
-        System.out.println(feline);
-        return feline;
-    }
+
 
     @Test
     public void playTest()  {
