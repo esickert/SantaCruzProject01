@@ -109,6 +109,6 @@ public class Chap7Test {
         //string indexing starts at 0 ,assertEqauls()
         assertEquals('c', stuff.charAt(2));
         assertEquals("ef", stuff.substring(4));
-
     }
+
 }

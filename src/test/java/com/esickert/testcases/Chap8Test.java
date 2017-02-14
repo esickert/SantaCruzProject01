@@ -1,14 +1,20 @@
 package com.esickert.testcases;
 
+import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by esickert on 2/8/2017.
  */
 public class Chap8Test {
+
+    private static boolean truthy = true;
+    private static boolean falsey = false;
 
     public static String addHttp(String a)   {
         return "http://" + a;
@@ -66,6 +72,49 @@ public class Chap8Test {
         assertTrue(url.startsWith("http://"));
         assertEquals("http://www.seleniumSimplified.com", url);
     }
+
+    @Test
+    public void ifStatement()    {
+
+//        boolean truthy = true;
+
+        if (truthy)  //for this to work truthy needs to be true
+            TestCase.assertEquals(true, truthy);
+
+        if (truthy) {
+            Assert.assertTrue(truthy);
+            assertFalse(!truthy);
+        }
+    }
+
+    @Test
+    public void ifElse()   {
+
+//     truthy = false;
+
+        if (truthy)   //for this to pass truthy needs to be true.
+            Assert.assertTrue(truthy);
+        else
+            assertFalse(truthy);
+    }
+
+    @Test
+    public void nestedIfElse()    {
+
+        String url = "seleniumsimplified.com";
+
+        if (url.startsWith("http://"))
+        ;
+        else {
+            if (!url.startsWith("www")){    //this is weird for me with the "not" startsWith
+                url = "www." + url;
+            }
+        url = addHttp(url);
+        assertEquals("http://www.seleniumsimplified.com", url);
+        assertTrue(url.startsWith("http://"));
+        }
+    }
+
 }
 
 

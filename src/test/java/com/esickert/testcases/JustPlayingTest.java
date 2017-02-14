@@ -48,7 +48,7 @@ public class JustPlayingTest  {
 //    @Ignore
     @Test
         public void letUsPlay()  throws Exception {
-           String temp;
+           String temp = "9";
            System.out.println("This is a double = " + aVariable);
            System.out.println("Use this case for selenium");
            WebDriver driver = new FirefoxDriver();
@@ -74,7 +74,7 @@ public class JustPlayingTest  {
            sleep(5000);
            driver.close();
 
-        assertEquals("9", temp = "9");
+        assertTrue("9", temp.equals("9"));  //not sure why i included this
         } //end of letUsPlaySelenium
 
 //        @Ignore
@@ -102,7 +102,8 @@ public class JustPlayingTest  {
         assertEquals("check the contents of textbox","meru networks",rick.getAttribute("value")); //This now works.
         WebElement claude = erich.findElement(By.xpath("html/body/div[1]/div[4]/form/div[5]/div[9]/div[2]/input"));
         claude.click();
-//        erich.close();
+        toSleep();
+        erich.close();
         }
 
 //      @Ignore
@@ -115,7 +116,7 @@ public class JustPlayingTest  {
         WebDriver driver = new FirefoxDriver();
         String url2 = addHttp(url);
         driver.get(url2);
-        assertTrue("checking urls??", url.equals(url2));            ************************************// ERROR ERROR
+        assertFalse("checking urls??", url.equals(url2));          //  ************************************ ERROR ERROR
         //this was experimenting with printing out text in web elements.
         WebElement me = driver.findElement(By.name("btnK"));
         me.sendKeys("will this work");
