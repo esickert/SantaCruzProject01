@@ -44,7 +44,7 @@ public class JustPlayingTest  {
        assertTrue("is this false", 1==1);
     } //end of checkIfEqual
 
-
+//**********************************************************************************************************************
 //    @Ignore
     @Test
         public void letUsPlay()  throws Exception {
@@ -70,13 +70,13 @@ public class JustPlayingTest  {
             Action compositeAction = buildMe.build();
             // Perforn the composite action.
             compositeAction.perform();
-            toSleep();
+//            toSleep();
            sleep(5000);
            driver.close();
 
         assertTrue("9", temp.equals("9"));  //not sure why i included this
         } //end of letUsPlaySelenium
-
+//**********************************************************************************************************************
 //        @Ignore
         @Test
         public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()  THIS DOES'T WORK   GECKO DRIVER//        System.setProperty("webdriver.gecko.driver","\\Temp\\geckodriver.exe");
@@ -148,6 +148,34 @@ public class JustPlayingTest  {
  //       erich.click();
         toSleep();
         driver.close();
-
         }
+
+        @Test
+        public void chapEightPage45() throws Exception   {
+            System.out.println("Same code as above but condensed perform() internally calls build().");
+
+            System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+            ChromeDriver driver2 = new ChromeDriver();
+            driver2.get("file:///C:/Users/esickert/Desktop/HTML/Selectable.html");
+
+            WebElement ten = driver2.findElement(By.name("ten"));
+            WebElement eight = driver2.findElement(By.name("eight"));
+            WebElement six = driver2.findElement(By.name("six"));
+            //Add all the actions into the Actions builder.
+            int time = 0;
+            Actions buildMe = new Actions(driver2); //a new class
+            buildMe.keyDown(Keys.CONTROL)     //okay this is weird!!!!!
+                    .click(ten)
+                    .click(eight)
+                    .click(six)
+                    .keyUp(Keys.CONTROL);
+            //generate the composite action.
+            Action compositeAction = buildMe.build();
+            // Perforn the composite action.
+            compositeAction.perform();
+//            toSleep();
+            sleep(5000);
+            driver2.close();
+        }
+
 } //end of JustPlayingTest

@@ -26,7 +26,7 @@ public class Chap8Test {
         return feline;
     }
 
-    @Test                                     
+    @Test
     public void thisIsForChapter8() {
         System.out.println("This class is for Chapter 8");
         System.out.println((3>2)?"WOW":"SUCKS");  //conditional statement Ternary
