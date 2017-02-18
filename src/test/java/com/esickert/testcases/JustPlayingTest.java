@@ -228,18 +228,88 @@ public class JustPlayingTest  {
                 assertFalse(truthy);
         }
 
-/*        @Test
+        @Test
         public void switchExamplePage117()  {
-            assertEquals("M", likelyGenderIs("sir"));
+            assertEquals("mr is a male","M", likelyGenderIs("madam"));
             assertEquals("M", likelyGenderIs("mr"));
-            assertEquals("M", likeyGenderIs("master"));
-            assertEquals("F", likelyGenderIs("miss));
-            assertEquals("F", likelyGenderIs("ms"))
-            assettEquals("F", likelyGenderIs("lady"));
-            assertEquals("F",  LikelyGenderIs("madam"));
+            assertEquals("M", likelyGenderIs("master"));
+            assertEquals("F", likelyGenderIs("miss"));
+            assertEquals("F", likelyGenderIs("ms"));
+            assertEquals("F", likelyGenderIs("lady"));
+            assertEquals("F",  likelyGenderIs("madam"));
         }
 
         public String likelyGenderIs(String title)  {
-                    }  */
+            String likelyGender;
 
+            switch(title.toLowerCase()) {
+                case "sir":
+                    likelyGender = "M";
+                    System.out.println("'sir' is a male");
+                    break;
+                case "mr":
+                    likelyGender = "M";
+                    break;
+                case "master":
+                    likelyGender = "M";
+                    break;
+                default:
+                    likelyGender = "F";
+                    break;
+          }
+          return likelyGender;
+        } //end of likelyGenderIs
+
+
+
+    @Test
+    public void switchOnShortCode() {
+        assertEquals("United Kingdom", longCodeIs("UK"));
+ //       assertEquals("United States", longCodeIs("US"));
+    }
+
+    public String longCodeIs(String name) {
+        String countryName = "0";
+
+        switch(name)  {
+            case "UK":
+                countryName = "United Kingdom";
+
+            default:
+                break;
+        }
+        return countryName;
+    } //end of longCodeIs
+
+
+//**********************************************************************************************************************
+    @Test
+    public void switchOnIntegers()  {
+        assertEquals("too small", returnNumber(0));
+        assertEquals("one", returnNumber(1));
+        assertEquals("two", returnNumber(2));
+        assertEquals( "three", returnNumber(3));
+        assertEquals("four", returnNumber(4));
+        assertEquals("too big", returnNumber(5));
+    }
+
+    public String returnNumber(int number) {
+
+        switch(number)  {
+            case 1:
+                return "one";
+            case 2:
+                return "two";
+            case 3:
+                return "three";
+            case 4:
+                return "four";
+            default:
+                if (number> 4)
+                    return "too big";
+                else
+                    return "too small";
+        }
+
+    } //end of returnNumber
 } //end of JustPlayingTest
