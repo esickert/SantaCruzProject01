@@ -15,8 +15,12 @@ import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Thread.sleep;
-import static javax.swing.text.html.CSS.getAttribute;
+//import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+//import static org.hamcrest.*;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -31,6 +35,8 @@ public class JustPlayingTest  {
 
     private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
     private static final double aVariable = 8.00;
+    private static final boolean truthy = true;
+    private static final boolean falsey = false;
 
  //   @Ignore
     @Test
@@ -169,13 +175,71 @@ public class JustPlayingTest  {
                     .click(eight)
                     .click(six)
                     .keyUp(Keys.CONTROL);
-            //generate the composite action.
-            Action compositeAction = buildMe.build();
-            // Perforn the composite action.
-            compositeAction.perform();
-//            toSleep();
+            buildMe.perform();
             sleep(5000);
             driver2.close();
         }
+
+        @Test
+        public void nestedIfElseHorrorPage116()    {   //this is kind of funky!!!
+
+            if (!truthy)  {
+                if (falsey)  {
+                    if (truthy && !falsey)
+                        if (falsey || truthy)
+                        System.out.println("line 186");
+                            assertTrue((truthy) && (!falsey));   //this is weird, not sure about this!!!!
+                }
+                else
+                    {
+                    System.out.println("line 189");
+                    assertTrue(truthy);
+                    assertTrue("Is this true???", falsey);
+                    }
+                }
+            else   {
+                if (truthy) {
+                    if (!falsey)
+                    {
+                        assertTrue("line 200",!falsey);
+                        assertFalse("line 201",!truthy);
+                    }
+                else
+                    {
+                    assertFalse("line 205", falsey);
+                   assertTrue("line 206", truthy);
+                    }
+                }
+            }
+//           assertThat(("hello").isIn("hello","World"));
+        }
+
+        @Test
+        public void trueElsFalsePage113()   {
+            if (truthy)
+                assertTrue("line 221",!truthy);
+            else
+                assertFalse("Line 223",truthy);
+//            }
+
+            if (truthy)
+                assertTrue(truthy);
+            else
+                assertFalse(truthy);
+        }
+
+/*        @Test
+        public void switchExamplePage117()  {
+            assertEquals("M", likelyGenderIs("sir"));
+            assertEquals("M", likelyGenderIs("mr"));
+            assertEquals("M", likeyGenderIs("master"));
+            assertEquals("F", likelyGenderIs("miss));
+            assertEquals("F", likelyGenderIs("ms"))
+            assettEquals("F", likelyGenderIs("lady"));
+            assertEquals("F",  LikelyGenderIs("madam"));
+        }
+
+        public String likelyGenderIs(String title)  {
+                    }  */
 
 } //end of JustPlayingTest
