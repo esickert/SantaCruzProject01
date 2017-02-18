@@ -264,21 +264,27 @@ public class JustPlayingTest  {
 
     @Test
     public void switchOnShortCode() {
-        assertEquals("United Kingdom", longCodeIs("UK"));
- //       assertEquals("United States", longCodeIs("US"));
+        assertEquals("United Kingdom", longCodeIs("uk"));
+        assertEquals("United States", longCodeIs("US"));
     }
 
     public String longCodeIs(String name) {
-        String countryName = "0";
+//        String countryName = "0";
 
         switch(name)  {
+            case "uK":
+            case "Uk":
+            case "uk":
             case "UK":
-                countryName = "United Kingdom";
+                return "United Kingdom";
+            case "US":
+                return "United States";
 
             default:
-                break;
+                return "WRONG- NOT CORRECT!!!";
+
         }
-        return countryName;
+//        return countryName;
     } //end of longCodeIs
 
 
