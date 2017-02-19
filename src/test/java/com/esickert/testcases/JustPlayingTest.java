@@ -14,6 +14,8 @@ import org.openqa.selenium.interactions.Action;                          //NOTE:
 import org.openqa.selenium.interactions.Actions;
 
 import static com.esickert.cases.Sleep.toSleep;
+import static java.lang.Integer.*;
+
 import static java.lang.Thread.sleep;
 //import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
@@ -86,7 +88,9 @@ public class JustPlayingTest  {
 //        @Ignore
         @Test
         public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()  THIS DOES'T WORK   GECKO DRIVER//        System.setProperty("webdriver.gecko.driver","\\Temp\\geckodriver.exe");
-        WebDriver erich = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+        WebDriver erich = new ChromeDriver(); //chrome driver for chrome web browser.
+//        WebDriver erich = new FirefoxDriver();
         erich.get("http://www.google.com");
 
         WebElement settings = erich.findElement(By.id("fsettl")); //settings
@@ -230,7 +234,7 @@ public class JustPlayingTest  {
 
         @Test
         public void switchExamplePage117()  {
-            assertEquals("mr is a male","M", likelyGenderIs("madam"));
+            assertEquals("mr is a male","M", likelyGenderIs("lady"));
             assertEquals("M", likelyGenderIs("mr"));
             assertEquals("M", likelyGenderIs("master"));
             assertEquals("F", likelyGenderIs("miss"));
@@ -297,6 +301,8 @@ public class JustPlayingTest  {
         assertEquals( "three", returnNumber(3));
         assertEquals("four", returnNumber(4));
         assertEquals("too big", returnNumber(5));
+ //       assertEquals("What the ...", returnNumber(MAX_VALUE));
+        assertEquals("What the Hell...too small", returnNumber(MIN_VALUE));
     }
 
     public String returnNumber(int number) {
