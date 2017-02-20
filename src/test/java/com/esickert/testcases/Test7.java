@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
  * Created by esickert on 2/1/2017.
  * Chapter 7 code examples
  */
-public class Chap7Test {
+public class Test7 {
 
     private static final int CONST = 5;
     private int b = 44;

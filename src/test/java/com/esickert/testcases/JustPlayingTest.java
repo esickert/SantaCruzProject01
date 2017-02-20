@@ -219,9 +219,9 @@ public class JustPlayingTest  {
         }
 
         @Test
-        public void trueElsFalsePage113()   {
+        public void trueElseFalsePage113()   {
             if (truthy)
-                assertTrue("line 221",!truthy);
+                assertTrue("line 221",truthy);
             else
                 assertFalse("Line 223",truthy);
 //            }
@@ -234,7 +234,7 @@ public class JustPlayingTest  {
 
         @Test
         public void switchExamplePage117()  {
-            assertEquals("mr is a male","M", likelyGenderIs("lady"));
+            assertEquals("mr is a male","M", likelyGenderIs("master"));
             assertEquals("M", likelyGenderIs("mr"));
             assertEquals("M", likelyGenderIs("master"));
             assertEquals("F", likelyGenderIs("miss"));
@@ -302,7 +302,7 @@ public class JustPlayingTest  {
         assertEquals("four", returnNumber(4));
         assertEquals("too big", returnNumber(5));
  //       assertEquals("What the ...", returnNumber(MAX_VALUE));
-        assertEquals("What the Hell...too small", returnNumber(MIN_VALUE));
+        assertEquals("too small", returnNumber(MIN_VALUE));
     }
 
     public String returnNumber(int number) {

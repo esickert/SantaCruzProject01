@@ -11,7 +11,7 @@ import static org.junit.Assert.assertFalse;
 /**
  * Created by esickert on 2/8/2017.
  */
-public class Chap8Test {
+public class Test8 {
 
     private static boolean truthy = true;
     private static boolean falsey = false;
