@@ -1,6 +1,6 @@
 package com.esickert.testcases;
 
-import com.esickert.cases.JustPlaying;
+import com.esickert.cases.TheMonster;
 
 import org.junit.Assert;
 import org.junit.*;
@@ -19,7 +19,6 @@ import static java.lang.Integer.*;
 import static java.lang.Thread.sleep;
 //import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertTrue;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.hamcrest.*;
 import static org.hamcrest.core.Is.is;
@@ -47,8 +46,8 @@ public class JustPlayingTest  {
         String password = "hello";
         System.out.println("Need to play with this");
        Assert.assertEquals("Lets see if this works", 5, num);
-       assertEquals("hope this works", password, JustPlaying.getPassword());
-       System.out.println(JustPlaying.getPassword());  //if the above test fails, the other test cases will not be executed
+       assertEquals("hope this works", password, TheMonster.getPassword());
+       System.out.println(TheMonster.getPassword());  //if the above test fails, the other test cases will not be executed
        assertTrue("is this false", 1==1);
     } //end of checkIfEqual
 

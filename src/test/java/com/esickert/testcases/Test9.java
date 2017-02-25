@@ -25,7 +25,7 @@ public class Test9 {
 
        @Test  //exercise 'Create array of Users' - page 125
         public void createUesr()   {
-            new int[5];
+//            new int[5];
             User user0 = new User("eric", "pssswaord1");
             User user1 = new User("erich", "password2");
             User user2 = new User("erik","password3");
