@@ -17,7 +17,7 @@ package com.esickert.cases;
 public class TheMonster {
     private static String password = "hello";
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws Exception  {
         String url = "http://www.monster.com";
 
 
@@ -25,13 +25,14 @@ public class TheMonster {
         WebDriver driver = new FirefoxDriver();
         driver.get(url);
         WebElement erich = driver.findElement(By.xpath("//*[@id=\"mobile-navbar-search\"]/ul/li[1]/a/span[2]"));
-        erich.click();
         WebElement eric = driver.findElement(By.xpath("html/body/div[2]/div/nav/div[1]/div[2]/ul/li[1]/ul/li[1]/a"));
-
+        erich.click();
         eric.click();
         Actions builder = new Actions(driver);
+        Thread.sleep(5000);
+        driver.quit();
 
-        assertEquals(url, "http://www.monster.net");
+        assertEquals(url, "http://www.monster.net");  //this will throw error because of domain don't match
 
 
 
