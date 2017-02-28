@@ -68,22 +68,15 @@ public class Test9 {
 
 
         @Test
-        public void DaysOfWeek()    {
+        public void DaysOfWeek()    {  //this is chapter 9
             String days = "";
             String[] workWeek = {"Monday","Tuesday", "Wednesday", "Thursday", "Friday"};
 
-            for(String workday: workWeek)  {
-                days = days + "|" + workday;
-            }
+                for(String workday: workWeek)  {
+                    days = days + "|" + workday;
+                }
 
             assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday", days);
+
         }
-
-
-
-
-
-
-
-
 } // end of Test9
