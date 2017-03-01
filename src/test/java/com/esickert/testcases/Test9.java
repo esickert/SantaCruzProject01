@@ -79,4 +79,35 @@ public class Test9 {
             assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday", days);
 
         }
+
+        @Test  // this is an answer to the assignment on page
+        public void confirmArrayCreation()  {
+
+            User[] stuff = new User[100];
+            for(int i = 0; i <= stuff.length-1; i++)    {
+                User user = new User("User" + i, "password" + i);
+                user.setUsername("User-" + i);
+                user.setPassword("Password" + i);
+                stuff[i] = user;
+                System.out.println(user.getUsername() + "\n" + user.getPassword() + "\n--------------");
+                assertEquals("Confirm array created and its size is correct???",99, stuff.length);
+            }       //the array is being created in that the length is verified...i think.
+        }
+
+        @Test
+        public void arrayOf100()    {
+            User[] arr = new User[100];
+            int index = 0;
+            //this uses the new for-each loop
+            for(User temp: arr) {   //i think this is in alot of the code others write.
+                User user = new User("user" + index, "password" + index);
+                user.setUsername("User-" + index);
+                user.setPassword("password-" + index);
+                arr[index] = user;
+                System.out.println(user.getUsername() + "\n" + user.getPassword() + "\n***************");
+                index++;
+            }
+        assertEquals(index,1000);
+    }
+
 } // end of Test9
