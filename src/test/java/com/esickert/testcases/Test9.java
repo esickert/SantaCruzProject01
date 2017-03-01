@@ -39,7 +39,7 @@ public class Test9 {
             }
 
             assertEquals(user0.getUsername(), arrayOfUsers[0].getUsername());
-            assertEquals(user1.getUsername(), arrayOfUsers[2].getUsername());  //this one will throw an error
+            assertEquals(user1.getUsername(), arrayOfUsers[1].getUsername());  //this one will throw an error
             assertEquals(user2.getUsername(), arrayOfUsers[2].getUsername());
         } //end of createUser
 
@@ -80,7 +80,7 @@ public class Test9 {
 
         }
 
-        @Test  // this is an answer to the assignment on page
+        @Test  // this is an answer to the assignment on page130
         public void confirmArrayCreation()  {
 
             User[] stuff = new User[100];
@@ -90,11 +90,11 @@ public class Test9 {
                 user.setPassword("Password" + i);
                 stuff[i] = user;
                 System.out.println(user.getUsername() + "\n" + user.getPassword() + "\n--------------");
-                assertEquals("Confirm array created and its size is correct???",99, stuff.length);
+                assertEquals("Confirm array created and its size is correct???",100, stuff.length);
             }       //the array is being created in that the length is verified...i think.
         }
 
-        @Test
+        @Test  // this is an answer to the assignment on page130
         public void arrayOf100()    {
             User[] arr = new User[100];
             int index = 0;
@@ -107,7 +107,7 @@ public class Test9 {
                 System.out.println(user.getUsername() + "\n" + user.getPassword() + "\n***************");
                 index++;
             }
-        assertEquals(index,1000);
+        assertEquals(index,100);
     }
 
 } // end of Test9
