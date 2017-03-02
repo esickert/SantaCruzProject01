@@ -99,9 +99,9 @@ public class Test9 {
         @Test  // this is an answer to the assignment on page130
         public void arrayOf100()    {
             User[] arr = new User[100];
-            int index = 0;      //using a an index in a for- each loop (modified for loop)
+            int index = 0;      //using an index in a for-each loop (modified for loop)
             //this uses the new for-each loop
-            for(User temp: arr) {   //i think this is in alot of the code others write.
+            for(User temp: arr) {   //i think this is in alot of the code others write. temp is not an array but an element holder.
                 User user = new User("user" + index, "password" + index);
                 user.setUsername("User-" + index);
                 user.setPassword("password-" + index);
