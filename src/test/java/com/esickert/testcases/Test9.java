@@ -1,7 +1,9 @@
 package com.esickert.testcases;
 
+import java.util.*;
 import org.junit.Test;
 
+import static java.util.Arrays.copyOf;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -97,7 +99,7 @@ public class Test9 {
         @Test  // this is an answer to the assignment on page130
         public void arrayOf100()    {
             User[] arr = new User[100];
-            int index = 0;
+            int index = 0;      //using a an index in a for- each loop (modified for loop)
             //this uses the new for-each loop
             for(User temp: arr) {   //i think this is in alot of the code others write.
                 User user = new User("user" + index, "password" + index);
@@ -107,7 +109,22 @@ public class Test9 {
                 System.out.println(user.getUsername() + "\n" + user.getPassword() + "\n***************");
                 index++;
             }
-        assertEquals(index,100);
-    }
+            assertEquals(index,100);
+        }
 
+        @Test // chap 9 Arrays class
+        public void testArrayCopyOf()   {
+
+            String[] weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+            String[] week;
+            week = Arrays.copyOf(weekDays, 7);
+
+          for(String temp: week)  {
+            System.out.print(temp + " ");           // the print variable is TEMP NOT WEEK!!!! week is the array!!!  See Notes
+          }
+          System.out.println();
+          for(int i = 0; i < week.length; i++)  {
+            System.out.print(week[i] + " ");
+          }
+        }
 } // end of Test9
