@@ -1,6 +1,8 @@
 package com.esickert.testcases;
 
 import java.util.*;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import static java.util.Arrays.copyOf;
@@ -117,7 +119,7 @@ public class Test9 {
 
             String[] weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
             String[] week;
-            week = Arrays.copyOf(weekDays, 7);
+            week = Arrays.copyOf(weekDays, 3);
 
           for(String temp: week)  {
             System.out.print(temp + " ");           // the print variable is TEMP NOT WEEK!!!! week is the array!!!  See Notes
@@ -125,6 +127,22 @@ public class Test9 {
           System.out.println();
           for(int i = 0; i < week.length; i++)  {
             System.out.print(week[i] + " ");
+
+//          assertEquals(null, week[5]);
+  //        assertEquals(null, week[3]);
           }
+        }
+
+        @Test
+        public void testCopySubSet()    {
+
+            String[] workDays = {"monday", "Tuesday", "wednesday", "Thursday", "Friday", "Sat", "Sun"};
+            String[] week = Arrays.copyOfRange(workDays,1,7);  // last index is exclusive
+
+            Arrays.sort(week);  //this is quicksort.
+
+            for(String temp: week) {
+                System.out.print(temp + " ");
+            }
         }
 } // end of Test9
