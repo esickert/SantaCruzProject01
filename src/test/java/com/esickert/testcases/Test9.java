@@ -3,15 +3,19 @@ package com.esickert.testcases;
 import java.util.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static java.util.Arrays.copyOf;
+import static java.util.Arrays.sort;
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by esickert on 2/20/2017.
  */
 public class Test9 {
+
+    int
 
     @Test
     public void simpleArray()   {
@@ -139,10 +143,86 @@ public class Test9 {
             String[] workDays = {"monday", "Tuesday", "wednesday", "Thursday", "Friday", "Sat", "Sun"};
             String[] week = Arrays.copyOfRange(workDays,1,7);  // last index is exclusive
 
-            Arrays.sort(week);  //this is quicksort.
+            sort(week);  //this is quicksort.
 
             for(String temp: week) {
                 System.out.print(temp + " ");
             }
         }
+
+        @Test
+        public void newMethodsForArays()    {
+
+            int[] nums = new int[] {2,4,7,4,3,1,9,8};
+            int[] num2 = {1,2,3,4,5};
+            String[] character = new String[20];
+
+            System.out.println(nums[3]);
+            System.out.println(num2[0]);
+
+            Arrays.fill(character,0,7,"hello");
+            for(String temp: character)    {
+                System.out.print(temp + " ");
+            }
+            System.out.println();
+            sort(nums);
+            for(int temp: nums) {
+                System.out.print(temp + " ");
+            }
+
+            assertEquals(4, nums[4]);
+        }
+
+        @Test
+        public void sortWorkdays()  {  //PLAY WITH THIS MORE!!!!!!!!!!!!!!!!
+
+            String[] workDays = {"Monday", "Tuesday", "Wednesday","Thursday", "Friday"};
+            //NOTE: Strings are sorted according to alphabetical order
+            String[] work;
+            Arrays.sort(workDays);
+            work = workDays;
+            for( String temp: work)
+                System.out.print(temp + " ");
+
+        assertEquals(workDays, "Monday Tuesday Wednesday Thursday Friday");  //THIS DOESN'T WORK!!!!!!!!!!!!!!!!!!
+     //       assertEquals(work, workDays);
+        }
+
+        @Test
+        public void testWorkDays()  {
+            String[] workDays = {"monday", "Tuesday", "Wednesday","thursday", "Friday"};
+
+            Arrays.sort(workDays);
+            assertEquals(workDays[0], "Friday");
+        }
+
+        @Test
+        public void multiDim()  {
+
+            int[][] arr = new int[4][4];
+
+            for(int i = 0; i < arr.length; i++) {
+               System.out.println();
+                for(int j = 0; j < arr[i].length; j++)  {
+                    System.out.print(arr[i][j]);
+                }
+            }//end of first for loop
+
+
+        @Test
+        public void print2DArray(int [][] multi)   {     //THIS NEEDS TO HAVE THE MULTI ARRAY CREATED.
+            for(int[] outer : multi) {
+                if(outer == null) {
+                    System.out.print("null");
+                }else{
+                    for(int inner : outer){
+                        System.out.print(inner + ",");
+                    }
+                }
+                System.out.print("");
+            }
+        }
+
+
+
 } // end of Test9
