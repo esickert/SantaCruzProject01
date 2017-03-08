@@ -218,7 +218,7 @@ public class Test9 {
 */
         int[][] ragged2d = new int[10][];
         print2DArray(ragged2d);
-        assertEquals("nullnullnullnullnullnullnullnullnullnull",print2DArray(ragged2d));  //the method call cannot be void!!!
+        assertEquals("null",print2DArray(ragged2d));  //the method call cannot be void!!! Needs to return something!!!!
         }
 
 
