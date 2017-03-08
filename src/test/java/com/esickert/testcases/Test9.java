@@ -15,8 +15,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class Test9 {
 
-    int
-
     @Test
     public void simpleArray()   {
         String[] numbers1 = new String[8];
@@ -30,8 +28,8 @@ public class Test9 {
         assertEquals("three", numbers[3]);
     }
 
-       @Test  //exercise 'Create array of Users' - page 125
-        public void createUser()   {
+    @Test  //exercise 'Create array of Users' - page 125
+    public void createUser()   {
 //            new int[5];
             //these are creating objects of class User (note caps)
             User user0 = new User("eric", "pssswaord1");
@@ -207,22 +205,37 @@ public class Test9 {
                     System.out.print(arr[i][j]);
                 }
             }//end of first for loop
+        }
 
 
         @Test
-        public void print2DArray(int [][] multi)   {     //THIS NEEDS TO HAVE THE MULTI ARRAY CREATED.
-            for(int[] outer : multi) {
+        public void print2DArray()   {     //THIS NEEDS TO HAVE THE MULTI ARRAY CREATED.
+
+/*          int[][] multi = {{1,2,3, },
+                        {5,6,7,8,9},
+                        {9,10,11,12},
+                        {13,14,15,16}};
+*/
+        int[][] ragged2d = new int[10][];
+        print2DArray(ragged2d);
+        assertEquals("nullnullnullnullnullnullnullnullnullnull",print2DArray(ragged2d));  //the method call cannot be void!!!
+        }
+
+
+        public String print2DArray(int[][] multi) {
+            String temp = "";
+            for(int[] outer : multi) {    //THIS IS FUCKING WRONG STILL!!! iM USING THE WRONG ARRAY!!!
                 if(outer == null) {
                     System.out.print("null");
+                    temp = "null";
                 }else{
-                    for(int inner : outer){
-                        System.out.print(inner + ",");
+                    for(int[] inner : multi){
+                        System.out.println(Arrays.toString(inner));
+                        temp = Arrays.toString(inner);
                     }
                 }
                 System.out.print("");
             }
+         return temp;
         }
-
-
-
 } // end of Test9
