@@ -222,53 +222,39 @@ public class Test9 {
 
         int[][] ragged2d = new int[10][];
         print2DArray(ragged2d);
-        assertEquals("null",print2DArray(ragged2d));  //the method call cannot be void!!! Needs to return something!!!!  */
+//        assertEquals("null",print2DArray(ragged2d));  //the method call cannot be void!!! Needs to return something!!!!  */
         }
 
 
-        public String print2DArray(int[][] multi) {
+        public void print2DArray(int[][] multi) {
             String temp = "";
-            for(int[] outer : multi) {    //THIS IS FUCKING WRONG STILL!!! iM USING THE WRONG ARRAY!!!
+            for(int[] outer : multi) {    //THIS IS FUCKING WORKS!!!!!!!!
                 if(outer == null) {
                     System.out.print("null");
-                    temp = "null";
+ //                   temp = "null";
                 }else{
-                    for(int[] inner : multi){
-                        System.out.println(Arrays.toString(inner));
-                        temp = Arrays.toString(inner);
+                    for(int inner : outer){
+//                        System.out.println(Arrays.toString(inner));
+//                        temp = Arrays.toString(inner);
+                        System.out.print(inner + ",");
                     }
                 }
-                System.out.print("");
+                System.out.println("");
             }
-        return temp;
+//        return temp;
         }
 
         @Test
-        public void raggedArray()   {
+        public void ragged2dArray()   {
 
-/*            int[][] ragged2d = {{1,2,3,4},
-                                {5,6},
-                                {7,8,9},
-                                {10}};
+            int[][] ragged2d  = new int[16][];
 
-            for(int i = 0; i < ragged2d.length; i++) {
-                System.out.println();
-                for(int j = 0; j < ragged2d[i].length; j++)  {
-                    System.out.print(ragged2d[i][j]);
-                }// end of inner loop
-            }//end of outer for loop   */
-
-            int[][] ragged2dAgain = new int[10][];
-
-            ragged2dAgain[0] = new int[10];
-            ragged2dAgain[1] = new int[3];
-            print2DArray(ragged2dAgain);
-
-
-
+            for(int i = 0; i <= 15; i++)    {
+                ragged2d[i] = new int[i +1];
+                for(int j = 0; j <= i; j++) {
+                    ragged2d[i][j] = j;
+                }
+            }
+            print2DArray(ragged2d);
         }
-
-
-
-
 } // end of Test9
