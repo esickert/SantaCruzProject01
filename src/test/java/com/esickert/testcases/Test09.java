@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by esickert on 2/20/2017.
  */
-public class Test9 {
+public class Test09 {
 
     @Test
     public void simpleArray()   {

@@ -30,7 +30,7 @@ public class TheMonster {
         eric.click();
         Actions builder = new Actions(driver);
         Thread.sleep(5000);
-        driver.quit();
+//        driver.quit();
 
         assertEquals(url, "http://www.monster.net");  //this will throw error because of domain don't match
 
