@@ -1,5 +1,7 @@
 package animals;
 
+import static org.junit.Assert.assertEquals;
+
 public class MammalInt implements Animal {
 
     public void eat()   {
@@ -14,17 +16,20 @@ public class MammalInt implements Animal {
         System.out.println("Mammal pees");
     }
 
-    public int numOfLegs()  {
-        return 0;
+    public static int numOfLegs()  {
+        return 5;
     }
+
 
     public static void main(String[] args)  {
         MammalInt dudes = new MammalInt();
 
         dudes.eat();
         dudes.pee();
-
+        dudes.travel();
+        System.out.println("How many legs: " + numOfLegs());
     }
 }
+
 
 

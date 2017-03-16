@@ -2,7 +2,7 @@ package com.esickert.testcases;
 
 import org.junit.Test;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -48,6 +48,34 @@ public class Test10 {
 
        List<String> game = new ArrayList<String>();  //List is an interface. Cannot instatiate an interface, only classes can be instantiated.
     }
+
+    @Test
+    public void loopityLoop()   {
+        //this is weird WEIRD!!!!!!!!!!
+        String[] someDays = {"tuesday", "Thursday",
+                             "Wednesday", "Monday",
+                             "Saturday", "Sunday",
+                             "friday"};
+
+        List<String> week = Arrays.asList(someDays);  //this is different syntax. NOTE no keyword 'new'.
+
+/*        int index = 0;
+        for(String temp: week)  {
+            if (temp.equals("Monday"))   {
+                System.out.println("Monday is at index " + index);
+                break;
+            }
+            index++;
+        }
+        assertEquals("Monday is at index 3",3, index);
+
+        */int index = 0;
+        while ( !(week.get(index).equals("Saturday"))) {
+            System.out.println(index);
+            index++;
+        }
+
+    } //end of loopityLoop
 
 
 
