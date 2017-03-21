@@ -151,6 +151,11 @@ public class Test10 {
 
         assertNotEquals(week, "[tuesday, Thursday, Wednesday, Monday, Saturday, Sunday, friday, me]" );
         assertThat(week,is((week)));  //playing with different asserts.
-
     } //end of assign1Chap10Page146
+
+    @Test
+    public void playingInterfaces() {
+
+    }
+
 }  //end of Test10
