@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MammalInt implements Animal {
 
+ @Override
     public void eat()   {
         System.out.println("Mammal eats");
     }
@@ -16,18 +17,24 @@ public class MammalInt implements Animal {
         System.out.println("Mammal pees");
     }
 
-    public static int numOfLegs()  {
+    public int numOfLegs()  {
         return 5;
     }
 
 
     public static void main(String[] args)  {
-        MammalInt dudes = new MammalInt();
+        Animal dudes = new MammalInt();
+        Animal pups   = new Dogs();
 
         dudes.eat();
         dudes.pee();
         dudes.travel();
-        System.out.println("How many legs: " + numOfLegs());
+//        System.out.println("How many legs: " + numOfLegs());
+        System.out.println("***************************");
+        pups.eat();
+        pups.pee();
+        pups.travel();
+//        System.out.println("How many legs: " + numOfLegs());
     }
 }
 
