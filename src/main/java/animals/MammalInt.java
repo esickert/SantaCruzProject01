@@ -29,12 +29,12 @@ public class MammalInt implements Animal {
         dudes.eat();
         dudes.pee();
         dudes.travel();
-//        System.out.println("How many legs: " + numOfLegs());
+        System.out.println("How many legs: " + dudes.numOfLegs());
         System.out.println("***************************");
         pups.eat();
         pups.pee();
         pups.travel();
-//        System.out.println("How many legs: " + numOfLegs());
+        System.out.println("How many legs: " + pups.numOfLegs());
     }
 }
 
