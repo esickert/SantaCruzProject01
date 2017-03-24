@@ -96,7 +96,7 @@ public class Test10 {
             index++;
         }
         System.out.println(day + " is at index " + index);
-        assertEquals("index should be:", 5, index);
+        assertEquals("index should be:", 6, index);
     }
 
     @Test

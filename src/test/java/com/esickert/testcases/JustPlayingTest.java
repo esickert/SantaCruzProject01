@@ -59,7 +59,7 @@ public class JustPlayingTest  {
            System.out.println("This is a double = " + aVariable);
            System.out.println("Use this case for selenium");
            WebDriver driver = new FirefoxDriver();
-           driver.get("file:///C:/Users/esickert/Desktop/HTML/Selectable.html");
+           driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
            //use intellij to code the selenium features.
 
            WebElement ten = driver.findElement(By.name("ten"));
@@ -165,7 +165,7 @@ public class JustPlayingTest  {
 
             System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
             ChromeDriver driver2 = new ChromeDriver();
-            driver2.get("file:///C:/Users/esickert/Desktop/HTML/Selectable.html");
+            driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
 
             WebElement ten = driver2.findElement(By.name("ten"));
             WebElement eight = driver2.findElement(By.name("eight"));
@@ -323,4 +323,27 @@ public class JustPlayingTest  {
         }
 
     } //end of returnNumber
+
+    @Test
+    public void moveMouseByOffSet() {
+
+    WebDriver driver = new FirefoxDriver();
+    driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+
+    WebElement three = driver.findElement(By.name("three"));
+    WebElement four = driver.findElement(By.name("four"));
+//    three.click();
+    System.out.println("X coordinate: " + (three.getLocation().getX())+" Y coordinate: "
+                                  + three.getLocation().getY());
+    Actions builder = new Actions(driver);
+    builder.moveByOffset((three.getLocation().getX()+112), three.getLocation().getY());   //WRONGGGGGGGGGG
+    builder.perform();
+   System.out.println("X coordinate: " + four.getLocation().getX() + " Y coordinate: "
+                + four.getLocation().getY());
+    builder.perform();
+    four.click();
+
+
+
+    }  //end of moveMouseByOffSet
 } //end of JustPlayingTest
