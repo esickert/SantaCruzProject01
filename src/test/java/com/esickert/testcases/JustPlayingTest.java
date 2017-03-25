@@ -325,25 +325,27 @@ public class JustPlayingTest  {
     } //end of returnNumber
 
     @Test
-    public void moveMouseByOffSet() {
+    public void moveByOffSet() throws InterruptedException {
 
+//    WebDriver driver = new ChromeDriver();
     WebDriver driver = new FirefoxDriver();
     driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
-
-    WebElement three = driver.findElement(By.name("three"));
-    WebElement four = driver.findElement(By.name("four"));
-//    three.click();
-    System.out.println("X coordinate: " + (three.getLocation().getX())+" Y coordinate: "
-                                  + three.getLocation().getY());
+    WebElement one = driver.findElement(By.name("one"));
+    System.out.println("X coordinate is: " + (one.getLocation().getX()) + ", Y coordinate is: "
+                                  + one.getLocation().getY());
+ //   one.click();
+    int count = 0;
     Actions builder = new Actions(driver);
-    builder.moveByOffset((three.getLocation().getX()+112), three.getLocation().getY());   //WRONGGGGGGGGGG
+    while (count < 10)  {
+    builder.moveByOffset((one.getLocation().getX()+200), one.getLocation().getY()+200).click();
+    builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
+    builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
     builder.perform();
-   System.out.println("X coordinate: " + four.getLocation().getX() + " Y coordinate: "
-                + four.getLocation().getY());
-    builder.perform();
-    four.click();
+    count++;
+    sleep(2000);
+    }
 
-
-
+    assertEquals(8,one.getLocation().getX());
+    assertEquals(8,one.getLocation().getY());
     }  //end of moveMouseByOffSet
 } //end of JustPlayingTest
