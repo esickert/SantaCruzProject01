@@ -13,6 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
+
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
 
@@ -326,26 +329,63 @@ public class JustPlayingTest  {
 
     @Test
     public void moveByOffSet() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
 
-//    WebDriver driver = new ChromeDriver();
-    WebDriver driver = new FirefoxDriver();
-    driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
-    WebElement one = driver.findElement(By.name("one"));
-    System.out.println("X coordinate is: " + (one.getLocation().getX()) + ", Y coordinate is: "
+        ChromeDriver driver = new ChromeDriver();
+//    WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+        WebElement one = driver.findElement(By.name("one"));
+        System.out.println("X coordinate is: " + (one.getLocation().getX()) + ", Y coordinate is: "
                                   + one.getLocation().getY());
  //   one.click();
-    int count = 0;
-    Actions builder = new Actions(driver);
-    while (count < 10)  {
-    builder.moveByOffset((one.getLocation().getX()+200), one.getLocation().getY()+200).click();
-    builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
-    builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
-    builder.perform();
-    count++;
-    sleep(2000);
-    }
+        int count = 0;
+        Actions builder = new Actions(driver);
+        while (count < 10)  {
+        builder.moveByOffset((one.getLocation().getX()+200), one.getLocation().getY()+200).click();
+        builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
+        builder.moveByOffset((one.getLocation().getX()-100), one.getLocation().getY()-100).click();
+        builder.perform();
+        count++;
+        sleep(2000);
+        }
 
-    assertEquals(8,one.getLocation().getX());
-    assertEquals(8,one.getLocation().getY());
+        assertEquals(8,one.getLocation().getX());
+        assertEquals(8,one.getLocation().getY());
     }  //end of moveMouseByOffSet
+
+    @Test
+    public void moveAndClick() throws Exception {
+        int tileWidth = 100;
+        int tileHeight = 80;
+        int border = 1;
+
+        System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+//    WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+        WebElement one = driver.findElement(By.name("one"));
+//        one.click();
+        System.out.println("X coordinate is: " + (one.getLocation().getX()-8) + ", Y coordinate is: "
+                + (one.getLocation().getY()-8));
+        Actions builder = new Actions(driver);
+       builder.moveByOffset((one.getLocation().getX()-8), one.getLocation().getY()-8);
+        System.out.println("X coordinate is: " + (one.getLocation().getX()-8) + ", Y coordinate is: "
+                + (one.getLocation().getY()-8));
+        builder.moveByOffset(320,150);
+        builder.click();
+        builder.perform();
+        sleep(5000);
+//******************************************************************************************
+//The following uses the ROBOT class to automate the mouse movement----ROBOT CLASS!!!!!!!!!!!!!
+/*        Robot bot = new Robot();
+        int mask = InputEvent.BUTTON1_MASK;
+        bot.mouseMove(100, 280);
+        bot.mousePress(mask);
+        bot.mouseRelease(mask);
+*/
+
+
+
+
+    }
 } //end of JustPlayingTest
