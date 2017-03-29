@@ -377,12 +377,13 @@ public class JustPlayingTest  {
         sleep(5000);
 //******************************************************************************************
 //The following uses the ROBOT class to automate the mouse movement----ROBOT CLASS!!!!!!!!!!!!!
-/*        Robot bot = new Robot();
+        Robot bot = new Robot();
         int mask = InputEvent.BUTTON1_MASK;
         bot.mouseMove(100, 280);
+        bot.delay(10000);
         bot.mousePress(mask);
         bot.mouseRelease(mask);
-*/
+
 
 
 

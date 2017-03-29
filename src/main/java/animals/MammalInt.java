@@ -13,12 +13,12 @@ public class MammalInt implements Animal {
         System.out.println("Mammal travels");
     }
 
-    public void pee()   {
-        System.out.println("Mammal pees");
+    public String pee()   {
+        return "Mammal pees";
     }
 
     public int numOfLegs()  {
-        return 5;
+        return LEGS;
     }
 
 
@@ -27,7 +27,7 @@ public class MammalInt implements Animal {
         Animal pups   = new Dogs();
 
         dudes.eat();
-        dudes.pee();
+        System.out.println(dudes.pee());
         dudes.travel();
         System.out.println("How many legs: " + dudes.numOfLegs());
         System.out.println("***************************");
