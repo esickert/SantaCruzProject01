@@ -25,6 +25,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.hamcrest.*;
 import static org.hamcrest.core.Is.is;
+//import static org.jboss.netty.util.ExternalResourceUtil.release;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -371,22 +372,70 @@ public class JustPlayingTest  {
        builder.moveByOffset((one.getLocation().getX()-8), one.getLocation().getY()-8);
         System.out.println("X coordinate is: " + (one.getLocation().getX()-8) + ", Y coordinate is: "
                 + (one.getLocation().getY()-8));
-        builder.moveByOffset(320,150);
+        builder.moveByOffset(320,250);
         builder.click();
         builder.perform();
         sleep(5000);
 //******************************************************************************************
 //The following uses the ROBOT class to automate the mouse movement----ROBOT CLASS!!!!!!!!!!!!!
-        Robot bot = new Robot();
+/*        Robot bot = new Robot();
         int mask = InputEvent.BUTTON1_MASK;
         bot.mouseMove(100, 280);
         bot.delay(10000);
         bot.mousePress(mask);
         bot.mouseRelease(mask);
+*/
+//******************************************************************************************
+    }//end of moveAndClick()
 
+    @Test
+    public void diffSyntaxForActions()  throws Exception    {
 
+    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    WebDriver driver2 = new ChromeDriver();
+    driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+
+    WebElement four = driver2.findElement(By.name("four"));
+    WebElement six = driver2.findElement(By.name("six"));
+    WebElement seven = driver2.findElement(By.name("seven"));
+    WebElement eight = driver2.findElement(By.name("eight"));
+    Actions builder = new Actions(driver2);
+        four.click();
+        six.click();
+        seven.click();
+        eight.click();
+    builder.perform();
+    sleep(5000);
+        builder.click(eight).click(four).click(six).click(seven);   //METHOD CALL CHAIN *****************************
+    builder.perform();
+    driver2.close();
+    }  //diffSyntaxForActions
+
+    @Test
+    public void clickAndHold() throws Exception {
+
+    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    WebDriver driver3 = new ChromeDriver();
+    driver3.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
+    WebElement twelve = driver3.findElement(By.name("twelve"));
+    sleep(5000);
+    WebElement two = driver3.findElement(By.name("two"));
+    WebElement three = driver3.findElement(By.name("three"));
+    Actions builder = new Actions(driver3);
+    builder.clickAndHold(twelve)
+ //      .moveByOffset(8,8)
+       .release(two)
+       .perform();
+    sleep(5000);
+//    driver3.close();
 
 
 
     }
+
+
+
+
+
+
 } //end of JustPlayingTest
