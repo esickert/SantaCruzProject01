@@ -428,14 +428,6 @@ public class JustPlayingTest  {
        .perform();
     sleep(5000);
 //    driver3.close();
-
-
-
-    }
-
-
-
-
-
+    }//end of clickAndHold
 
 } //end of JustPlayingTest
