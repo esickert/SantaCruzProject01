@@ -430,4 +430,22 @@ public class JustPlayingTest  {
 //    driver3.close();
     }//end of clickAndHold
 
+    @Test
+    public void clickAndHold2() {
+
+    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    WebDriver driver4 = new ChromeDriver();
+    driver4.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
+    WebElement four = driver4.findElement(By.name("four"));
+    WebElement eleven = driver4.findElement(By.name("eleven"));
+    Actions builder = new Actions(driver4);
+//    builder.clickAndHold(four).moveByOffset(8,220).release(eleven).perform();  //THIS IS A METHOD CHAIN!!!!
+    builder.clickAndHold(four)
+             .moveToElement(eleven).release().perform();  //NEW METHOD "MOVETOELEMENT". NOTE THE SYNTAX OF .PERFORM
+//           .moveByOffset(8,220)
+//           .release(eleven)
+//           .perform();                                                           //DON'T FORGET .PERFORM SHITHEAD!!!!!
+
+    }//end of clickAndHold2
+
 } //end of JustPlayingTest
