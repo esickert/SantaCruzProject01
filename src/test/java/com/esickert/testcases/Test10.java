@@ -136,7 +136,7 @@ public class Test10 {
         int counter = 0;
         while (week.size()> counter)    {
             System.out.println(week.get(counter));
-            counter++;  // don't forget to increment the counter dumbshit
+            counter++;  // don't forget to increment the counter  dumbshit
         }
         sleep(5000);
         System.out.println();
