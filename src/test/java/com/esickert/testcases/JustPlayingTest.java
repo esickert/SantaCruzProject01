@@ -46,7 +46,7 @@ public class JustPlayingTest  {
  //   @Ignore
     @Test
     public void checkIfEqual()  {
-        final int num = 5;
+        final int num = new Integer("5"); //the wrapper class Integer() converts the String value to an integer automatically.
         String password = "hello";
         System.out.println("Need to play with this");
        Assert.assertEquals("Lets see if this works", 5, num);
@@ -79,6 +79,7 @@ public class JustPlayingTest  {
                 .keyUp(Keys.CONTROL);
             //generate the composite action.
             Action compositeAction = buildMe.build();
+
             // Perforn the composite action.
             compositeAction.perform();
 //            toSleep();
