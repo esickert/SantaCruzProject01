@@ -156,6 +156,12 @@ public class Test10 {
     @Test
     public void playingInterfaces() {
 
+        Collection<String> game;
+        game = new ArrayList<>();  //new syntax for <String>,  <>,  from java 1.7
+
+        game.add("monpopoly");
+        System.out.println(game.contains("monopoly"));
+
     }
 
 }  //end of Test10
