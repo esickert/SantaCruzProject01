@@ -157,12 +157,12 @@ public class Test10 {
     public void playingInterfaces() {
 
         List<String> game;  //*********************************************************************
-        game = new ArrayList<>();  //new syntax for <String>,  <>,  from java 1.7
+        game = new LinkedList<>();  //new syntax for <String>,  <>,  from java 1.7
 
         game.add("monpopoly");
         game.add("life");
         System.out.println(game.contains("monopoly"));
- //       System.out.println(game.get(1));    NO get() in Set!!!
+        System.out.println(game.get(1));  //  NO get() in Set!!!
 
     }
 
