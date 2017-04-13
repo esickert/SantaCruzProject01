@@ -156,14 +156,42 @@ public class Test10 {
     @Test
     public void playingInterfaces() {
 
-        List<String> game;  //*********************************************************************
-        game = new LinkedList<>();  //new syntax for <String>,  <>,  from java 1.7
+        Collection game;  //*********************************************************************
+        game = new ArrayList();  //new syntax for <String>,  <>,  from java 1.7
+        Collection gameOfThrones = new ArrayList<>();
 
-        game.add("monpopoly");
+        game.add("monopoly");
         game.add("life");
-        System.out.println(game.contains("monopoly"));
-        System.out.println(game.get(1));  //  NO get() in Set!!!
+        game.add("chess");
+        game.add("checkers");
+        game.add("poker");
+        System.out.println(game.contains("checkers"));
+//        System.out.println(game.get(1));  //  NO get() in Set!!! Note this is List
+
+ //       for(Object temp: game) {  //remember the semicolon!!!!!!!!
+ //           String temp2 = (String)temp;
+ //           System.out.print((String)temp2 + ", ");
+ //       }
+        gameOfThrones.addAll(game);         //the syntax here is kinda strange.   destinationCollection.addAll(sourceCollection);
+        for(Object temp3: gameOfThrones) {
+            String temp4 = (String) temp3;
+            System.out.println( temp4);
+        }
+//        assertEquals(game.size(),gameOfThrones.size()+1);  //this works now!!!
+
+        game.clear();
+        assertNotEquals(game.size(), 5);
+
+        }
+
+    @Test
+    public void collectStuff()  {
+
+        Collection user = new ArrayList<>
 
     }
+
+
+
 
 }  //end of Test10
