@@ -36,7 +36,7 @@ import static org.junit.Assert.assertFalse;
 /**
  * Created by esickert on 1/15/2017.
  */
-public class JustPlayingTest  {
+public class SeleniumTest {
 
     private final static int number = 7;                           //remember this !!!!!!!!!!!!!!!!!!
     private static final double aVariable = 8.00;
@@ -53,6 +53,7 @@ public class JustPlayingTest  {
        assertEquals("hope this works", password, TheMonster.getPassword());
        System.out.println(TheMonster.getPassword());  //if the above test fails, the other test cases will not be executed
        assertTrue("is this false", 1==1);
+
     } //end of checkIfEqual
 
 //**********************************************************************************************************************
@@ -353,6 +354,7 @@ public class JustPlayingTest  {
 
         assertEquals(8,one.getLocation().getX());
         assertEquals(8,one.getLocation().getY());
+        driver.close();
     }  //end of moveMouseByOffSet
 
     @Test
@@ -379,14 +381,18 @@ public class JustPlayingTest  {
         sleep(5000);
 //******************************************************************************************
 //The following uses the ROBOT class to automate the mouse movement----ROBOT CLASS!!!!!!!!!!!!!
-/*        Robot bot = new Robot();
+        System.out.println("Move the mouse by class Robot, instance bot");
+        Robot bot = new Robot();
         int mask = InputEvent.BUTTON1_MASK;
         bot.mouseMove(100, 280);
         bot.delay(10000);
+        System.out.println("click...click..the mouse button!!!!");
         bot.mousePress(mask);
         bot.mouseRelease(mask);
-*/
 //******************************************************************************************
+        sleep(5000);
+        driver.close();
+
     }//end of moveAndClick()
 
     @Test
@@ -428,11 +434,11 @@ public class JustPlayingTest  {
        .release(two)
        .perform();
     sleep(5000);
-//    driver3.close();
+    driver3.close();
     }//end of clickAndHold
 
     @Test
-    public void clickAndHold2() {
+    public void clickAndHold2() throws Exception {
 
     System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
     WebDriver driver4 = new ChromeDriver();
@@ -442,11 +448,12 @@ public class JustPlayingTest  {
     Actions builder = new Actions(driver4);
 //    builder.clickAndHold(four).moveByOffset(8,220).release(eleven).perform();  //THIS IS A METHOD CHAIN!!!!
     builder.clickAndHold(four)
-             .moveToElement(eleven).release().perform();  //NEW METHOD "MOVETOELEMENT". NOTE THE SYNTAX OF .PERFORM
-//           .moveByOffset(8,220)
-//           .release(eleven)
-//           .perform();                                                           //DON'T FORGET .PERFORM SHITHEAD!!!!!
-
+  //         .moveToElement(eleven).release().perform();  //NEW METHOD "MOVETOELEMENT". NOTE THE SYNTAX OF .PERFORM()
+           .moveByOffset(8,220)
+           .release(eleven)
+           .perform();                                                           //DON'T FORGET .PERFORM SHITHEAD!!!!!
+    sleep(5000);
+    driver4.close();
     }//end of clickAndHold2
 
-} //end of JustPlayingTest
+} //end of SeleniumTest

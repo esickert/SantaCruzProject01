@@ -187,7 +187,7 @@ public class Test10 {
     @Test
     public void collectStuff()  {
 
-        Collection user = new ArrayList<>
+        Collection user = new ArrayList<>();
 
     }
 
