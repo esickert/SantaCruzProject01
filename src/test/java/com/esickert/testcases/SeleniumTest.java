@@ -447,7 +447,7 @@ public class SeleniumTest {
     WebElement eleven = driver4.findElement(By.name("eleven"));
     Actions builder = new Actions(driver4);
 //    builder.clickAndHold(four).moveByOffset(8,220).release(eleven).perform();  //THIS IS A METHOD CHAIN!!!!
-    builder.clickAndHold(four)
+    builder.clickAndHold(four)  //***************************************************************
   //         .moveToElement(eleven).release().perform();  //NEW METHOD "MOVETOELEMENT". NOTE THE SYNTAX OF .PERFORM()
            .moveByOffset(8,220)
            .release(eleven)
@@ -455,5 +455,36 @@ public class SeleniumTest {
     sleep(5000);
     driver4.close();
     }//end of clickAndHold2
+
+    @Test
+    public void moveToElement() throws Exception    {     //PLAY WITH THIS!!!!!!!!!!!!!!!
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+        WebElement eleven = driver.findElement(By.name("eleven"));
+        WebElement five = driver.findElement(By.name("five"));
+        Actions builder = new Actions(driver);
+        builder.moveToElement(five)   //**********************************************************
+            .clickAndHold()
+            .release(five)
+ //           .clickAndHold();
+            .click(eleven)
+ //           .release(eleven)
+            .perform();    //DON'T FUCKING FORGET TO dot-P-E-R-F-O-R-M THE FUCKING ACTIONS!!!!!
+        //   builder.moveToElement(eleven).click();
+    }
+
+    @Test
+    public void dragAndDropBy() {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DragMe.html");
+        WebElement dragMe = driver.findElement(By.id("draggable"));
+        Actions build = new Actions(driver);
+        build.dragAndDropBy(dragMe, 300, 8);
+        build.perform();   //Dont forget perform mother fucker!!!!.
+
+    }
+
 
 } //end of SeleniumTest
