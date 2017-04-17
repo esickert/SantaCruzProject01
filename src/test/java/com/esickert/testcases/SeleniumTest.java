@@ -472,6 +472,8 @@ public class SeleniumTest {
  //           .release(eleven)
             .perform();    //DON'T FUCKING FORGET TO dot-P-E-R-F-O-R-M THE FUCKING ACTIONS!!!!!
         //   builder.moveToElement(eleven).click();
+        sleep(5000);
+        driver.close();
     }
 
     @Test
@@ -483,6 +485,8 @@ public class SeleniumTest {
         Actions build = new Actions(driver);
         build.dragAndDropBy(dragMe, 300, 8);
         build.perform();   //Dont forget perform mother fucker!!!!.
+
+        driver.close();
 
     }
 
