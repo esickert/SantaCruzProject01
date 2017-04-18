@@ -380,7 +380,7 @@ public class SeleniumTest {
         builder.perform();
         sleep(5000);
 //******************************************************************************************
-//The following uses the ROBOT class to automate the mouse movement----ROBOT CLASS!!!!!!!!!!!!!
+//The following uses the ROBOT class to automate the mouse movement----------------------------ROBOT CLASS!!!!!!!!!!!!!
         System.out.println("Move the mouse by class Robot, instance bot");
         Robot bot = new Robot();
         int mask = InputEvent.BUTTON1_MASK;

@@ -17,6 +17,13 @@ import static org.junit.Assert.assertThat;
  */
 public class Test10 {
 
+    String[] someDays = {"tuesday", "Thursday",
+            "Wednesday", "Monday",
+            "Saturday", "Sunday",
+            "friday"};
+
+
+
     @Test public void simpleCollectionEx()  {
         String[] numbers = {"zero", "one", "two", "three"};
         List<String> numbers0123 = Arrays.asList(numbers);     //simple example of collections
@@ -57,10 +64,7 @@ public class Test10 {
     @Test
     public void forEach()   {
         //this is weird WEIRD!!!!!!!!!!
-        String[] someDays = {"tuesday", "Thursday",
-                             "Wednesday", "Monday",
-                             "Saturday", "Sunday",
-                             "friday"};
+
 
         List<String> week = Arrays.asList(someDays);  //this is different syntax. NOTE no keyword 'new'.
 
@@ -165,7 +169,7 @@ public class Test10 {
         game.add("chess");
         game.add("checkers");
         game.add("poker");
-        System.out.println(game.contains("checkers"));
+        System.out.println("Does game contain checkers??:" + game.contains("checkers"));
 //        System.out.println(game.get(1));  //  NO get() in Set!!! Note this is List
 
  //       for(Object temp: game) {  //remember the semicolon!!!!!!!!
@@ -182,12 +186,37 @@ public class Test10 {
         game.clear();
         assertNotEquals(game.size(), 5);
 
+        Collection moreGames = new ArrayList<>();
+
+        moreGames.addAll(gameOfThrones);
+
+/*        for(Object temp: moreGames) {
+            String test = (String)temp;
+            System.out.println(test);
+      } */
+
+        moreGames.remove("poker");
+
+        for(Object temp: moreGames) {
+            String test = (String) temp;
+            System.out.println(temp);
         }
+
+        System.out.println(moreGames.contains("poker"));
+        assertEquals("Does moreGames NOT contain poker:", false,moreGames.contains("poker"));
+
+        moreGames.clear();
+        assertEquals("Is empty:", true, moreGames.isEmpty());
+
+    }
 
     @Test
     public void collectStuff()  {
 
-        Collection user = new ArrayList<>();
+        Collection moreGames = new ArrayList<>();
+
+     //   moreGames.addAll(gameOfThrones);
+
 
     }
 
