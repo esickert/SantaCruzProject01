@@ -477,7 +477,7 @@ public class SeleniumTest {
     }
 
     @Test
-    public void dragAndDropBy() {
+    public void dragAndDropBy() throws InterruptedException {
 
         WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DragMe.html");
@@ -485,10 +485,43 @@ public class SeleniumTest {
         Actions build = new Actions(driver);
         build.dragAndDropBy(dragMe, 300, 8);
         build.perform();   //Dont forget perform mother fucker!!!!.
-
+        sleep(5000);
         driver.close();
+    }  //end of
+
+    @Test
+    public void dragAndDrop() throws InterruptedException {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DragAndDrop.html");
+        WebElement src = driver.findElement(By.id("draggable"));
+        WebElement desc = driver.findElement(By.id("droppable"));
+        Actions build = new Actions(driver);
+        build.dragAndDrop(src, desc).perform();
+        sleep(5000);
+        driver.close();
+    }
+
+    @Test
+    public void doubleClick() throws InterruptedException {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DoubleClick.html");
+        WebElement button = driver.findElement(By.name("dblClick"));
+        Actions build = new Actions(driver);
+        build.moveToElement(button).doubleClick().perform();
+        sleep(5000);
+        /* NOTE there is a javascript popup that also needs to close. Use driver.quit() NOT driver.close()!!!! */
+        driver.quit();
+    }
+
+    @Test
+    public void clickingOnJavaScript()  {
+
+
 
     }
 
 
-} //end of SeleniumTest
+
+} // end of SeleniumTest
