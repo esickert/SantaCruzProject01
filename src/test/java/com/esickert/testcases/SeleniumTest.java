@@ -516,11 +516,52 @@ public class SeleniumTest {
     }
 
     @Test
-    public void clickingOnJavaScript()  {
+    public void doubleClickWebElement() throws InterruptedException {
 
-
-
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DoubleClick.html");
+        WebElement dblClick = driver.findElement(By.name("dblClick"));
+        Actions build = new Actions(driver);
+        build.doubleClick(dblClick).perform();
+        sleep(5000);
+        driver.quit();
     }
+
+    @Test
+    public void contextClick() throws InterruptedException {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/contextClick.html");
+        WebElement rightClick = driver.findElement(By.id("div-context"));
+        Actions build = new Actions(driver);
+        build.contextClick(rightClick).click(driver.findElement(By.name("Item 3"))).perform();
+        sleep(5000);
+        driver.quit();  //below will not work because there is a window open
+   }
+
+   @Test
+   public void rightClick() throws InterruptedException {
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://www.google.com");
+        Actions build = new Actions(driver);
+        build.moveByOffset(100,200).contextClick().perform();   //NEED TO ADD PERFORM TO ACTIONS STUPID!!!!!!!!!
+        //OKAY THIS WORKED Just opened in the web frame and right clicked the mouse. For Actions class you need to add perform() SHIT!
+        sleep(5000);
+        driver.close();
+   }//end of rightClick()
+
+   @Test
+   public void sendKeys()   {
+
+       WebDriver driver = new FirefoxDriver();
+       driver.get("http://www.google.com");
+
+       Actions build = new Actions(driver);
+//       build.keyDown("a");     this is wrong.
+
+   }
+
 
 
 
