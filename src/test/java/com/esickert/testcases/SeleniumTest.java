@@ -557,8 +557,7 @@ public class SeleniumTest {
        WebDriver driver = new FirefoxDriver();
        driver.get("http://www.google.com");
 
-       Actions build = new Actions(driver);
-//       build.keyDown("a");     this is wrong.
+
 
    }
 
