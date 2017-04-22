@@ -2,6 +2,7 @@ package com.esickert.testcases;
 
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertNotEquals;
@@ -21,6 +22,8 @@ public class Test10 {
             "Wednesday", "Monday",
             "Saturday", "Sunday",
             "friday"};
+
+   Collection gameOfThrones = new ArrayList();
 
 
 
@@ -162,7 +165,7 @@ public class Test10 {
 
         Collection game;  //*********************************************************************
         game = new ArrayList();  //new syntax for <String>,  <>,  from java 1.7
-        Collection gameOfThrones = new ArrayList<>();
+
 
         game.add("monopoly");
         game.add("life");
@@ -183,8 +186,8 @@ public class Test10 {
         }
 //        assertEquals(game.size(),gameOfThrones.size()+1);  //this works now!!!
 
-        game.clear();
-        assertNotEquals(game.size(), 5);
+ //       game.clear();
+        assertNotEquals(game.size(), 4);
 
         Collection moreGames = new ArrayList<>();
 
@@ -205,8 +208,8 @@ public class Test10 {
         System.out.println(moreGames.contains("poker"));
         assertEquals("Does moreGames NOT contain poker:", false,moreGames.contains("poker"));
 
-        moreGames.clear();
-        assertEquals("Is empty:", true, moreGames.isEmpty());
+ //       moreGames.clear();
+        assertEquals("Is empty:", false, moreGames.isEmpty());
 
     }
 
@@ -215,12 +218,48 @@ public class Test10 {
 
         Collection moreGames = new ArrayList<>();
 
-     //   moreGames.addAll(gameOfThrones);
-
-
+        moreGames.addAll(gameOfThrones);
+        assertEquals("Are they equal???", moreGames, gameOfThrones);
+        moreGames.add("clue");
+        for(int i = 0; i <= 10; i ++)   {
+            moreGames.add("user" + i);
+            gameOfThrones.add("games" + i);
+        }
+        gameOfThrones.addAll(moreGames);
+        System.out.println(moreGames.size());
+        System.out.println(gameOfThrones.size());
+        gameOfThrones.removeAll(moreGames);
+        System.out.println("GameOfThrones is " + gameOfThrones.size());
+//        System.out.println(gameOfThrones.get(0));
     }
 
+    @Test
+    public void toGameOfThrones() {  //???????????????????????????????????????? THIS DOESN'T WORK.
+        for(int i = 0; i <= 10; i ++)   {
+//            moreGames.add("user" + i);
+            gameOfThrones.add("games" + i);
+        }
+        System.out.println("GameOfThrones is " + gameOfThrones.size());
+        for(Object temp: gameOfThrones) {
+            String word = (String)temp;
+            System.out.println(temp);
+        }
+    }
 
+    @Test
+    public void exercise10Page157() {
 
+        Collection users = new ArrayList();
+        System.out.println(users.size());
+        assertEquals("Are they equal??", 0, users.size());
+        assertEquals("Is it empty", users.isEmpty(), true);
+
+        users.add("mathew");
+        users.add("mark");
+
+        System.out.println("There are " + users.size() + " users");
+        assertTrue( 2 == users.size());
+        assertEquals(users.isEmpty(), false);
+    }
 
 }  //end of Test10
