@@ -260,6 +260,46 @@ public class Test10 {
         System.out.println("There are " + users.size() + " users");
         assertTrue( 2 == users.size());
         assertEquals(users.isEmpty(), false);
+
+        Collection users2 = new ArrayList();
+        users2.add("luke");
+        users2.add("john");
+        System.out.println("The size of users2 is : " + users.size());
+        for(Object temp: users2)    {
+            String tmp = (String)temp;
+            System.out.println(temp + " ");
+            System.out.println();
+        }
+        users2.addAll(users);
+        for(Object temp: users2)    {
+            String tmp = (String)temp;
+            System.out.println(temp + " ");
+        }
+
+        System.out.println("Remove users from users2");
+
+        users2.removeAll(users);  //remove users from users2
+        for(Object temp: users2)    {
+            String tmp = (String)temp;
+            System.out.println(temp + " ");
+        }
+        users.clear();
+        assertEquals(0, users.size());
+
+        String[] test = new String[2];
+        users2.toArray(test);
+        for (int i = 0; i <= test.length-1; i++)    {  //we do - 1 because the array indices begin at 0!!!!!
+            System.out.print(test[i] + " COOL test is an array ");
+        }
+    }
+
+
+    @Test
+    public void testMe()        {
+        String x = "aaaaaaaaaaaaaaa";
+        System.out.println("Mondaysss".length());  //this is new to me getting the length of a string
+        System.out.println(x.length());
+//        assertEquals("Monday".length(),(String)daysOfWeekArray[0]).length());
     }
 
 }  //end of Test10

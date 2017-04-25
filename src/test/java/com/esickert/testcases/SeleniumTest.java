@@ -552,10 +552,13 @@ public class SeleniumTest {
    }//end of rightClick()
 
    @Test
-   public void sendKeys()   {
+   public void sendKeys() throws InterruptedException {
 
        WebDriver driver = new FirefoxDriver();
        driver.get("http://www.google.com");
+       sleep(5000);
+       driver.close();
+
 
 
 
