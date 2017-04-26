@@ -302,4 +302,56 @@ public class Test10 {
 //        assertEquals("Monday".length(),(String)daysOfWeekArray[0]).length());
     }
 
-}  //end of Test10
+    @Test
+    public void aList() {
+        List<String> stuff = new ArrayList<>();
+        stuff.add("hawaii");
+        stuff.add("caligornia");
+        stuff.add("new yoork");
+
+        for(String temp: stuff) {
+            System.out.println(temp);
+        }
+        System.out.println("************************");
+        stuff.remove(2);
+
+        for(String temp: stuff) {
+            System.out.println(temp);
+        }
+    }
+
+    @Test
+    public void userList()  {
+
+        List<String> users = new ArrayList<>();
+        users.add("samantha");
+        users.add("roxane");
+        users.add("beth");
+
+        assertEquals(3, users.size());
+
+        printMe(users);
+        users.add(1, "mary");
+        printMe(users);
+        users.add(0, "steve");
+        printMe(users);
+
+        System.out.println("The index of mary is " + users.indexOf("mary"));
+        assertEquals(2, users.indexOf("mary"));    //this ERRORS out
+
+        users.remove(0);  //removed steve
+        printMe(users);
+    }
+
+    public void printMe(List<String> stuff)   {
+        System.out.println("*********");
+        for(String temp: stuff) {
+            System.out.println(temp);
+        }
+    }
+
+
+
+
+
+    }  //end of Test10

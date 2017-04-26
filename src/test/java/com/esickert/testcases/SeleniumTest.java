@@ -93,7 +93,7 @@ public class SeleniumTest {
 //        @Ignore
         @Test
         public void anotherTest() throws Exception {  //using "throws Exception" for toSleep()  THIS DOES'T WORK   GECKO DRIVER//        System.setProperty("webdriver.gecko.driver","\\Temp\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
         WebDriver erich = new ChromeDriver(); //chrome driver for chrome web browser.
 //        WebDriver erich = new FirefoxDriver();
         erich.get("http://www.google.com");
@@ -154,7 +154,7 @@ public class SeleniumTest {
             System.out.println("Various Chap 8 Test Cases... ");
 
         System.out.println("Testing with chrome 56 ...");
-        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://www.yahoo.com");
       //  DOESN'T WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -169,7 +169,7 @@ public class SeleniumTest {
         public void chapEightPage45() throws Exception   {
             System.out.println("Same code as above but condensed perform() internally calls build().");
 
-            System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
             ChromeDriver driver2 = new ChromeDriver();
             driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
 
@@ -332,7 +332,7 @@ public class SeleniumTest {
 
     @Test
     public void moveByOffSet() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
 
         ChromeDriver driver = new ChromeDriver();
 //    WebDriver driver = new FirefoxDriver();
@@ -363,7 +363,7 @@ public class SeleniumTest {
         int tileHeight = 80;
         int border = 1;
 
-        System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
 //    WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
@@ -398,7 +398,7 @@ public class SeleniumTest {
     @Test
     public void diffSyntaxForActions()  throws Exception    {
 
-    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver driver2 = new ChromeDriver();
     driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
 
@@ -421,7 +421,7 @@ public class SeleniumTest {
     @Test
     public void clickAndHold() throws Exception {
 
-    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver driver3 = new ChromeDriver();
     driver3.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
     WebElement twelve = driver3.findElement(By.name("twelve"));
@@ -440,7 +440,7 @@ public class SeleniumTest {
     @Test
     public void clickAndHold2() throws Exception {
 
-    System.setProperty("webdriver.chrome.driver", "\\Temp\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver driver4 = new ChromeDriver();
     driver4.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
     WebElement four = driver4.findElement(By.name("four"));
@@ -556,12 +556,18 @@ public class SeleniumTest {
 
        WebDriver driver = new FirefoxDriver();
        driver.get("http://www.google.com");
+
+ //      WebElement erich = driver.findElement(By.className("gb_P"));
+       WebElement rick = driver.findElement(By.className("gsfi"));
+       Actions build = new Actions(driver);
+//            build.contextClick(rick);   //this is click the right mouse button.
+//        build.click(rick);
+       build.keyDown(rick,Keys.SHIFT)
+        .sendKeys("a")
+        .keyUp(rick,Keys.SHIFT)
+        .perform();
        sleep(5000);
        driver.close();
-
-
-
-
    }
 
 
