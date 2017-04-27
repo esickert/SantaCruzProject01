@@ -341,13 +341,50 @@ public class Test10 {
 
         users.remove(0);  //removed steve
         printMe(users);
+
+        users.set(1,"SetMeUpBaby");
+        printMe(users);
+
+        List<String> sublist = users.subList(0,2);
+        printMe(sublist);
     }
 
-    public void printMe(List<String> stuff)   {
+    public void printMe(List<String> stuff)   {   //note method overload with method below!!!!!!
         System.out.println("*********");
         for(String temp: stuff) {
             System.out.println(temp);
         }
+    }
+
+    @Test
+    public void userSet()   {
+
+        Set<String> stuff = new HashSet<String>();  //note: this uses a hashset
+        stuff.add("mary");
+        stuff.add("jane");
+        stuff.add("mary");
+        stuff.add("susan");
+
+        printMe(stuff);
+    }
+
+    public void printMe(Set<String> stuff)   {  //note method overload with method above!!!
+        System.out.println("*********");
+        for(String temp: stuff) {
+            System.out.println(temp);
+        }
+    }
+
+    @Test
+    public void  userMap()   {
+
+        Set stuff = new HashSet();
+        stuff.add("hello");
+        stuff.add("there");
+        stuff.add("hello");
+
+        System.out.println("The size of stuff is " + stuff.size());
+
     }
 
 
