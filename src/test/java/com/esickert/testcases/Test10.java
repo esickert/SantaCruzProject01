@@ -376,17 +376,28 @@ public class Test10 {
     }
 
     @Test
-    public void  userMap()   {
+    public void  userSet2()   {
 
         Set stuff = new HashSet();
-        stuff.add("hello");
-        stuff.add("there");
-        stuff.add("hello");
-
+        stuff.add("tom");
+        stuff.add("dick");
+        stuff.add("harry");
+        stuff.add("harry");
+        stuff.add("harry");
+        stuff.add("harry");
         System.out.println("The size of stuff is " + stuff.size());
-
     }
 
+    @Test
+    public void userMap()   {
+
+        Map<String,String> mapA = new HashMap<>();
+        Map<String,String> mapB = new HashMap<String,String>();
+        Map<String,String> mapC = new <String, String>HashMap();
+
+        mapA.put("key1", "steve");
+        System.out.println("The key for steve is: " + mapA.keySet());
+    }
 
 
 
