@@ -392,14 +392,28 @@ public class Test10 {
     public void userMap()   {
 
         Map<String,String> mapA = new HashMap<>();
-        Map<String,String> mapB = new HashMap<String,String>();
-        Map<String,String> mapC = new <String, String>HashMap();
+        Map<String,String> mapB = new HashMap<>();
 
-        mapA.put("key1", "steve");
+        mapA.put("key1", "steve");  //add elements with keys to mapA
+        mapA.put("key2", "harry");
+        mapA.put("key3", "tom");
+
+        mapB.put("key1", "sally");
+        mapB.put("key4", "jane");
+        mapB.put("key5", "susan");
+
+        //*****************************************************************
         System.out.println("The key for steve is: " + mapA.keySet());
-    }
+        mapB.remove("key1");
+        System.out.println("The key for steve is: " + mapA.keySet());
+        System.out.println(mapA.keySet());  //displays a list of all keys
+        mapA.remove("c"); // if "c" doesn't exist then that's okay too.
+        assertEquals(mapA.get("key1"), "steve");
 
+        mapA.putAll(mapB);
+        System.out.println(mapA.values());
+        Collection<String> stuff = mapA.values();
 
+    }//end of Test10
 
-
-    }  //end of Test10
+}//end of Test10
