@@ -29,7 +29,7 @@ public class ExceptionsExampleTest {
 
   //      System.out.println("Enter the number of glasses of milk: ");
  //       int glassesOfMilk = userInput.nextInt();
-        int glassesOfMilk = 0;
+        Integer glassesOfMilk = null;
 
         double donutsPerGlass = donutCount / (double)glassesOfMilk;
         System.out.println( donutCount + " donuts");
