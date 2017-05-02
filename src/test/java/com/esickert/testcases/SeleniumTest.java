@@ -16,6 +16,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.awt.*;
 import java.awt.event.InputEvent;
 
+import java.util.*;
+
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
 
@@ -568,6 +570,37 @@ public class SeleniumTest {
         .perform();
        sleep(5000);
        driver.close();
+   }
+//**********************************************************************************************************************
+   @Test
+   public void popupWindows() throws InterruptedException {
+        int count = 0;
+        WebDriver driver = new FirefoxDriver();
+
+        driver.get("http://www.popuptest.com/popuptest12.html");
+
+        String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+        String subWindowHandler = null;
+
+        Set<String> handles = driver.getWindowHandles(); // get all window handles  this is a
+        Iterator<String> iterator = handles.iterator();
+        while (iterator.hasNext()){   //you can use a for loop here, but iterator is cool.
+           System.out.println(count++ + " window(s)");
+           subWindowHandler = iterator.next();
+        //   System.out.println(count++ + " window(s)");
+           System.out.println(subWindowHandler);
+
+        }
+        driver.switchTo().window(subWindowHandler); // switch to popup window
+//        WebElement erich = driver.findElement(By.tagName("a"));
+        sleep(5000);
+//        erich.click();
+       System.out.println(subWindowHandler);
+        driver.close();
+
+        // perform operations on popup
+//*********************************************************************************************************************
+//        driver.switchTo().window(parentWindowHandler);  // switch back to parent window
    }
 
 
