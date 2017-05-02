@@ -37,4 +37,13 @@ public class ExceptionsExampleTest {
         System.out.println("You hve " + donutsPerGlass + " donuts for each glass of milk.");
     }
 
+    @Test
+    public void outputTest()   {
+
+        Scanner userInput = new Scanner(System.in);  //THIS DOESN'T WORK!!!!!!!!!!!!!!
+        System.out.println("Enter thw number of donuts: ");
+        int glassesOfMilk = userInput.nextInt();
+    }
+
+
 }//end of ExceptionExampleTest
