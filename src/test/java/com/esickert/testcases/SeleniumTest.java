@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -574,15 +575,15 @@ public class SeleniumTest {
 //**********************************************************************************************************************
    @Test
    public void popupWindows() throws InterruptedException {
-        int count = 0;
+        int count = 1;
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("http://www.popuptest.com/popuptest12.html");
+        driver.get("http://www.popuptest.com/popuptest8.html");
 
         String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
         String subWindowHandler = null;
 
-        Set<String> handles = driver.getWindowHandles(); // get all window handles  this is a
+        Set<String> handles = driver.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
         Iterator<String> iterator = handles.iterator();
         while (iterator.hasNext()){   //you can use a for loop here, but iterator is cool.
            System.out.println(count++ + " window(s)");
@@ -591,16 +592,21 @@ public class SeleniumTest {
            System.out.println(subWindowHandler);
 
         }
-        driver.switchTo().window(subWindowHandler); // switch to popup window
-//        WebElement erich = driver.findElement(By.tagName("a"));
+        driver.switchTo().window(subWindowHandler); // switch to new popup window
+ //      http://stackoverflow.com/questions/30438340/how-do-i-read-the-element-from-a-dropdown-menu-of-a-html
+ //      Select dropDown = new Select(driver.findElement(By.id("dropin")));
+
+
+//THIS DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         sleep(5000);
-//        erich.click();
+ //       Actions build = new Actions(driver);
+
        System.out.println(subWindowHandler);
-        driver.close();
+ //       driver.close();
 
         // perform operations on popup
-//*********************************************************************************************************************
-//        driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+//*********************************************************************************************************************1
+        driver.switchTo().window(parentWindowHandler);  // switch back to parent window
    }
 
 

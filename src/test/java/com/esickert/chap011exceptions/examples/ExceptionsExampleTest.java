@@ -13,31 +13,22 @@ import java.util.*;
 public class ExceptionsExampleTest {
 
     @Test
-    public void throwNullPointerException() {
-        Integer age = 18;  //note the class Integer, not primitive int. You can call methods on Integer.
-        String ageAsString = age.toString();  //toString is a method
-
+    public void exceptionHandling() {
+        Integer age ;  //note the class Integer, not primitive int. You can call methods on Integer.
+        try {
+        age = 5/0;
+        String ageAsString = age.toString();  //toString is a method   //this is the line where the code failed with the "null" value
+        } catch (ArithmeticException x)    {  //since there is no arithmeticException the program still throws a nullpointerex.
+        age = 18;
+        }  //the following values must be outsiide the try-catch block
+        String ageAsString = age.toString();
         String myAge = "You are " + ageAsString + " years old.";
+        System.out.println(myAge);
 
 
 
         assertEquals("You are 18 years old.", myAge);
     }
-
-    public static int testUserInput(InputStream in,PrintStream out) {  //this is sa solution for scanner input. not sure how it works
-        Scanner keyboard = new Scanner(in);
-        out.println("Give a number between 1 and 10");
-        int input = keyboard.nextInt();
-
-        while (input < 1 || input > 10) {
-            out.println("Wrong number, try again.");
-            input = keyboard.nextInt();
-        }
-
-        return input;
-    }
-
-
 
 
 }//end of ExceptionExampleTest
