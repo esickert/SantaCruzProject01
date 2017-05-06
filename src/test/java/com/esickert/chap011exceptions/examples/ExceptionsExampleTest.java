@@ -12,30 +12,33 @@ import java.util.*;
  */
 public class ExceptionsExampleTest {
 
-    @Test
-    public void exceptionHandling() {
-        Integer age ;  //note the class Integer, not primitive int. You can call methods on Integer.
+    @Test //(expected = NullPointerException.class)
+    public void exceptionHandling()  {
+        Integer age = null;  //note the class Integer, not primitive int. You can call methods on Integer.
 
         try {
-        age = 5/0;
-        String ageAsString = age.toString();  //toString is a method   //this is the line where the code failed with the "null" value
+//        age = 18;
+        String myAge = age.toString();  //toString is a method   //this is the line where the code failed with the "null" value
 
-        } catch (Exception x)    {  //since there is no arithmeticException the program still throws a nullpointerex.
-        age = 17;  //NOTE: this will cause an excetion to occur with junit
-//        x.printStackTrace();
-//       System.out.println(x.getMessage());
-//       System.out.println("You fucked up DUDE!!");
 
-       }  // end 0f try-catch the following values must be outsiide the try-catch block
+        } catch (NullPointerException x)    {  //since there is no arithmeticException the program still throws a nullpointerex.
+            age = 17;  //NOTE: this will cause an excetion to occur with junit
+            System.out.println("getMessage - " + x.getMessage());
+            System.out.println("getStackTrace - " + x.getStackTrace());
+            System.out.println("printStackTrace");
+            x.printStackTrace();
+
+       } finally{ // end 0f try-catch the following values must be outsiide the try-catch block
 
         String ageAsString = age.toString();  //you are not printing out here...no print statement!!!!
         String myAge = "You are " + ageAsString + " years old.";
 //       System.out.println(myAge);
+    }
+        String ageAsString = age.toString();  //you are not printing out here...no print statement!!!!
+        String myAge = "You are " + ageAsString + " years old.";
 
 
-
-
-        assertEquals("You are 19 years old.", myAge);
+        assertEquals("You are 17 years old.", myAge);
     }
 
 
