@@ -15,7 +15,7 @@ public class UserTest {
 
         System.out.println(erich.getPassword());
 
-        erich.setPassword("admin111");
+        erich.setPassword("admin1");
         System.out.println(erich.getPassword());
 
         System.out.println("password for rick is : " + rick.getPassword());
