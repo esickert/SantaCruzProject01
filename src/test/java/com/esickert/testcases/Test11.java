@@ -25,4 +25,19 @@ public void Chap11Test() throws InterruptedException {
     driver.close();
     }
 
+@Test
+public void needMilk()  {
+
+    int glassesOfMilk = 2;
+
+    try {
+        if (glassesOfMilk < 3)
+            throw new Exception("Exception: Need more fucking milk!!");  //this is the  throw statement!!!!
+        else
+            System.out.println("This is the end");
+    } catch(Exception e)    {
+        System.out.println(e.getMessage());
+        System.out.println("Help!!I need somebody");
+    }
+}
 }  //end of Chap11Test
