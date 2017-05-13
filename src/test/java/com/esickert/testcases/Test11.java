@@ -26,18 +26,26 @@ public void Chap11Test() throws InterruptedException {
     }
 
 @Test
+
 public void needMilk()  {
 
     int glassesOfMilk = 2;
+    String temp = null;
+
+//    System.exit(0);
 
     try {
         if (glassesOfMilk < 3)
-            throw new Exception("Exception: Need more fucking milk!!");  //this is the  throw statement!!!!
+ //           throw new Exception("Exception: Need more fucking milk!!");  //this is the  throw statement!!!!
+            throw new NeedMoreMilkException();
         else
             System.out.println("This is the end");
-    } catch(Exception e)    {
-        System.out.println(e.getMessage());
-        System.out.println("Help!!I need somebody");
+    } catch(NeedMoreMilkException moreMilk)    {  //NeedMoreMilkException is a user defined Exception class
+        System.out.println(moreMilk.getMessage());
+        temp = moreMilk.getMessage();
+        System.out.println("Help!!I need more MILK");
     }
+
+    assertEquals("ore MILK- separate user-defined exception class", temp); //throwing an exception
 }
 }  //end of Chap11Test
