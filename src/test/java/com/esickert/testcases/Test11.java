@@ -29,7 +29,7 @@ public void Chap11Test() throws InterruptedException {
 
 public void needMilk()  {
 
-    int glassesOfMilk = 2;
+    int glassesOfMilk = 5;
     String temp = null;
 
 //    System.exit(0);
@@ -46,6 +46,6 @@ public void needMilk()  {
         System.out.println("Help!!I need more MILK");
     }
 
-    assertEquals("ore MILK- separate user-defined exception class", temp); //throwing an exception
+    assertEquals("More MILK- separate user-defined exception class", temp); //throwing an exception
 }
 }  //end of Chap11Test
