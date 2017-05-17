@@ -39,13 +39,13 @@ public void needMilk()  {
  //           throw new Exception("Exception: Need more fucking milk!!");  //this is the  throw statement!!!!
             throw new NeedMoreMilkException();
         else
-            System.out.println("This is the end");
+            System.out.println("This is the end");//if above fails this is executed but not the catch block thus assert fails.
     } catch(NeedMoreMilkException moreMilk)    {  //NeedMoreMilkException is a user defined Exception class
         System.out.println(moreMilk.getMessage());
         temp = moreMilk.getMessage();
         System.out.println("Help!!I need more MILK");
     }
 
-    assertEquals("More MILK- separate user-defined exception class", temp); //throwing an exception
+   assertEquals("More MILK- separate user-defined exception class", temp); //throwing an exception, this is null
 }
 }  //end of Chap11Test
