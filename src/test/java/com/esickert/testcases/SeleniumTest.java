@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
@@ -574,9 +575,11 @@ public class SeleniumTest {
    }
 //**********************************************************************************************************************
    @Test
-   public void popupWindows() throws InterruptedException {
+   public void popupWindows() throws InterruptedException {  //exception is for sleep().
         int count = 1;
         WebDriver driver = new FirefoxDriver();
+//        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+//        ChromeDriver driver=new ChromeDriver();
 
         driver.get("http://www.popuptest.com/popuptest8.html");
 
@@ -588,28 +591,28 @@ public class SeleniumTest {
         while (iterator.hasNext()){   //you can use a for loop here, but iterator is cool.
            System.out.println(count++ + " window(s)");
            subWindowHandler = iterator.next();
-        //   System.out.println(count++ + " window(s)");
+           System.out.println(count++ + " window(s)");
            System.out.println(subWindowHandler);
-
         }
         driver.switchTo().window(subWindowHandler); // switch to new popup window
- //      http://stackoverflow.com/questions/30438340/how-do-i-read-the-element-from-a-dropdown-menu-of-a-html
- //      Select dropDown = new Select(driver.findElement(By.id("dropin")));
-
-
-//THIS DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        sleep(5000);
- //       Actions build = new Actions(driver);
-
+//THIS NOW WORKS YEAH BOOM BOOM BOOM FIREWORKS.
+       sleep(5000);
        System.out.println(subWindowHandler);
- //       driver.close();
 
-        // perform operations on popup
 //*********************************************************************************************************************1
         driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+        WebElement popup = driver.findElement(By.cssSelector("#dropin > div > a"));
+        System.out.println(popup.getText());
+        popup.click();
    }
 
+    @Test
+    public void capabilities()   {  //this really doesn't do anything yet. MORE CODE NEEDED.
 
-
-
+        Map capabilitiesMap = new HashMap();  //creates a hashmap with string, boolean
+        capabilitiesMap.put("takeScreenShot", true); //inserts <string>, true in
+        DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
+        WebDriver driver = new FirefoxDriver(capabilities);
+        driver.get("http://www.google.com");
+    }
 } // end of SeleniumTest
