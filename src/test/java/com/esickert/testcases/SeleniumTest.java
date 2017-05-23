@@ -25,14 +25,13 @@ import static java.lang.Integer.*;
 
 import static java.lang.Thread.sleep;
 //import static javax.swing.text.html.CSS.getAttribute;
+import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.hamcrest.*;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 //import static org.jboss.netty.util.ExternalResourceUtil.release;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
 
 
 //import static org.junit.*;
@@ -614,5 +613,8 @@ public class SeleniumTest {
         DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
         WebDriver driver = new FirefoxDriver(capabilities);
         driver.get("http://www.google.com");
+//        System.out.println(capabilitiesMap.getKey());     WRONG
     }
+
+
 } // end of SeleniumTest
