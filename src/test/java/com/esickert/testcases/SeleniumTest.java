@@ -2,22 +2,23 @@ package com.esickert.testcases;
 
 import com.esickert.cases.TheMonster;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
 
+import java.io.File;  //used for File input/output
+import java.io.IOException;
 import java.util.*;
 
 import static com.esickert.cases.Sleep.toSleep;
@@ -605,16 +606,46 @@ public class SeleniumTest {
         popup.click();
    }
 
+//********************************************IMPORTANT********************************************************
     @Test
-    public void capabilities()   {  //this really doesn't do anything yet. MORE CODE NEEDED.
+    public void capabilities() throws IOException, InterruptedException   {  //this takes a screenshot of bing
+
+        /**
+         * This creates a hashmap then adds a capabitlity "takesScreenShot", true
+         */
 
         Map capabilitiesMap = new HashMap();  //creates a hashmap with string, boolean
-        capabilitiesMap.put("takeScreenShot", true); //inserts <string>, true in
+        capabilitiesMap.put("takesScreenShot", true); //inserts <string>, true in Map
+//       System.out.println(capabilitiesMap.getKey());  //doesn't work!!!!!!!!!
         DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
+
+        /**
+         * creates a webdriver, maximizes the window, then opens bing for their pretty pictures.
+         */
+
         WebDriver driver = new FirefoxDriver(capabilities);
-        driver.get("http://www.google.com");
-//        System.out.println(capabilitiesMap.getKey());     WRONG
+        driver.manage().window().maximize();
+        driver.get("http://www.bing.com");
+
+
+        sleep(5000);
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        System.out.println(scrFile.getAbsolutePath());
+            // now copy the  screenshot to desired location using copyFile method
+        FileUtils.copyFile(scrFile, new File("C:/temp/screenShot.png"));
+        System.out.println(capabilitiesMap.isEmpty());
+        assertFalse(capabilitiesMap.isEmpty());
+        sleep(5000);
+        driver.quit();
     }
 
+//********************************************IMPORTANT*****************************************************
+
+    @Test                                                 //this doesn't do anything!!!!!!!!
+    public void justTestingArounf() {
+        System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+        driver.get("http://www.bing.com");
+    }
 
 } // end of SeleniumTest
