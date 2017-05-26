@@ -5,6 +5,7 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
@@ -58,5 +59,14 @@ public class Test14 {
         assertThat("Is it null??",z, is(nullValue()));
         assertThat(x, is(y));
     }
+
+
+
+    @Ignore
+    @Test
+    public void testingTheFailMethod() {
+        fail("Testing the fail method");
+    }
+
 
 }
