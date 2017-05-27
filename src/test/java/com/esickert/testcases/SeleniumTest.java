@@ -641,11 +641,6 @@ public class SeleniumTest {
 
 //********************************************IMPORTANT*****************************************************
 
-    @Test                                                 //this doesn't do anything!!!!!!!!
-    public void justTestingArounf() {
-        System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("http://www.bing.com");
-    }
+
 
 } // end of SeleniumTest
