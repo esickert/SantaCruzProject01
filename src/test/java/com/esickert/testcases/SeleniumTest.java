@@ -595,7 +595,7 @@ public class SeleniumTest {
            System.out.println(subWindowHandler);
         }
         driver.switchTo().window(subWindowHandler); // switch to new popup window
-//THIS NOW WORKS YEAH BOOM BOOM BOOM FIREWORKS.
+//THIS NOW WORKS YEAH BOOM BOOM FIREWORKS.
        sleep(5000);
        System.out.println(subWindowHandler);
 
