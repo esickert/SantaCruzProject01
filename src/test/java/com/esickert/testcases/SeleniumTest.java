@@ -624,7 +624,7 @@ public class SeleniumTest {
          */
 
         WebDriver driver = new FirefoxDriver(capabilities);
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();    //this im familiar with
         driver.get("http://www.bing.com");
 
 
