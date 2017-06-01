@@ -614,33 +614,36 @@ public class SeleniumTest {
          * This creates a hashmap then adds a capabitlity "takesScreenShot", true
          */
 
-        Map capabilitiesMap = new HashMap();  //creates a hashmap with string, boolean
-        capabilitiesMap.put("takesScreenShot", true); //inserts <string>, true in Map
-//       System.out.println(capabilitiesMap.getKey());  //doesn't work!!!!!!!!!
-        DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
+        Map<String,Boolean> theCapabilitiesMap = new HashMap<String,Boolean>();                               //creates a hashmap with string, boolean
+        theCapabilitiesMap.put("takesScreenShot", true);                      //inserts <string>, boolean in Map
+        theCapabilitiesMap.put("stuff", false);
+
+        System.out.println(theCapabilitiesMap.get("takesScreenShot"));
+        System.out.println(theCapabilitiesMap.get("stuff"));
+        System.out.println(theCapabilitiesMap.keySet());
+        System.out.println("The size of Map is: " + theCapabilitiesMap.size() + "\n");
+
+        DesiredCapabilities capabilities = new DesiredCapabilities(theCapabilitiesMap);  //this passes theCapabilitiesMap map to DesiredCapabilities constructor
 
         /**
          * creates a webdriver, maximizes the window, then opens bing for their pretty pictures.
          */
 
-        WebDriver driver = new FirefoxDriver(capabilities);
-        driver.manage().window().maximize();    //this im familiar with
-        driver.get("http://www.bing.com");
-
+        WebDriver theDriver = new FirefoxDriver(capabilities);
+        theDriver.manage().window().maximize();                                 //this im familiar with
+        theDriver.get("http://www.bing.com");
 
         sleep(5000);
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot)theDriver).getScreenshotAs(OutputType.FILE);
         System.out.println(scrFile.getAbsolutePath());
             // now copy the  screenshot to desired location using copyFile method
         FileUtils.copyFile(scrFile, new File("C:/temp/screenShot.png"));
-        System.out.println(capabilitiesMap.isEmpty());
-        assertFalse(capabilitiesMap.isEmpty());
+        System.out.println(theCapabilitiesMap.isEmpty());
+        assertFalse(theCapabilitiesMap.isEmpty());
         sleep(5000);
-        driver.quit();
+ //       theDriver.quit();
     }
 
 //********************************************IMPORTANT*****************************************************
-
-
 
 } // end of SeleniumTest
