@@ -32,7 +32,7 @@ public class TheMonster {
         Thread.sleep(5000);
 //        driver.quit();
 
-        assertEquals(url, "http://www.monster.net");  //this will throw error because of domain don't match
+        assertEquals(url, "http://www.monster.com");
 
 
 

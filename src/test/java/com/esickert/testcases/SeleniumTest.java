@@ -20,6 +20,7 @@ import java.awt.event.InputEvent;
 import java.io.File;  //used for File input/output
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
@@ -643,6 +644,21 @@ public class SeleniumTest {
         sleep(5000);
  //       theDriver.quit();
     }
+
+    @Test
+    public void indexOf()   {
+
+        String hello = "hello fella";
+
+        System.out.println(hello.indexOf("f"));   // 6
+        System.out.println(hello.lastIndexOf("a"));  // 9
+
+        System.out.println(hello.lastIndexOf("e"));  // 7
+
+
+    }
+
+
 
 //********************************************IMPORTANT*****************************************************
 
