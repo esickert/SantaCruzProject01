@@ -11,12 +11,14 @@ public class User {
     //    private String username;
     private String username;
     private String password;
+    private String mustIncludeDigit = ".*[0123456789]+.*";
+    private String mustIncludeUpperCase = ".*[A-Z]+.*";
 
 
 
     public User()  {  // a constructor
         username = "username123";
-        password = "admin";
+        password = "adminaaa";
     }  //end of constructor
 
 
@@ -35,6 +37,12 @@ public class User {
     public void setPassword(String password) {
         if (password.length() <= 7) {
             throw new IllegalArgumentException("Password must be greater than 7 charcters");
+        }
+        if (password.matches(mustIncludeDigit)== false) {
+            throw new IllegalArgumentException("Password must include numbers");
+        }
+        if (password.matches(mustIncludeUpperCase)== false) {
+            throw new IllegalArgumentException("Password must include upper case letters");
         }
 
         this.password = password;
