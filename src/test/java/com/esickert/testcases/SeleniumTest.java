@@ -654,7 +654,18 @@ public class SeleniumTest {
         System.out.println(hello.lastIndexOf("a"));  // 9
 
         System.out.println(hello.lastIndexOf("e"));  // 7
+    }
 
+    @Test
+    public void getDropDown() throws InterruptedException  {
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http:www.monster.com");
+
+        WebElement monster = driver.findElement(By.className("dropdown-toggle"));
+        monster.click();
+        WebElement dracula = driver.findElement(By.cssSelector("#s-menu-d > li:nth-child(2) > a:nth-child(1)"));
+        sleep(5000);
+        dracula.click();
 
     }
 
@@ -662,4 +673,5 @@ public class SeleniumTest {
 
 //********************************************IMPORTANT*****************************************************
 
-} // end of SeleniumTest
+} // end of SeleniumT
+//#s-menu-d > li:nth-child(2) > a:nth-child(1)
