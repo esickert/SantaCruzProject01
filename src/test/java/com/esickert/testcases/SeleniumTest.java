@@ -642,7 +642,7 @@ public class SeleniumTest {
         System.out.println(theCapabilitiesMap.isEmpty());
         assertFalse(theCapabilitiesMap.isEmpty());
         sleep(5000);
- //       theDriver.quit();
+        theDriver.quit();
     }
 
     @Test

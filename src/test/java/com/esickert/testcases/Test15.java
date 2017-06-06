@@ -162,7 +162,7 @@ public class Test15 {
 
     StringBuilder construct =   new StringBuilder("this is a test of time ");
     System.out.println(construct.capacity());
-    construct.append("HELP ME!!");
+    construct.append("HELP ME, Im trapped inside!!!!!");
     assertTrue( construct.capacity() > 16);
     System.out.println(construct);
 
