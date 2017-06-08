@@ -658,18 +658,30 @@ public class SeleniumTest {
 
     @Test
     public void getDropDown() throws InterruptedException  {
+
+        final String LOGIN = "Test@paxata.com";
+        final String PASSWORD = "paxata123";
+
+
         WebDriver driver = new FirefoxDriver();
         driver.get("http:www.monster.com");
 
         WebElement monster = driver.findElement(By.className("dropdown-toggle"));
         monster.click();
-        WebElement dracula = driver.findElement(By.cssSelector("#s-menu-d > li:nth-child(2) > a:nth-child(1)"));
-        sleep(5000);
-        dracula.click();
+        driver.findElement(By.cssSelector("#s-menu-d > li:nth-child(1) > a:nth-child(1)")).click();
+        sleep(3000);
+//        dracula.click();
+        driver.findElement(By.id("EmailAddress")).click();
+        Actions build = new Actions(driver);
+        build.sendKeys(LOGIN);
+             build.sendKeys(Keys.TAB);
+             sleep(2000);
+             build.sendKeys(PASSWORD);
+             build.sendKeys(Keys.ENTER);
+             sleep(3000);
+        build.perform();
 
     }
-
-
 
 //********************************************IMPORTANT*****************************************************
 
