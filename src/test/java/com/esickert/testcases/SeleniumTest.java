@@ -648,7 +648,7 @@ public class SeleniumTest {
     @Test
     public void indexOf()   {
 
-        String hello = "hello fella";
+        String hello = "hello fellas";
 
         System.out.println(hello.indexOf("f"));   // 6
         System.out.println(hello.lastIndexOf("a"));  // 9
