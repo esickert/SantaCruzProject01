@@ -3,10 +3,12 @@ package com.esickert.testcases;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static java.lang.Integer.parseInt;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.rules.ErrorCollector;
 import org.testng.asserts.SoftAssert;
@@ -165,7 +167,64 @@ public class Test15 {
     construct.append("HELP ME, Im trapped inside!!!!!");
     assertTrue( construct.capacity() > 16);
     System.out.println(construct);
+    }
 
+    @Test
+    public void stringOfBits()    {
+        String bits = "1001000011110100001110";
+        String[] arrayOfBits= bits.split("");
+        int count = 0;
+
+        for (String temp: arrayOfBits) {
+            System.out.print(temp);
+            if (temp.equals("1"))
+                count++;
+        }
+        System.out.println();
+        System.out.println("The number \"on\" bits is : " + count);
+        }
+
+
+    //for the shithead at collinear networks. thought i could do it
+    @Test
+    public void ipAddress() throws NumberFormatException  {
+
+        String address = "192.168.1.1";
+        int z = parseInt(address.substring(10, address.length()));
+        System.out.println(z);
+
+        int y = parseInt(address.substring(8, 9));
+        System.out.println(y);
+
+        int x = parseInt(address.substring(4, 7));
+        System.out.println(x);
+
+        int w = parseInt(address.substring(0, 3));
+        System.out.println(w);
+
+        String ipAddress = w + "." + x + "." + y + "." + z;
+        System.out.println(ipAddress);
+
+        int count = 1;
+            do   {         //i think there is a bug here!!
+                if ( z < 255)  {
+                    z++;
+                    System.out.println(count + "." + " " + w + "." + x + "." + y + "." + z);
+                } else if ( y < 255)   {
+                    y++;
+                    System.out.println(count + "." + " " + w + "." + x + "." + y + "." + z);
+                } else if ( x < 255)   {
+                    x++;
+                    System.out.println(count + "." + " " + w + "." + x + "." + y + "." + z);
+                } else if ( w < 255)   {
+                    w++;
+                    System.out.println(count + "." + " " + w + "." + x + "." + y + "." + z);
+                }
+
+            count++;
+            } while (count <= 300);
+
+        assertEquals("they are not equal!!!", address, ipAddress);
     }
 
 }   //end of Test15
