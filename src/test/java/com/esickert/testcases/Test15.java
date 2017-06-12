@@ -169,6 +169,10 @@ public class Test15 {
     System.out.println(construct);
     }
 
+    //******************************************************************************************************************
+    //FOR JOB INTERVIEWS, SAMPLE CODE QUESTIONS.
+    //for the fuckhead at the wifi company for automation interview.
+    // FIND THE NUMBER OF BITS THAT ARE SWITCHED ON
     @Test
     public void stringOfBits()    {
         String bits = "1001000011110100001110";
@@ -185,21 +189,25 @@ public class Test15 {
         }
 
 
-    //for the shithead at collinear networks. thought i could do it
+
+    //for the shithead at collinear networks. i could do it!!!!!!!!!!!!!!!!!!
+    // WRITE CODE THAT GENERATES 300 ASSENDING IP ADDRESSES STARTING AT A SPECIFIC ONE
     @Test
     public void ipAddress() throws NumberFormatException  {
-
-        String address = "192.168.1.1";
-        int z = parseInt(address.substring(10, address.length()));
+//THERE IS A BUG HERE
+        String address = "15.2.233.12";
+        String ipArray[] = address.split("\\.");  // JAVA SPLIT USES REGEX SO NEED ESCAPE FOR ".", eg: \\.
+//        System.out.println(ipArray[0]);
+        int z = parseInt(ipArray[3]);
         System.out.println(z);
 
-        int y = parseInt(address.substring(8, 9));
+        int y = parseInt(ipArray[2]);
         System.out.println(y);
 
-        int x = parseInt(address.substring(4, 7));
+        int x = parseInt(ipArray[1]);
         System.out.println(x);
 
-        int w = parseInt(address.substring(0, 3));
+        int w = parseInt(ipArray[0]);
         System.out.println(w);
 
         String ipAddress = w + "." + x + "." + y + "." + z;
@@ -225,6 +233,9 @@ public class Test15 {
             } while (count <= 300);
 
         assertEquals("they are not equal!!!", address, ipAddress);
+
+    //***************************************END OF JOB INTERVIEW QUESTIONS*********************************************
+
     }
 
 }   //end of Test15
