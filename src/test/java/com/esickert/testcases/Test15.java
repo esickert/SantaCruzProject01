@@ -16,6 +16,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by esickert on 5/25/2017.
@@ -238,4 +239,25 @@ public class Test15 {
 
     }
 
+    @Test
+    public void replacingStrings()  {
+
+        String hello = "Hello fella fella";
+
+        hello = hello.replaceAll("fella","DOG");
+        System.out.println(hello);
+        assertThat(hello.replace("fella", "DOG"), is("Hello DOG DOG"));
+        hello = hello.replace("DOG", "CAT");
+        System.out.println(hello);
+    }
+
+    @Test
+    public void usingSplit()    {
+
+        String address =  "192.168.2.1";
+        String[] ipAddress = address.split(Pattern.quote("."));
+        for(String temp: ipAddress) {
+            System.out.print(temp + " ");
+        }
+    }
 }   //end of Test15
