@@ -578,9 +578,9 @@ public class SeleniumTest {
    @Test
    public void popupWindows() throws InterruptedException {  //exception is for sleep().
         int count = 1;
-        WebDriver driver = new FirefoxDriver();
-//        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
-//        ChromeDriver driver=new ChromeDriver();
+//        WebDriver driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        ChromeDriver driver=new ChromeDriver();
 
         driver.get("http://www.popuptest.com/popuptest8.html");
 
@@ -598,16 +598,18 @@ public class SeleniumTest {
         driver.switchTo().window(subWindowHandler); // switch to new popup window
 //THIS NOW WORKS YEAH BOOM BOOM FIREWORKS.
        sleep(5000);
-       System.out.println(subWindowHandler);
+//       System.out.println(subWindowHandler);
 
 //*********************************************************************************************************************1
         driver.switchTo().window(parentWindowHandler);  // switch back to parent window
         WebElement popup = driver.findElement(By.cssSelector("#dropin > div > a"));
         System.out.println(popup.getText());
         popup.click();
+        sleep(5000);
+        driver.close();
    }
 
-//********************************************IMPORTANT********************************************************
+//********************************************BEGIN TAKE SCREENSHOT USING DESIRED CAPABILITIES**************************
     @Test
     public void capabilities() throws IOException, InterruptedException   {  //this takes a screenshot of bing
 
@@ -615,8 +617,8 @@ public class SeleniumTest {
          * This creates a hashmap then adds a capabitlity "takesScreenShot", true
          */
 
-        Map<String,Boolean> theCapabilitiesMap = new HashMap<String,Boolean>();                               //creates a hashmap with string, boolean
-        theCapabilitiesMap.put("takesScreenShot", true);                      //inserts <string>, boolean in Map
+        Map<String,Boolean> theCapabilitiesMap = new HashMap<String,Boolean>();  //creates a hashmap with string, boolean
+        theCapabilitiesMap.put("takesScreenShot", true);                        //inserts <string>, boolean in Map
         theCapabilitiesMap.put("stuff", false);
 
         System.out.println(theCapabilitiesMap.get("takesScreenShot"));
@@ -629,32 +631,23 @@ public class SeleniumTest {
         /**
          * creates a webdriver, maximizes the window, then opens bing for their pretty pictures.
          */
-
-        WebDriver theDriver = new FirefoxDriver(capabilities);
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        WebDriver theDriver = new ChromeDriver();
         theDriver.manage().window().maximize();                                 //this im familiar with
         theDriver.get("http://www.bing.com");
 
         sleep(5000);
         File scrFile = ((TakesScreenshot)theDriver).getScreenshotAs(OutputType.FILE);
-        System.out.println(scrFile.getAbsolutePath());
+        System.out.println("GETTING THE PATH FOR THE SCREENSHOT: " + scrFile.getAbsolutePath());
             // now copy the  screenshot to desired location using copyFile method
-        FileUtils.copyFile(scrFile, new File("C:/temp/screenShot.png"));
-        System.out.println(theCapabilitiesMap.isEmpty());
-        assertFalse(theCapabilitiesMap.isEmpty());
+        FileUtils.copyFile(scrFile, new File("C:/temp/screenShot.png")); // scrFile is lost once jvm stops so the file is copied to screenShot.png
+        System.out.println("Is the capabilities Map empty??: " + theCapabilitiesMap.isEmpty());
+        assertFalse(theCapabilitiesMap.isEmpty());  //should return "false" as the Map collection is not empty.
         sleep(5000);
         theDriver.quit();
     }
 
-    @Test
-    public void indexOf()   {
-
-        String hello = "hello fellas";
-
-        System.out.println(hello.indexOf("f"));   // 6
-        System.out.println(hello.lastIndexOf("a"));  // 9
-
-        System.out.println(hello.lastIndexOf("e"));  // 7
-    }
+//********************************************END OF TAKE SCREENSHOT****************************************************
 
     @Test
     public void getDropDown() throws InterruptedException  {
@@ -662,12 +655,16 @@ public class SeleniumTest {
         final String LOGIN = "Test@paxata.com";
         final String PASSWORD = "paxata123";
 
+//        WebDriver driver = new FirefoxDriver();
+//        driver.get("http:www.monster.com");
 
-        WebDriver driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         driver.get("http:www.monster.com");
 
-        WebElement monster = driver.findElement(By.className("dropdown-toggle"));
-        monster.click();
+        driver.findElement(By.className("dropdown-toggle")).click();
+        sleep(2000);
+//        monster.click();
         driver.findElement(By.cssSelector("#s-menu-d > li:nth-child(1) > a:nth-child(1)")).click();
         sleep(3000);
 //        dracula.click();
@@ -680,7 +677,8 @@ public class SeleniumTest {
              build.sendKeys(Keys.ENTER);
              sleep(3000);
         build.perform();
-
+        sleep(5000);
+        driver.close();
     }
 
 //********************************************IMPORTANT*****************************************************

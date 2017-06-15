@@ -191,12 +191,12 @@ public class Test15 {
 
 
 
-    //for the shithead at collinear networks. i could do it!!!!!!!!!!!!!!!!!!
+    //for the shithead at collinear networks. fuckoff!!!!!!!!!!!!!!!!!!
     // WRITE CODE THAT GENERATES 300 ASSENDING IP ADDRESSES STARTING AT A SPECIFIC ONE
     @Test
-    public void ipAddress() throws NumberFormatException  {
+    public void ipAddress() throws Exception {
 //THERE IS A BUG HERE
-        String address = "15.2.233.12";
+        String address = "255.2.233.12";
         String ipArray[] = address.split("\\.");  // JAVA SPLIT USES REGEX SO NEED ESCAPE FOR ".", eg: \\.
 //        System.out.println(ipArray[0]);
         int z = parseInt(ipArray[3]);
@@ -210,6 +210,9 @@ public class Test15 {
 
         int w = parseInt(ipArray[0]);
         System.out.println(w);
+
+        if ((w > 255) || ( x > 255) || (y>255) || (z>255))
+            throw new Exception("ip not valid");
 
         String ipAddress = w + "." + x + "." + y + "." + z;
         System.out.println(ipAddress);
@@ -259,5 +262,16 @@ public class Test15 {
         for(String temp: ipAddress) {
             System.out.print(temp + " ");
         }
+    }
+
+    @Test
+    public void indexOf()   {
+
+        String hello = "hello fellas";
+
+        System.out.println(hello.indexOf("f"));   // 6
+        System.out.println(hello.lastIndexOf("a"));  // 10
+
+        System.out.println(hello.lastIndexOf("e"));  // 7
     }
 }   //end of Test15
