@@ -719,16 +719,10 @@ public void windows() throws AWTException     {
         System.out.println(subWindowHandler);
     }
 
- //   WebElement google = drive.findElement(By.linkText("Google Search"));
-   // google.click();
     drive.switchTo().window(parentWindowHandler);
 
-//    String googleSearch = drive.getWindowHandle();
-//    System.out.println("This is the google search window handle: " + googleSearch);
     System.out.println(drive.getWindowHandles()); //there are 2 fucking windows!!!!!!!
     drive.switchTo().window(subWindowHandler);
-
 }
 
 } // end of SeleniumT
-//#s-menu-d > li:nth-child(2) > a:nth-child(1)
