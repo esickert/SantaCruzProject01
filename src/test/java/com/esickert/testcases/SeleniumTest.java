@@ -652,6 +652,7 @@ public class SeleniumTest {
 
     @Test
     public void getDropDown() throws InterruptedException  {
+    //open and login into Monster.com
 
         final String LOGIN = "Test@paxata.com";
         final String PASSWORD = "paxata123";
@@ -682,12 +683,12 @@ public class SeleniumTest {
         //there are popups windows that occur here.
         driver.close();
     }
-//********************************************OPEN MONSTER WITH POPUPS**************************************************
+
 
 
 @Test
 public void windows() throws AWTException     {
-
+    //open test window and click on link
     int count = 1;
     System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver drive = new ChromeDriver();
