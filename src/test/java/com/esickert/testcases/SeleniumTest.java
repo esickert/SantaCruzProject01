@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.event.InputEvent;
 
+import java.awt.event.KeyEvent;
 import java.io.File;  //used for File input/output
 import java.io.IOException;
 import java.util.*;
@@ -678,10 +679,56 @@ public class SeleniumTest {
              sleep(3000);
         build.perform();
         sleep(5000);
+        //there are popups windows that occur here.
         driver.close();
     }
+//********************************************OPEN MONSTER WITH POPUPS**************************************************
 
-//********************************************IMPORTANT*****************************************************
+
+@Test
+public void windows() throws AWTException     {
+
+    int count = 1;
+    System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
+    WebDriver drive = new ChromeDriver();
+    drive.get("file:///C:/Temp/Window.html");
+
+    String parentWindowHandler = drive.getWindowHandle(); // Store your parent window
+    String subWindowHandler = null;
+    System.out.println("parent window is: " + parentWindowHandler);
+
+    WebElement dude = drive.findElement(By.xpath("/html/body/a"));
+    String aLink = drive.getWindowHandle();
+    System.out.println("This is the window.html window handle: " + aLink);
+    Actions build = new Actions(drive);
+        build.moveToElement(dude)
+        .contextClick(dude)
+        .perform();  // this will perform right click on webelement "dude".
+
+    Robot bot = new Robot();
+    bot.keyPress(KeyEvent.VK_DOWN);
+    bot.keyPress(KeyEvent.VK_DOWN);
+    bot.keyPress(KeyEvent.VK_ENTER);
+    //PROBLEM GETTING SECOND WINDOW HANDLE!!!
+    Set<String> handles = drive.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
+    Iterator<String> iterator = handles.iterator();
+    while (iterator.hasNext()){
+        System.out.println(count++ + " window(s)");
+        subWindowHandler = iterator.next();
+        System.out.println(count++ + " window(s)");
+        System.out.println(subWindowHandler);
+    }
+
+ //   WebElement google = drive.findElement(By.linkText("Google Search"));
+   // google.click();
+    drive.switchTo().window(parentWindowHandler);
+
+//    String googleSearch = drive.getWindowHandle();
+//    System.out.println("This is the google search window handle: " + googleSearch);
+    System.out.println(drive.getWindowHandles()); //there are 2 fucking windows!!!!!!!
+    drive.switchTo().window(subWindowHandler);
+
+}
 
 } // end of SeleniumT
 //#s-menu-d > li:nth-child(2) > a:nth-child(1)
