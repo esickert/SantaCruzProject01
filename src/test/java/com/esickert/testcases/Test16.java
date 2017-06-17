@@ -47,6 +47,86 @@ public class Test16 {
         }
     }
 
+    @Test
+    public void nextBoolean()   {
+        Random rnd = new Random();
+        int count = 0;
 
+        for(int i = 1; i <= 1000; i++)   {
+            Boolean james = rnd.nextBoolean();
+            System.out.println(james);
+            if (james == true)  {
+                assertThat(james, is(true));
+                count++;
+                System.out.println(james);
+            }
+            else    {
+                assertThat(james, is(false));
+                count++;
+                System.out.println(james);
+            }
+        }
+        System.out.println(count);
+    }
 
-}
+    @Test
+    public void nextLong()  {
+        Random rnd = new Random();
+
+        for(int i = 0; i <= 1000; i++)  {
+            long james = rnd.nextLong();
+            System.out.println(james);
+            assertThat(james  > Long.MIN_VALUE, is(true));
+            assertThat(james < Long.MAX_VALUE, is(true));
+        }
+    }
+
+    @Test
+    public void nextFloat()  {
+        Random rnd = new Random();
+
+        for(int i = 0; i <= 1000; i++)  {
+            float james = rnd.nextFloat();
+            System.out.println(james);
+            assertThat(james  > Float.MIN_VALUE, is(true));
+            assertThat(james < Float.MAX_VALUE, is(true));
+        }
+    }
+
+    @Test
+    public void nextDouble()  {
+        Random rnd = new Random();
+
+        for(int i = 0; i <= 1000; i++)  {
+            double james = rnd.nextFloat();
+            System.out.println(james);
+            assertThat(james  > Double.MIN_VALUE, is(true));
+            assertThat(james < Double.MAX_VALUE, is(true));
+        }
+    }
+
+    @Test
+    public void nextBytes()  {
+        //NOTE I DONT UNDERSTAND THIS!!!!!!!!!!!!!!!!***************************************
+        byte[] b = new byte[20];  //THIS DOESN'T WORK!!!!
+        for(byte temp: b)   {
+            new Random().nextBytes(b);
+            System.out.println(b);
+        }
+    }
+
+    @Test
+    public void nextIntWithBound() {
+
+        Random rnd = new Random();
+        int bound = 20;
+
+        for(int i = 0; i <= 1000; i++)  {
+            int rndNum = rnd.nextInt(bound);
+            System.out.println(rndNum);
+            assertThat(rndNum >= 0, is(true));
+            assertThat(rndNum <= (bound-1), is(true));
+        }
+    }
+
+} // end of Test16

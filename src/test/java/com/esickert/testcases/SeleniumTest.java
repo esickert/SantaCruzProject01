@@ -687,8 +687,12 @@ public class SeleniumTest {
 
 
 @Test
-public void windows() throws AWTException     {
+public void windows() throws AWTException, InterruptedException     {
     //open test window and click on link
+//    System.setProperty("webdriver.gecko.driver", "C:/Users/Madankumar/Desktop/Gecko Driver/geckodriver.exe");
+//    WebDriver driver=new FirefoxDriver();
+//    driver.navigate().to("http://www.google.com");
+
     int count = 1;
     System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver drive = new ChromeDriver();
@@ -703,15 +707,19 @@ public void windows() throws AWTException     {
     System.out.println("This is the window.html window handle: " + aLink);
     Actions build = new Actions(drive);
         build.moveToElement(dude)
-        .contextClick(dude)
+        .contextClick(dude)   //contextClick- right click on element
         .perform();  // this will perform right click on webelement "dude".
 
-    Robot bot = new Robot();
+    Robot bot = new Robot();  // automated keystrokes to simulate user using arrow keys
     bot.keyPress(KeyEvent.VK_DOWN);
+    sleep(2000);
     bot.keyPress(KeyEvent.VK_DOWN);
+    sleep(2000);
     bot.keyPress(KeyEvent.VK_ENTER);
+    sleep(5000);                                                       //the code is running too FAST!!!!!!!
     //PROBLEM GETTING SECOND WINDOW HANDLE!!!
     Set<String> handles = drive.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
+
     Iterator<String> iterator = handles.iterator();
     while (iterator.hasNext()){
         System.out.println(count++ + " window(s)");
