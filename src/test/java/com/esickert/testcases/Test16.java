@@ -109,10 +109,10 @@ public class Test16 {
     public void nextBytes()  {
         //NOTE I DONT UNDERSTAND THIS!!!!!!!!!!!!!!!!***************************************
         byte[] b = new byte[20];  //THIS DOESN'T WORK!!!!
-        for(byte temp: b)   {
+
             new Random().nextBytes(b);
             System.out.println(b);
-        }
+
     }
 
     @Test
@@ -128,5 +128,105 @@ public class Test16 {
             assertThat(rndNum <= (bound-1), is(true));
         }
     }
+
+    @Test
+    public void between()   {
+        Random gen = new Random();
+
+        int min = 15;
+        int max = 20;
+        for (int i = 0; i <= 1000; i++) {
+        //remember: .nextInt(int num) num is exclusive
+        int random = gen.nextInt(max - min + 1) + min;
+        System.out.println(random);
+        }
+    }
+
+    //*************************************Gaussian Shit****************************************************************
+    @Test
+    public void gaussinShit()   {
+        Random generate = new Random();
+
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        int count4 = 0;
+
+        for (int i = 1; i <= 1000; i++) {
+            double gausseShit = generate.nextGaussian();
+            System.out.println(gausseShit);
+            if (gausseShit> -1.0d&&gausseShit<1.0d)
+                count1++;
+            if (gausseShit> -2.0d&&gausseShit<2.0d)
+                count2++;
+            if (gausseShit> -3.0d&&gausseShit<3.0d)
+                count3++;
+            if (gausseShit> -4.0d&&gausseShit<4.0d)
+                count4++;
+
+        }
+        System.out.println("About 70% one standard deviation = " + count1/1000f * 100f);
+        System.out.println("About 95% two standard deviation = " + count2/1000f * 100f);
+        System.out.println("About 99% three standard deviation = " + count3/1000f * 100f);
+        System.out.println("About 99.9% four standard deviation = " + count4/1000f * 100f);
+    }
+
+    @Test
+    public void ages()  {
+        Random generate = new Random();
+
+        int min = 30;
+        int max = 40;
+        int count34 = 0;
+        int count35 = 0;
+        int age = 0;
+
+        for(int i= 0; i <= 1000; i++)   {
+            age = (int)(generate.nextGaussian() * 5) + 35;
+            if(age >=min&&age<=max)
+                age = age;
+            if (age == 34)
+                count34++;
+            if (age == 35)
+                count35++;
+        }
+        System.out.println("34 : " + count34);
+        System.out.println("35 : " + count35);
+
+        assertThat(age>=30&&age<=40,is(true));
+    }
+
+    @Test
+    public void seed()  {
+
+        long seed = 1234567L;
+        int num = 0;
+        long numL = 0;
+        double numD = 0;
+
+        Random generate = new Random(seed);
+
+        System.out.println(num = generate.nextInt());
+        System.out.println(numL = generate.nextLong());
+        System.out.println(numD = generate.nextDouble());
+
+
+    }
+
+    @Test
+    public void randomStrings() {
+        Random generate = new Random();
+        StringBuilder newString = new StringBuilder();
+        String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+        for(int i = 0; i <=100; i++)    {
+        int randomIndex = generate.nextInt(randomString.length());
+        char randomChar = randomString.charAt(randomIndex);
+        System.out.print(randomChar);
+        newString.append(randomChar);
+        }
+        System.out.println("\n" + newString);
+    }
+
 
 } // end of Test16
