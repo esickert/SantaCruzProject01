@@ -217,7 +217,7 @@ public class Test16 {
     public void randomStrings() {
         Random generate = new Random();
         StringBuilder newString = new StringBuilder();
-        String randomString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+        String randomString = "ABCDEFGHIJKLMNOPQ ";
 
         for(int i = 0; i <=100; i++)    {
         int randomIndex = generate.nextInt(randomString.length());
