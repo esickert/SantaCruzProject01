@@ -193,7 +193,7 @@ public class Test16 {
         System.out.println("34 : " + count34);
         System.out.println("35 : " + count35);
 
-        assertThat(age>=30&&age<=40,is(true));
+//        assertThat(age>=30&&age<=40,is(true));
     }
 
     @Test
@@ -217,7 +217,7 @@ public class Test16 {
     public void randomStrings() {
         Random generate = new Random();
         StringBuilder newString = new StringBuilder();
-        String randomString = "ABCDEFGHIJKLMNOPQ ";
+        String randomString = "ABCDEFGHIJKLMNOPQ- ";
 
         for(int i = 0; i <=100; i++)    {
         int randomIndex = generate.nextInt(randomString.length());
@@ -227,6 +227,36 @@ public class Test16 {
         }
         System.out.println("\n" + newString);
     }
+
+    @Test
+    public void randomSeed()    {
+
+    Random generate = new Random(1234567L);
+
+    System.out.println(generate.nextInt());
+    System.out.println(generate.nextGaussian());
+    System.out.println(generate.nextLong());
+    }
+
+    @Test
+    public void randomString()  {
+
+        Random generate = new Random();
+        String random = "ABCDEFGHIJK";
+        int index = generate.nextInt(random.length());
+        System.out.println(index);
+
+        for(int i = 0; i <= 10; i++)    {
+            index = generate.nextInt(random.length());
+            System.out.print(random.charAt(index));
+        }
+    }
+
+
+
+
+
+
 
 
 } // end of Test16
