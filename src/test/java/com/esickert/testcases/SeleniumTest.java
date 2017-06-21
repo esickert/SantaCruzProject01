@@ -700,14 +700,14 @@ public void windows() throws AWTException, InterruptedException     {
 
     String parentWindowHandler = drive.getWindowHandle(); // Store your parent window
     String subWindowHandler = null;
-    System.out.println("parent window is: " + parentWindowHandler);
-
+    System.out.println("parent window is 'Google Search': " + parentWindowHandler);
+    sleep(10000);
     WebElement dude = drive.findElement(By.xpath("/html/body/a"));
     String aLink = drive.getWindowHandle();
     System.out.println("This is the window.html window handle: " + aLink);
     Actions build = new Actions(drive);
-        build.moveToElement(dude)
-        .contextClick(dude)   //contextClick- right click on element
+         build.moveToElement(dude)
+        .contextClick(dude)   //contextClick- right click on element..MOUSE RIGHT CLICK ON WEBELEMENT.
         .perform();  // this will perform right click on webelement "dude".
 
     Robot bot = new Robot();  // automated keystrokes to simulate user using arrow keys
@@ -727,7 +727,7 @@ public void windows() throws AWTException, InterruptedException     {
         System.out.println(count++ + " window(s)");
         System.out.println(subWindowHandler);
     }
-
+    sleep(3000);
     drive.switchTo().window(parentWindowHandler);
 
     System.out.println(drive.getWindowHandles()); //there are 2 fucking windows!!!!!!!
