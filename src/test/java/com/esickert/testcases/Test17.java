@@ -46,10 +46,8 @@ public void nanoTime() {
 public void uniqueUserNoNumbers()   {
 
     String user = "mars";
-    String newUser = user + System.currentTimeMillis();
-    String noNumUser = newUser;
-    System.out.println(newUser);
-    System.out.println(noNumUser);
+    String stuff = "ABCDEFGHIJKLMNOP ";
+
 
 }
 

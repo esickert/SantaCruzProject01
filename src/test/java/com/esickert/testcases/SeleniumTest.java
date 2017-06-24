@@ -687,26 +687,29 @@ public class SeleniumTest {
 
 
 @Test
-public void windows() throws AWTException, InterruptedException     {
+public void switchToWindows() throws AWTException, InterruptedException     {
     //open test window and click on link
 //    System.setProperty("webdriver.gecko.driver", "C:/Users/Madankumar/Desktop/Gecko Driver/geckodriver.exe");
 //    WebDriver driver=new FirefoxDriver();
 //    driver.navigate().to("http://www.google.com");
 
-    int count = 1;
     System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver drive = new ChromeDriver();
     drive.get("file:///C:/Temp/Window.html");
+//    drive.manage().window().maximize();
 
     String parentWindowHandler = drive.getWindowHandle(); // Store your parent window
     String subWindowHandler = null;
     System.out.println("parent window is 'Google Search': " + parentWindowHandler);
     sleep(10000);
+    //**************************************************************************************************************
+    //**************************************************Using the code to click on the "Google Search" button.
     WebElement dude = drive.findElement(By.xpath("/html/body/a"));
     String aLink = drive.getWindowHandle();
     System.out.println("This is the window.html window handle: " + aLink);
     Actions build = new Actions(drive);
          build.moveToElement(dude)
+
         .contextClick(dude)   //contextClick- right click on element..MOUSE RIGHT CLICK ON WEBELEMENT.
         .perform();  // this will perform right click on webelement "dude".
 
@@ -719,19 +722,51 @@ public void windows() throws AWTException, InterruptedException     {
     sleep(5000);                                                       //the code is running too FAST!!!!!!!
     //PROBLEM GETTING SECOND WINDOW HANDLE!!!
     Set<String> handles = drive.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
-
+//****************************************************************************************************************
     Iterator<String> iterator = handles.iterator();
+    int count = 1;
     while (iterator.hasNext()){
-        System.out.println(count++ + " window(s)");
+        System.out.println(count + " window(s): loop "+ count);
         subWindowHandler = iterator.next();
-        System.out.println(count++ + " window(s)");
         System.out.println(subWindowHandler);
+        count++;
     }
-    sleep(3000);
-    drive.switchTo().window(parentWindowHandler);
+    //switch.window does not work fucker!!!!!!!!
+    for(String handle:drive.getWindowHandles()) {
+        drive.switchTo().window(handle);
+        sleep(3000);
+    }
 
-    System.out.println(drive.getWindowHandles()); //there are 2 fucking windows!!!!!!!
-    drive.switchTo().window(subWindowHandler);
+//the switch widow does NOT work!!!!!!!FUCKER!!!!
+    drive.switchTo().window(parentWindowHandler);
+    sleep(3000);
+    System.out.println(drive.getWindowHandles());
+    System.out.println("parent window is " + parentWindowHandler);
+    System.out.println("sub-window is " + subWindowHandler);
+//    drive.switchTo().window();
+
+//BE CAREFUL THAT THE CODE DOESN'T MOVE TOO FAST!!!
 }
+ @Test
+ public void switchToFrame() throws InterruptedException   {
+
+    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+    ChromeDriver erich = new ChromeDriver();
+    erich.get("file:///C:/Temp/Frames.html");
+
+    Actions doStuff = new Actions(erich);
+    erich.switchTo().frame(0);
+    WebElement txt = erich.findElement(By.name("1"));
+    txt.sendKeys("I'm fucking in one");
+
+    sleep(3000);
+    erich.switchTo().defaultContent();  //what is this????
+
+    erich.switchTo().frame(1);
+    txt = erich.findElement(By.name("2"));
+    txt.sendKeys("This is frame 2");
+
+
+ }
 
 } // end of SeleniumT
