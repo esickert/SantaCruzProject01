@@ -720,7 +720,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     sleep(2000);
     bot.keyPress(KeyEvent.VK_ENTER);
     sleep(5000);                                                       //the code is running too FAST!!!!!!!
-    //PROBLEM GETTING SECOND WINDOW HANDLE!!!
+//    bot.mouseRelease(KeyEvent.VK_ENTER);   doesn't work. throws error
     Set<String> handles = drive.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
 //****************************************************************************************************************
     Iterator<String> iterator = handles.iterator();

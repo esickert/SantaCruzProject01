@@ -2,6 +2,11 @@ package com.esickert.testcases;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+
 /**
  * Created by esickert on 6/20/2017.
  */
@@ -44,13 +49,46 @@ public void nanoTime() {
 
 @Test
 public void uniqueUserNoNumbers()   {
-
+    //ASSIGNMENT 2 IN CHAPTER 17
+    Random random = new Random();
     String user = "mars";
-    String stuff = "ABCDEFGHIJKLMNOP ";
+    String temp = "";
+    String stuff = "ABCDEFGHIJKLMNOPQ";
 
+    for(int i =0; i <= 10; i++) {
+        int rndIndex = random.nextInt(stuff.length());
+        char rChar = stuff.charAt(rndIndex);
+        System.out.print(rChar);
+        temp = temp + rChar;
+    }
+    System.out.print("\n" + user + temp);
+
+    System.out.print("\n" + user + System.currentTimeMillis());
+
+    //...
 
 }
 
+@Test
+public void date()  {
 
+    Date date = new Date();
+    System.out.println(date);
+
+
+    SimpleDateFormat x = new SimpleDateFormat();
+    x.applyPattern("MM/dd/yyyy");
+    System.out.println(x.format(date));
+}
+
+@Test
+public void calendar()   {
+//Calendar is an abstract class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Note difference below!
+    Calendar cal = Calendar.getInstance();
+    System.out.println(cal.getTime().getTime());
+
+    System.out.println(cal);
+    System.out.println(cal.toString());
+}
 
 }
