@@ -3,9 +3,12 @@ package animals;
 /**
  * Created by esickert on 3/21/2017.
  */
-public class Dogs implements Animal {
+public class Dogs extends Canines {
 
-    @Override
+    public void wagTheDogs() {
+        System.out.println("WAGGING...");
+    }
+
     public void eat() {
         System.out.println("Im in Dogs now to eat");
 
@@ -15,12 +18,14 @@ public class Dogs implements Animal {
         System.out.println("Im in Dogs now to travel");
     }
 
-    public String pee()   {
-        return "Im in Dogs to pee";
+    public void pee()   {
+        System.out.println("Peee...streammm");
     }
 
-    public int numOfLegs()  {
-        return LEGS;
+    public void wagTheDog() {
+        System.out.println("Im in wagTheDog");
+
+
     }
 
 }

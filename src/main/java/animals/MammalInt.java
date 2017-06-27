@@ -28,7 +28,7 @@ public class MammalInt implements Animal, Creature  {  //note that we are using 
     public static void main(String[] args)  {
 
         Animal dudes = new MammalInt();
-        Animal pups   = new Dogs();
+        Canines pups   = new Dogs();
         Creature num = new MammalInt();
 
         dudes.eat();
@@ -36,10 +36,10 @@ public class MammalInt implements Animal, Creature  {  //note that we are using 
         dudes.travel();
         System.out.println("How many legs: " + dudes.numOfLegs());
         System.out.println("***************************");
-        pups.eat();
+
         pups.pee();
-        pups.travel();
-        System.out.println("How many legs: " + pups.numOfLegs());
+
+        System.out.println("How many legs: " + dudes.numOfLegs());
         int x = num.sum();
         System.out.println(num.sum());
 
