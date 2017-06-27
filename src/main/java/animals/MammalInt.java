@@ -43,7 +43,7 @@ public class MammalInt implements Animal, Creature  {  //note that we are using 
         int x = num.sum();
         System.out.println(num.sum());
 
-        assertEquals(dudes.pee(),pups.numOfLegs());  //this does not "equal" as one is an integer the other a string.
+//        assertEquals(dudes.pee(),pups.pee());  //this does not "equal" as one is an integer the other a string.
     }
 }
 

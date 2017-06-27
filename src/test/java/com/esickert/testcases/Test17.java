@@ -83,7 +83,7 @@ public void date()  {
 
 @Test
 public void calendar()   {
-//Calendar is an abstract class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Note difference below!
+//Calendar is an abstract class!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Note difference below when "insantiating" Calendar!!!!
     Calendar cal = Calendar.getInstance();
     System.out.println(cal.getTime().getTime());
 
@@ -91,4 +91,11 @@ public void calendar()   {
     System.out.println(cal.toString());
 }
 
+@Test
+public void abstractClasses()   {
+
+    System.out.println("Fucking abstract classes!!");
+
+
+}
 }
