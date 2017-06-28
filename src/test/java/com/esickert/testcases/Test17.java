@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import static java.util.Calendar.YEAR;
+
 /**
  * Created by esickert on 6/20/2017.
  */
@@ -94,7 +96,11 @@ public void calendar()   {
 @Test
 public void abstractClasses()   {
 
-    System.out.println("Fucking abstract classes!!");
+    Calendar cal = Calendar.getInstance();
+
+    cal.set(Calendar.YEAR,1955);
+
+    System.out.println(cal.get(Calendar.YEAR));
 
 
 }
