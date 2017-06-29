@@ -701,7 +701,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     String parentWindowHandler = drive.getWindowHandle(); // Store your parent window
     String subWindowHandler = null;
     System.out.println("parent window is 'Google Search': " + parentWindowHandler);
-    sleep(10000);
+    sleep(5000);
     //**************************************************************************************************************
     //**************************************************Using the code to click on the "Google Search" button.
     WebElement dude = drive.findElement(By.xpath("/html/body/a"));
@@ -715,11 +715,11 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 
     Robot bot = new Robot();  // automated keystrokes to simulate user using arrow keys
     bot.keyPress(KeyEvent.VK_DOWN);
-    sleep(2000);
+    bot.delay(1000);
     bot.keyPress(KeyEvent.VK_DOWN);
-    sleep(2000);
+    bot.delay(1000);
     bot.keyPress(KeyEvent.VK_ENTER);
-    sleep(5000);                                                       //the code is running too FAST!!!!!!!
+    bot.delay(1000);                                                       //the code is running too FAST!!!!!!!
 //    bot.mouseRelease(KeyEvent.VK_ENTER);   doesn't work. throws error
     Set<String> handles = drive.getWindowHandles(); // get all window handles  this is a Set interface (no duplicates)
 //****************************************************************************************************************
@@ -766,7 +766,26 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     txt = erich.findElement(By.name("2"));
     txt.sendKeys("This is frame 2");
 
-
  }
+
+ @Test
+ public void handlingAlerts() throws InterruptedException   {
+
+    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+    ChromeDriver driver = new ChromeDriver();
+    driver.get("file:///C:/Temp/alerts.html");
+
+    WebElement rick = driver.findElement(By.xpath("/html/body/fieldset/button"));
+    rick.click();
+
+    Alert alert =driver.switchTo().alert();
+    sleep(3000);
+    alert.dismiss();
+    sleep(3000);
+    driver.quit();
+ }
+
+
+
 
 } // end of SeleniumT
