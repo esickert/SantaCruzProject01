@@ -7,7 +7,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import org.junit.Assert;
+
+import static org.junit.Assert.*;
+
 import static java.util.Calendar.YEAR;
+import static sun.nio.cs.Surrogate.is;
 
 /**
  * Created by esickert on 6/20/2017.
@@ -101,7 +106,17 @@ public void abstractClasses()   {
     cal.set(Calendar.YEAR,1955);
 
     System.out.println(cal.get(Calendar.YEAR));
-
-
 }
+
+@Test
+public void playingWithSet()    {
+
+    Calendar calen  = Calendar.getInstance();
+
+    calen.set(2017, 06, 27,16,52);
+    System.out.println(calen.get(Calendar.YEAR));
+    System.out.println(calen.get(Calendar.MONTH));
+ //   assertThat(calen.get(Calendar.MONTH), is(06));  THIS DOESN'T FUCKING WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
+
+} //end of Test17

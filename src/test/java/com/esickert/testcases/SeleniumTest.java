@@ -27,14 +27,16 @@ import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
 
 import static java.lang.Thread.sleep;
-//import static javax.swing.text.html.CSS.getAttribute;
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.hamcrest.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-//import static org.jboss.netty.util.ExternalResourceUtil.release;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
 
 
 //import static org.junit.*;
@@ -465,7 +467,10 @@ public class SeleniumTest {
     @Test
     public void moveToElement() throws Exception    {     //PLAY WITH THIS!!!!!!!!!!!!!!!
 
-        WebDriver driver = new FirefoxDriver();
+//        WebDriver driver = new FirefoxDriver();
+//        driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
         WebElement eleven = driver.findElement(By.name("eleven"));
         WebElement five = driver.findElement(By.name("five"));
