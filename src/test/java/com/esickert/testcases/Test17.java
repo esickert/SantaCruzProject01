@@ -9,10 +9,14 @@ import java.util.Random;
 
 import org.junit.Assert;
 
+import static java.util.Calendar.JUNE;
+import static java.util.Calendar.PM;
 import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 import static java.util.Calendar.YEAR;
-import static sun.nio.cs.Surrogate.is;
+
 
 /**
  * Created by esickert on 6/20/2017.
@@ -116,7 +120,17 @@ public void playingWithSet()    {
     calen.set(2017, 06, 27,16,52);
     System.out.println(calen.get(Calendar.YEAR));
     System.out.println(calen.get(Calendar.MONTH));
- //   assertThat(calen.get(Calendar.MONTH), is(06));  THIS DOESN'T FUCKING WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    calen.set(1868, 06, 26, 3, 43, 43);
+    assertThat(calen.get(Calendar.YEAR), is(1868));
+    assertThat(calen.get(Calendar.MONTH), is(06));
+    assertThat(calen.get(Calendar.DAY_OF_MONTH), is(26));
+    assertThat(calen.get(Calendar.HOUR_OF_DAY), is(03));
+    calen.set(Calendar.HOUR, 01);
+    System.out.println(calen.get(Calendar.HOUR));
+    assertThat(calen.get(Calendar.MINUTE), is(43));
+//    assertThat(calen.get(Calendar.AM_PM), is(PM));
+//    assertThat(4, is(2));
 }
 
 } //end of Test17
