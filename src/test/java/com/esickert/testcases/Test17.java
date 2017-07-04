@@ -9,13 +9,11 @@ import java.util.Random;
 
 import org.junit.Assert;
 
-import static java.util.Calendar.JUNE;
-import static java.util.Calendar.PM;
+import static java.util.Calendar.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-
-import static java.util.Calendar.YEAR;
 
 
 /**
@@ -115,22 +113,17 @@ public void abstractClasses()   {
 @Test
 public void playingWithSet()    {
 
+    Date date = new Date();
     Calendar calen  = Calendar.getInstance();
+//  NOTE: THIS IS RETURNING THE CURRENT DATE AND TIME.
+    String[] monthNames = {"JAN", "FEB", "MAR", "APRIL", "MAY", "JUNE", "JULY", "SEPT", "OCT", "NOV", "DEC"};
 
-    calen.set(2017, 06, 27,16,52);
-    System.out.println(calen.get(Calendar.YEAR));
-    System.out.println(calen.get(Calendar.MONTH));
+    System.out.println("The current year is: " + calen.get(YEAR));
+    System.out.println("The current month is: " + monthNames[(calen.get(Calendar.MONTH))]);
+    System.out.println("The date is: " + calen.get(DAY_OF_MONTH));
+    System.out.println("The current time is: " + calen.get(HOUR) + ":" + calen.get(MINUTE));
 
-    calen.set(1868, 06, 26, 3, 43, 43);
-    assertThat(calen.get(Calendar.YEAR), is(1868));
-    assertThat(calen.get(Calendar.MONTH), is(06));
-    assertThat(calen.get(Calendar.DAY_OF_MONTH), is(26));
-    assertThat(calen.get(Calendar.HOUR_OF_DAY), is(03));
-    calen.set(Calendar.HOUR, 01);
-    System.out.println(calen.get(Calendar.HOUR));
-    assertThat(calen.get(Calendar.MINUTE), is(43));
-//    assertThat(calen.get(Calendar.AM_PM), is(PM));
-//    assertThat(4, is(2));
+
 }
 
 } //end of Test17

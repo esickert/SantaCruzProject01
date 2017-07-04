@@ -781,6 +781,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     driver.get("file:///C:/Temp/alerts.html");
 
     WebElement rick = driver.findElement(By.xpath("/html/body/fieldset/button"));
+    sleep(3000);
     rick.click();
 
     Alert alert =driver.switchTo().alert();
