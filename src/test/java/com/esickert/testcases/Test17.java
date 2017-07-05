@@ -7,11 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
-import org.junit.Assert;
-
 import static java.util.Calendar.*;
 
-import static org.junit.Assert.*;
+import static jdk.nashorn.internal.parser.DateParser.DAY;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -111,7 +109,7 @@ public void abstractClasses()   {
 }
 
 @Test
-public void playingWithSet()    {
+public void playingWithGet()    {
 
     Date date = new Date();
     Calendar calen  = Calendar.getInstance();
@@ -119,10 +117,12 @@ public void playingWithSet()    {
     String[] monthNames = {"JAN", "FEB", "MAR", "APRIL", "MAY", "JUNE", "JULY", "SEPT", "OCT", "NOV", "DEC"};
 
     System.out.println("The current year is: " + calen.get(YEAR));
-    System.out.println("The current month is: " + monthNames[(calen.get(Calendar.MONTH))]);
+    System.out.println("The current month is: " + monthNames[(calen.get(MONTH))]);
+    System.out.println(calen.get(DAY));
     System.out.println("The date is: " + calen.get(DAY_OF_MONTH));
     System.out.println("The current time is: " + calen.get(HOUR) + ":" + calen.get(MINUTE));
 
+    assertThat(calen.get(Calendar.MONTH), is(6));  // remember january is 0, february is 1, etc
 
 }
 
