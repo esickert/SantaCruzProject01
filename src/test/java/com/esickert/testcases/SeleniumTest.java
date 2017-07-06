@@ -816,9 +816,4 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 
  }
 
-
-
-
-
-
 } // end of SeleniumT
