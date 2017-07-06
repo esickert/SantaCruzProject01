@@ -791,6 +791,33 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     driver.quit();
  }
 
+ @Test
+ public void exploringNavigate() throws InterruptedException   {
+
+    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+    WebDriver driver = new ChromeDriver();
+    driver.navigate().to("http://www.google.com");     //navigate.to
+
+    WebElement erich = driver.findElement(By.name("q"));
+    erich.click();
+    sleep(2000);
+    erich.sendKeys("cnn");
+    sleep(3000);
+    WebElement eric = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/h3/a"));
+    eric.click();
+
+    driver.navigate().back();             //navigate().back()
+    sleep(3000);
+    driver.navigate().back();
+    sleep(3000);
+    driver.navigate().forward();
+    sleep(2000);
+    driver.navigate().refresh();
+
+ }
+
+
+
 
 
 
