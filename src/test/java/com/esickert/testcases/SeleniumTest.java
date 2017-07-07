@@ -818,7 +818,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
  }
 
  @Test
- public void systemStuff()  {
+ public void saveToFileStuff()  {
     Properties sys = System.getProperties();
 //    sys.list(System.out);
     System.out.println(System.getProperty("java.io.tmpdir"));
