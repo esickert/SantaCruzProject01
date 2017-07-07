@@ -814,31 +814,6 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     driver.navigate().forward();
     sleep(2000);
     driver.navigate().refresh();
-
- }
-
- @Test
- public void saveToFileStuff()  {
-    Properties sys = System.getProperties();
-//    sys.list(System.out);
-    System.out.println(System.getProperty("java.io.tmpdir"));
-    System.out.println();
-
-//the following is the authors shit which he doesn't explain to write to a file.
-    String tempDirectory = System.getProperty("java.io.tmpdir");
-    String tempResourceFilePath = new File(tempDirectory,"tempFieForPropertiesStoreTest.properties").getAbsolutePath();
-
-    Properties savedStuff = new Properties();
-    savedStuff.setProperty("propertyOne", "Hello Fuck");
-    savedStuff.setProperty("propertyTwo", "Explain it next time shit!!");
-
-    savedStuff.list(System.out);
-
-//    FileOutputStream outputFile = new FileOutputStream(tempResourceFilePath);
-//    savedStuff.store(savedStuff,"He is reallyFucked Up");
-//this is really fucked up!!!!!
-
-
  }
 
 } // end of SeleniumT

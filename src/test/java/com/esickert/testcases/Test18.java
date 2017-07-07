@@ -8,6 +8,7 @@ import static java.lang.System.getProperties;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -80,7 +81,28 @@ public class Test18 {
             System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
             ChromeDriver driver = new ChromeDriver();
             driver.get("file:///C:/Temp/alerts.html");
+    }
 
+    @Test
+    public void saveToFileStuff()  {
+        Properties sys = System.getProperties();
+//    sys.list(System.out);
+        System.out.println(System.getProperty("java.io.tmpdir"));
+        System.out.println();
+
+//the following is the authors shit which he doesn't explain to write to a file.
+        String tempDirectory = System.getProperty("java.io.tmpdir");
+        String tempResourceFilePath = new File(tempDirectory,"tempFieForPropertiesStoreTest.properties").getAbsolutePath();
+
+        Properties savedStuff = new Properties();
+        savedStuff.setProperty("propertyOne", "Hello Fuck");
+        savedStuff.setProperty("propertyTwo", "Explain it next time shit!!");
+
+        savedStuff.list(System.out);
+
+//    FileOutputStream outputFile = new FileOutputStream(tempResourceFilePath);
+//    savedStuff.store(savedStuff,"He is reallyFucked Up");
+//this is really fucked up!!!!!
 
     }
 
