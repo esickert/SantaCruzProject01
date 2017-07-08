@@ -825,7 +825,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 //IMPLICIT WAIT WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     WebDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-    driver.navigate().to("localhost:8080");
+    driver.navigate().to("localhost:8080");  //THIS IS THE JENKINS SERVER RUNNING ON MY LAPTOP. NEED TO START USING SC
 
     WebElement jenkins = driver.findElement(By.name("j_username"));
     jenkins.sendKeys("esickert");
