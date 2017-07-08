@@ -95,8 +95,8 @@ public class Test18 {
         String tempResourceFilePath = new File(tempDirectory,"tempFieForPropertiesStoreTest.properties").getAbsolutePath();
 
         Properties savedStuff = new Properties();
-        savedStuff.setProperty("propertyOne", "Hello Fuck");
-        savedStuff.setProperty("propertyTwo", "Explain it next time shit!!");
+        savedStuff.setProperty("propertyOne", "Hello");
+        savedStuff.setProperty("propertyTwo", "Explain it next time!!");
 
         savedStuff.list(System.out);
 
