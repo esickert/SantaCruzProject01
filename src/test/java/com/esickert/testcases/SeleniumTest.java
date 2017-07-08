@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
@@ -37,7 +38,7 @@ import static org.junit.Assert.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-
+import static org.openqa.selenium.Keys.ENTER;
 
 
 //import static org.junit.*;
@@ -682,7 +683,7 @@ public class SeleniumTest {
              build.sendKeys(Keys.TAB);
              sleep(2000);
              build.sendKeys(PASSWORD);
-             build.sendKeys(Keys.ENTER);
+             build.sendKeys(ENTER);
              sleep(3000);
         build.perform();
         sleep(5000);
@@ -801,19 +802,39 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 
     WebElement erich = driver.findElement(By.name("q"));
     erich.click();
-    sleep(2000);
+//    sleep(2000);
     erich.sendKeys("cnn");
-    sleep(3000);
+//    sleep(3000);
     WebElement eric = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/h3/a"));
     eric.click();
 
     driver.navigate().back();             //navigate().back()
-    sleep(3000);
+ //   sleep(3000);
     driver.navigate().back();
-    sleep(3000);
+  //  sleep(3000);
     driver.navigate().forward();
-    sleep(2000);
+ //   sleep(2000);
     driver.navigate().refresh();
+    driver.close();
  }
 
+ @Test
+ public void waitingFOrWebElements() throws InterruptedException    {
+
+    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+//IMPLICIT WAIT WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    WebDriver driver = new ChromeDriver();
+    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    driver.navigate().to("localhost:8080");
+
+    WebElement jenkins = driver.findElement(By.name("j_username"));
+    jenkins.sendKeys("esickert");
+    sleep(2000);
+    WebElement jenkinsPass = driver.findElement(By.name("j_password"));
+    jenkinsPass.sendKeys("Claude111");
+    jenkinsPass.sendKeys(ENTER);
+
+
+
+}
 } // end of SeleniumT
