@@ -102,7 +102,7 @@ public class Test18 {
 
 //    FileOutputStream outputFile = new FileOutputStream(tempResourceFilePath);
 //    savedStuff.store(savedStuff,"He is reallyFucked Up");
-//this is really fucked up!!!!!
+//this is really fucked up!!!!! This shit hopefully will make more sense after chap 19!!!!!!!!!!!!!!!
 
     }
 
