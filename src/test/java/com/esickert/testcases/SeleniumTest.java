@@ -21,6 +21,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;  //used for File input/output
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -833,8 +835,34 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     WebElement jenkinsPass = driver.findElement(By.name("j_password"));
     jenkinsPass.sendKeys("Claude111");
     jenkinsPass.sendKeys(ENTER);
-
-
-
 }
+
+@Test
+public void testWithNewFireFoxSetup() {
+
+ //   System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");
+ //   WebDriver driver = new FirefoxDriver();
+ //   driver.get("http://www.google.com");
+
+/*    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+    capabilities.setCapability("marionette", true);
+
+
+    try {
+        WebDriver driver = new FirefoxDriver();
+
+        driver.navigate().to("http://google.com");
+    }catch(Exception e){
+
+        System.out.println(e);
+    }*/
+
+    Path path = FileSystems.getDefault().getPath("c:\\DriversForSelenium\\geckodriver.exe");
+    System.setProperty("webdriver.gecko.driver",path.toString());
+    WebDriver driver = new FirefoxDriver();
+    //from here down is just a working example...
+    driver.get("http://www.google.com");
+}
+
+
 } // end of SeleniumT
