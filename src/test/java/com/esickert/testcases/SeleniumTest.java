@@ -12,7 +12,9 @@ import org.openqa.selenium.interactions.Action;                          //NOTE:
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -827,7 +829,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 //IMPLICIT WAIT WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     WebDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-    driver.navigate().to("localhost:8080");  //THIS IS THE JENKINS SERVER RUNNING ON MY LAPTOP. NEED TO START USING SC
+    driver.navigate().to("localhost:8080");  //THIS IS THE JENKINS SERVER RUNNING ON MY LAPTOP. NEED TO START USING SC start jenkins
 
     WebElement jenkins = driver.findElement(By.name("j_username"));
     jenkins.sendKeys("esickert");
@@ -844,19 +846,24 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     System.out.println("BELOW ARE THE GECKO DRIVER LOGS BEING PRINTED TO OUPUT SCREEN-figure out how to turn off!!!!!!!!!!");
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
     WebDriver driver = new FirefoxDriver();
-    driver.get("http://www.google.com");
-    WebElement test = driver.findElement(By.name("q"));
+    driver.get("http://www.yahoo.com");
+    WebElement test = driver.findElement(By.name("p"));
     test.click();
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
 
     sleep(5000);
-    WebElement cnn = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
-    cnn.click();  //need explicit timeout here as window closes before ccn opens
-    sleep(5000);
-    driver.close();
 
-}
+    WebElement cnn = driver.findElement(By.cssSelector("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]"));
+//    cnn.click();  //need explicit timeout here as window closes before ccn opens
+
+    WebDriverWait wait = new WebDriverWait(driver,30);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html//body/div[1]/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div/h3/a")));
+//    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]")));
+
+    cnn.click();
+
+    }
 
 
 } // end of SeleniumT
