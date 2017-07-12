@@ -838,30 +838,24 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 }
 
 @Test
-public void testWithNewFireFoxSetup() {
+public void testWithNewFireFoxSetup() throws InterruptedException {
 
- //   System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");
- //   WebDriver driver = new FirefoxDriver();
- //   driver.get("http://www.google.com");
-
-/*    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-    capabilities.setCapability("marionette", true);
-
-
-    try {
-        WebDriver driver = new FirefoxDriver();
-
-        driver.navigate().to("http://google.com");
-    }catch(Exception e){
-
-        System.out.println(e);
-    }*/
-
-    Path path = FileSystems.getDefault().getPath("c:\\DriversForSelenium\\geckodriver.exe");
-    System.setProperty("webdriver.gecko.driver",path.toString());
+//    System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");
+    System.out.println("BELOW ARE THE GECKO DRIVER LOGS BEING PRINTED TO OUPUT SCREEN-figure out how to turn off!!!!!!!!!!");
+    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
     WebDriver driver = new FirefoxDriver();
-    //from here down is just a working example...
     driver.get("http://www.google.com");
+    WebElement test = driver.findElement(By.name("q"));
+    test.click();
+    test.sendKeys("cnn");
+    test.sendKeys(ENTER);
+
+    sleep(5000);
+    WebElement cnn = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
+    cnn.click();  //need explicit timeout here as window closes before ccn opens
+    sleep(5000);
+    driver.close();
+
 }
 
 
