@@ -852,16 +852,16 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
 
-    sleep(5000);
+ //   sleep(5000);
 
-    WebElement cnn = driver.findElement(By.cssSelector("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]"));
+//    WebElement cnn = driver.findElement(By.cssSelector("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]"));
 //    cnn.click();  //need explicit timeout here as window closes before ccn opens
 
-    WebDriverWait wait = new WebDriverWait(driver,30);
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html//body/div[1]/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div/h3/a")));
+ //   WebDriverWait wait = new WebDriverWait(driver,30);
+ //   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html//body/div[1]/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div/h3/a")));
 //    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]")));
 
-    cnn.click();
+ //   cnn.click();
 
     }
 
