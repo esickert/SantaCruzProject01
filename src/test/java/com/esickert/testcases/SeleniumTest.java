@@ -8,13 +8,17 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.logging.LoggingPreferences;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -28,6 +32,7 @@ import java.nio.file.Path;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import static com.esickert.cases.Sleep.toSleep;
 import static java.lang.Integer.*;
@@ -843,14 +848,37 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 public void testWithNewFireFoxSetup() throws InterruptedException {
 
 //    System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");
+
+    LoggingPreferences pref = new LoggingPreferences();
+
+   pref.enable(LogType.BROWSER, Level.INFO);
+    pref.enable(LogType.CLIENT, Level.OFF);
+    pref.enable(LogType.DRIVER, Level.OFF);
+    pref.enable(LogType.PERFORMANCE, Level.OFF);
+    pref.enable(LogType.PROFILER, Level.OFF);
+    pref.enable(LogType.SERVER, Level.OFF);
+
+    DesiredCapabilities desiredCapabilities = DesiredCapabilities.firefox();
+    desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, pref);
+
     System.out.println("BELOW ARE THE GECKO DRIVER LOGS BEING PRINTED TO OUPUT SCREEN-figure out how to turn off!!!!!!!!!!");
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
-    WebDriver driver = new FirefoxDriver();
+
+ /*   FirefoxProfile profile = new FirefoxProfile();
+    profile.setPreference("webdriver.log.browser.ignore", true);
+    profile.setPreference("webdriver.log.driver.ignore", true);
+    profile.setPreference("webdriver.log.profiler.ignore", true);
+*/
+    FirefoxDriver driver = new FirefoxDriver();
+
+//    WebDriver driver = new FirefoxDriver(desiredCapabilities);
     driver.get("http://www.yahoo.com");
     WebElement test = driver.findElement(By.name("p"));
     test.click();
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
+    sleep(5000);
+    driver.close();
 
  //   sleep(5000);
 
