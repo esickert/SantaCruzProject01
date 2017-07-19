@@ -878,7 +878,7 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
     sleep(5000);
- //   driver.close();
+    driver.close();
 
  //   sleep(5000);
 
