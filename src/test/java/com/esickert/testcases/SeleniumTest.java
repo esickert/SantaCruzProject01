@@ -847,11 +847,9 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 @Test
 public void testWithNewFireFoxSetup() throws InterruptedException {
 
-//    System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");
-
     LoggingPreferences pref = new LoggingPreferences();
 
-   pref.enable(LogType.BROWSER, Level.INFO);
+    pref.enable(LogType.BROWSER, Level.OFF);
     pref.enable(LogType.CLIENT, Level.OFF);
     pref.enable(LogType.DRIVER, Level.OFF);
     pref.enable(LogType.PERFORMANCE, Level.OFF);
@@ -862,7 +860,13 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, pref);
 
     System.out.println("BELOW ARE THE GECKO DRIVER LOGS BEING PRINTED TO OUPUT SCREEN-figure out how to turn off!!!!!!!!!!");
-    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+//    System.setProperty("webdriver.gecko.driver", "c:\\DriversForSelenium\\geckodriver.exe");  //firefox driver - this doesn't work
+    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe"); //firefox driver - this works
+
+
+//    System.setProperty("webdriver.chrome.driver", "c:\\DriversForSelenium\\chromedriver.exe");
+//    WebDriver driver = new ChromeDriver();
+//    chrome.get("http://www.google.com");
 
  /*   FirefoxProfile profile = new FirefoxProfile();
     profile.setPreference("webdriver.log.browser.ignore", true);
@@ -877,21 +881,17 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     test.click();
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
-    sleep(5000);
-    driver.close();
-
  //   sleep(5000);
-
-//    WebElement cnn = driver.findElement(By.cssSelector("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]"));
-//    cnn.click();  //need explicit timeout here as window closes before ccn opens
-
+ //   driver.close();
+    sleep(5000);
  //   WebDriverWait wait = new WebDriverWait(driver,30);
- //   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html//body/div[1]/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div/h3/a")));
-//    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("html/body/div[2]/div/div/div/div/div/div/div[2]/div/div/form/table/tbody/tr/td[1]/input[1]")));
+ //These don't work. xpath is incorrect!!!!
+ //   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html/body/div[1]/div[3]/div/div/div[1]/div/div[2]/div/div[1]/ol/li[1]/div/div[1]/h3/a")));
+//    WebElement cnn = driver.findElement(By.xpath("html/body/div[1]/div[3]/div/div/div[1]/div/div[2]/div/div[1]/ol/li[1]/div/div[1]/h3/a"));
 
- //   cnn.click();
-
+    WebElement cnn = driver.findElement(By.linkText("CNN - Top News"));
+    cnn.click();  //need explicit timeout here as window closes before ccn opens
+    sleep(3000);
+    driver.close();
     }
-
-
 } // end of SeleniumT
