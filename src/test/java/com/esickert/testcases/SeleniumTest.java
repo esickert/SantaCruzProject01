@@ -889,9 +889,9 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
  //   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html/body/div[1]/div[3]/div/div/div[1]/div/div[2]/div/div[1]/ol/li[1]/div/div[1]/h3/a")));
 //    WebElement cnn = driver.findElement(By.xpath("html/body/div[1]/div[3]/div/div/div[1]/div/div[2]/div/div[1]/ol/li[1]/div/div[1]/h3/a"));
 
-    WebElement cnn = driver.findElement(By.linkText("CNN - Top News"));
-    cnn.click();  //need explicit timeout here as window closes before ccn opens
-    sleep(3000);
-    driver.close();
+    driver.findElement(By.linkText("CNN - Top News")).click();
+//    cnn.click();  //need explicit timeout here as window closes before ccn opens
+    sleep(5000);
+    driver.quit();
     }
 } // end of SeleniumT
