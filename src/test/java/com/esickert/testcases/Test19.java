@@ -50,7 +50,7 @@ public class Test19 {
     @Test
     public void createATempFile() throws IOException   {
 
-    File outputTemp = File.createTempFile("For testing stuff", ".erich", new File("c:/Temp"));
+    File outputTemp = File.createTempFile("For testing!!!!~", ".erich", new File("c:/Temp"));
 
 
     }
