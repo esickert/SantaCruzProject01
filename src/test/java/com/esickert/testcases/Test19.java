@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.*;
 
+import static junit.framework.TestCase.assertTrue;
+
 /**
  * Created by esickert on 7/9/2017.
  */
@@ -33,7 +35,8 @@ public class Test19 {
 
     //WRITE TO A TEMP FILE
     public File writeTheTestDataFile() throws IOException {
-        File outputFile = File.createTempFile("For Reading From", ".erich", new File("c:/Temp")); //a method creates a temp file in c:/Temp using method createTempFile
+    //setting second parameter to null appends .tmp extension to created file.
+        File outputFile = File.createTempFile("For Reading From", null, new File("c:/Temp")); //a method creates a temp file in c:/Temp using method createTempFile
         PrintWriter print = new PrintWriter(
                                 new BufferedWriter(
                                     new FileWriter(outputFile)));
@@ -50,9 +53,26 @@ public class Test19 {
     @Test
     public void createATempFile() throws IOException   {
 
-    File outputTemp = File.createTempFile("For testing!!!!~", ".erich", new File("c:/Temp"));
-
-
+        File outputTemp = File.createTempFile("For testing!!!!~", ".erich", new File("c:/Temp"));  //CREATES A .ERICH FILE IN C:\TEMP
+        File[] drives = File.listRoots();  //RETURNS A LIST OF DRIVES ON SYSTEM.
+        for(File temp: drives) {
+            System.out.print(temp  + " ");
+        }
     }
+
+    @Test
+    public void writeOutTheRoots() throws IOException   {
+
+        File[] roots = File.listRoots();
+        assertTrue(roots.length > 1);
+
+        for(File temp: roots)   {  //the curly brackets arn't necessary for single statements but makes the code easier to read.
+            System.out.println(temp.getAbsolutePath());
+        }
+        System.out.println("********************************************");
+        File output = File.createTempFile("for testing absolutePath..ha ha", null,new File("C:/Temp/tmp/tmp"));
+        System.out.println(output.getAbsolutePath());  //this will print out the full path for the output file or location of file in directory tree.
+    }
+
 
 }  //end of Test19
