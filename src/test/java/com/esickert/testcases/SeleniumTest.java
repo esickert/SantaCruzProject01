@@ -892,6 +892,6 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     driver.findElement(By.linkText("CNN - Top News")).click();
 //    cnn.click();  //need explicit timeout here as window closes before ccn opens
     sleep(5000);
-    driver.quit();
+//    driver.quit();
     }
 } // end of SeleniumT
