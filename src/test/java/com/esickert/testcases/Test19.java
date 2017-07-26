@@ -3,7 +3,12 @@ package com.esickert.testcases;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import static org.junit.Assert.*;
 
+import static org.hamcrest.CoreMatchers.*;
+
+import static java.lang.Thread.sleep;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -74,5 +79,20 @@ public class Test19 {
         System.out.println(output.getAbsolutePath());  //this will print out the full path for the output file or location of file in directory tree.
     }
 
+    @Test
+    public void fileClassStuff() throws IOException, InterruptedException    {
 
-}  //end of Test19
+        File fileStuff = new File("c:\\temp\\erichSickert.txt");
+        assertThat(fileStuff.exists(), is(false));
+        //System.currentTimeMillis()
+        fileStuff.createNewFile();
+/*        String a = fileStuff.getAbsolutePath();
+        System.out.println(a);
+        sleep(5000);
+//        fileStuff.write("erichSickert.txt","This is stuff", Charset.forName("UTF-8"));
+        fileStuff.delete();*/
+
+    }
+
+
+    }  //end of Test19

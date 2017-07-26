@@ -894,4 +894,8 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     sleep(5000);
     driver.quit();
     }
+
+
+
+
 } // end of SeleniumT
