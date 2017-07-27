@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Path;
+
 import static org.junit.Assert.*;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -83,15 +85,19 @@ public class Test19 {
     public void fileClassStuff() throws IOException, InterruptedException    {
 
         File fileStuff = new File("c:\\temp\\erichSickert.txt");
-        assertThat(fileStuff.exists(), is(false));
+        File fileStuff2 = new File("c://temp", System.currentTimeMillis() +" sickertErich.txt");
+        File fileStuff3 = new File("c://temp//tmp//", "//tmp//erich.txt");
+ //       assertThat(fileStuff.exists(), is(false));
         //System.currentTimeMillis()
         fileStuff.createNewFile();
-/*        String a = fileStuff.getAbsolutePath();
-        System.out.println(a);
+        fileStuff2.createNewFile();
+        String a = fileStuff.getAbsolutePath();
+        System.out.println("This is the absolute path for File fileStuff: " + a);
         sleep(5000);
-//        fileStuff.write("erichSickert.txt","This is stuff", Charset.forName("UTF-8"));
-        fileStuff.delete();*/
 
+        fileStuff.delete();
+
+        System.out.println("Using getName() method: " + fileStuff3.getName());
     }
 
 
