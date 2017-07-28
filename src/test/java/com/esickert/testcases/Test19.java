@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.*;
 
@@ -91,6 +92,7 @@ public class Test19 {
         //System.currentTimeMillis()
         fileStuff.createNewFile();
         fileStuff2.createNewFile();
+        fileStuff3.createNewFile();
         String a = fileStuff.getAbsolutePath();
         System.out.println("This is the absolute path for File fileStuff: " + a);
         sleep(5000);
@@ -100,5 +102,14 @@ public class Test19 {
         System.out.println("Using getName() method: " + fileStuff3.getName());
     }
 
+    @Test
+    public void moreFileClassStuff()  throws IOException  {
+
+        System.out.println(System.getProperty("java.io.tmpdir"));  //this will print out the system temp directory path
+        String tempDir = System.getProperty("java.io.tmpdir");
+        File aTempFile = Paths.get(tempDir, "erichSickertClaude.txt").toFile(); //this does not ccreate the file, only a ghost
+        aTempFile.createNewFile();
+
+    }
 
     }  //end of Test19
