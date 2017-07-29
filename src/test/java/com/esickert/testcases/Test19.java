@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 import static org.junit.Assert.*;
 
@@ -103,12 +104,28 @@ public class Test19 {
     }
 
     @Test
-    public void moreFileClassStuff()  throws IOException  {
+    public void moreFileClassStuff()  throws IOException, InterruptedException  {
 
         System.out.println(System.getProperty("java.io.tmpdir"));  //this will print out the system temp directory path
         String tempDir = System.getProperty("java.io.tmpdir");
         File aTempFile = Paths.get(tempDir, "erichSickertClaude.txt").toFile(); //this does not ccreate the file, only a ghost
         aTempFile.createNewFile();
+
+        System.out.println(System.getProperty("os.arch"));
+
+//        Properties z = System.getProperties(); //getProperties is a method of class System
+        //To modify system properties, use the System.setProperties (NOTE: this can be dangerous!!
+//        z.list(System.out);
+
+        String tempPath = "c:\\Temp";
+        File aFile = new File("c:\\Temp","thisIsATest.txt");
+        aFile.createNewFile();
+        aFile = new File(aFile, "1");
+        aFile = new File(aFile, "2");
+        File anotherTempFile = Paths.get("c:\\Temp", "anotherTest.txt").toFile();
+        anotherTempFile.createNewFile();
+        sleep(5000);
+        anotherTempFile.delete();
 
     }
 
