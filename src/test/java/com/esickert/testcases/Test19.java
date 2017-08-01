@@ -125,8 +125,33 @@ public class Test19 {
         File anotherTempFile = Paths.get("c:\\Temp", "anotherTest.txt").toFile();
         anotherTempFile.createNewFile();
         sleep(5000);
-        anotherTempFile.delete();
-
+//        anotherTempFile.delete();
     }
 
-    }  //end of Test19
+    @Test
+    public void writingTheGreatAmericanNovel() throws IOException   {
+        String fileName = "c:\\Temp\\erich.txt";   // this will create a file in the Temp directory. No
+                                                   // directory path, created in the home directory of program
+        File theFile = new File(fileName);
+        theFile.createNewFile();
+
+        PrintWriter  outputStream = null;
+        outputStream = new PrintWriter(fileName);   //creates the file in the directory
+/*        try
+        {
+            outputStream = new PrintWriter(fileName);
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("Error opening the file " + theFile);
+            System.exit(0);
+        } */
+
+        outputStream.println("This is the end!!!");  //writes to the file
+        outputStream.println("Beautiful friend");    //writes to the file
+        outputStream.println("...and this file creating/writing worked!!!!");
+        System.out.println("Does erich.txt exist??: " + theFile.exists());
+        outputStream.close();  //closes the created file
+
+    }
+}  //end of Test19
