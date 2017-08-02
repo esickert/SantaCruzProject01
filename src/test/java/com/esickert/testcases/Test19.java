@@ -2,6 +2,7 @@ package com.esickert.testcases;
 
 import org.junit.Test;
 
+import java.util.*;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
@@ -154,4 +155,32 @@ public class Test19 {
         outputStream.close();  //closes the created file
 
     }
+
+    @Test
+    public void wordsForLife()  {
+
+        String[] words = {"a", "bb", "bb", "c"};
+
+ //       ArrayList stuff = new ArrayList();
+        List stuff = new ArrayList();
+        int len = 2;
+
+        System.out.println(words.length);
+        System.out.println();
+        for(int i = 0; i < words.length; i++) {
+            if (words[i].length()!=len) {
+                System.out.print(words[i] + " ");
+                stuff.add(words[i]);
+            }
+        }
+        System.out.println(stuff.size());
+        for(Object temp: stuff) {
+            System.out.print(temp + " ");
+        }
+        System.out.println();
+        System.out.println(stuff);
+    }
+
+
+
 }  //end of Test19
