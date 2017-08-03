@@ -15,6 +15,7 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -894,6 +895,41 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     sleep(5000);
     driver.quit();
     }
+
+@Test
+public void cookies() throws InterruptedException  {
+
+    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+    FirefoxDriver driver = new FirefoxDriver();
+
+    driver.get("http://www.google.com");
+
+//  THIS IS AN EXAMPLE OF EXPLICIT WAIT.
+    WebElement pleaseWaitBuddy = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.name("q")));
+
+/*    WebElement element = (new WebDriverWait(driver, 5)).until(new ExpectedCondition<WebElement>() {
+
+        @Override
+        public WebElement apply(WebDriver d)    {
+            return d.findElement(By.name("q"));  //this will fail after 5 seconds
+        }
+        });
+*/
+    pleaseWaitBuddy.sendKeys("cnn");
+//    sleep(3000);
+    pleaseWaitBuddy.sendKeys(ENTER);
+//    sleep(2000);
+
+    WebElement cnn = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
+//    WebDriver cnn = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)")));
+    cnn.click();
+    }
+
+
+
+
+
+
 
 
 
