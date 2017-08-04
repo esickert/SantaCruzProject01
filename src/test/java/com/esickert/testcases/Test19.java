@@ -156,7 +156,8 @@ public class Test19 {
 
     }
 
-    @Test
+//*******************************************************************************************
+    @Test  //THIS IS A PRACTICE PROGRAM FROM CODEBAT. HAS NO REFERENCE TO FILE IO.
     public void wordsForLife()  {
 
         String[] words = {"a", "bb", "bb", "c"};
@@ -180,7 +181,7 @@ public class Test19 {
         System.out.println();
         System.out.println(stuff);
     }
-
+//*********************************************************************************************
 
 
 }  //end of Test19
