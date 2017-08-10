@@ -18,7 +18,7 @@ public class File10 {
         // this will create a file in the Temp directory. No
         // directory path, created in the home directory of program
         File theFile = new File(fileName);
- //       try {
+        try {
         theFile.createNewFile();
 
         PrintWriter outputStream = null;
@@ -27,7 +27,7 @@ public class File10 {
         outputStream.println("Beautiful friend");    //writes to the file
         outputStream.println("...and this file creating/writing worked!!!!");
         outputStream.println("This is the end!!!");  //writes to the file
-//        System.out.println("Does erich.txt exist??: " + theFile.exists());
+        System.out.println("Does erich.txt exist??: " + theFile.exists());
 
         outputStream.close();  //closes the created file
         } catch (Exception e)   {
