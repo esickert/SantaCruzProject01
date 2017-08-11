@@ -27,6 +27,7 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;  //used for File input/output
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -48,6 +49,7 @@ import static org.junit.Assert.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.openqa.selenium.By.name;
 import static org.openqa.selenium.Keys.ENTER;
 
 
@@ -87,9 +89,9 @@ public class SeleniumTest {
            driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
            //use intellij to code the selenium features.
 
-           WebElement ten = driver.findElement(By.name("ten"));
-           WebElement eight = driver.findElement(By.name("eight"));
-           WebElement six = driver.findElement(By.name("six"));
+           WebElement ten = driver.findElement(name("ten"));
+           WebElement eight = driver.findElement(name("eight"));
+           WebElement six = driver.findElement(name("six"));
            //Add all the actions into the Actions builder.
            int time = 0;
            Actions buildMe = new Actions(driver); //a new class
@@ -153,7 +155,7 @@ public class SeleniumTest {
         driver.get(url2);
         assertFalse("checking urls??", url.equals(url2));          //  ************************************ ERROR ERROR
         //this was experimenting with printing out text in web elements.
-        WebElement me = driver.findElement(By.name("btnK"));
+        WebElement me = driver.findElement(name("btnK"));
         me.sendKeys("will this work");
         String txt = me.getText();
         System.out.println(txt);
@@ -193,9 +195,9 @@ public class SeleniumTest {
             ChromeDriver driver2 = new ChromeDriver();
             driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
 
-            WebElement ten = driver2.findElement(By.name("ten"));
-            WebElement eight = driver2.findElement(By.name("eight"));
-            WebElement six = driver2.findElement(By.name("six"));
+            WebElement ten = driver2.findElement(name("ten"));
+            WebElement eight = driver2.findElement(name("eight"));
+            WebElement six = driver2.findElement(name("six"));
             //Add all the actions into the Actions builder.
             int time = 0;
             Actions buildMe = new Actions(driver2); //a new class
@@ -357,7 +359,7 @@ public class SeleniumTest {
         ChromeDriver driver = new ChromeDriver();
 //    WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
-        WebElement one = driver.findElement(By.name("one"));
+        WebElement one = driver.findElement(name("one"));
         System.out.println("X coordinate is: " + (one.getLocation().getX()) + ", Y coordinate is: "
                                   + one.getLocation().getY());
  //   one.click();
@@ -387,7 +389,7 @@ public class SeleniumTest {
         ChromeDriver driver = new ChromeDriver();
 //    WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
-        WebElement one = driver.findElement(By.name("one"));
+        WebElement one = driver.findElement(name("one"));
 //        one.click();
         System.out.println("X coordinate is: " + (one.getLocation().getX()-8) + ", Y coordinate is: "
                 + (one.getLocation().getY()-8));
@@ -422,10 +424,10 @@ public class SeleniumTest {
     WebDriver driver2 = new ChromeDriver();
     driver2.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
 
-    WebElement four = driver2.findElement(By.name("four"));
-    WebElement six = driver2.findElement(By.name("six"));
-    WebElement seven = driver2.findElement(By.name("seven"));
-    WebElement eight = driver2.findElement(By.name("eight"));
+    WebElement four = driver2.findElement(name("four"));
+    WebElement six = driver2.findElement(name("six"));
+    WebElement seven = driver2.findElement(name("seven"));
+    WebElement eight = driver2.findElement(name("eight"));
     Actions builder = new Actions(driver2);
         four.click();
         six.click();
@@ -444,10 +446,10 @@ public class SeleniumTest {
     System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver driver3 = new ChromeDriver();
     driver3.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
-    WebElement twelve = driver3.findElement(By.name("twelve"));
+    WebElement twelve = driver3.findElement(name("twelve"));
     sleep(5000);
-    WebElement two = driver3.findElement(By.name("two"));
-    WebElement three = driver3.findElement(By.name("three"));
+    WebElement two = driver3.findElement(name("two"));
+    WebElement three = driver3.findElement(name("three"));
     Actions builder = new Actions(driver3);
     builder.clickAndHold(twelve)
  //      .moveByOffset(8,8)
@@ -463,8 +465,8 @@ public class SeleniumTest {
     System.setProperty("webdriver.chrome.driver", "\\DriversForSelenium\\chromedriver.exe");
     WebDriver driver4 = new ChromeDriver();
     driver4.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Sortable.html");
-    WebElement four = driver4.findElement(By.name("four"));
-    WebElement eleven = driver4.findElement(By.name("eleven"));
+    WebElement four = driver4.findElement(name("four"));
+    WebElement eleven = driver4.findElement(name("eleven"));
     Actions builder = new Actions(driver4);
 //    builder.clickAndHold(four).moveByOffset(8,220).release(eleven).perform();  //THIS IS A METHOD CHAIN!!!!
     builder.clickAndHold(four)  //***************************************************************
@@ -484,8 +486,8 @@ public class SeleniumTest {
         System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
-        WebElement eleven = driver.findElement(By.name("eleven"));
-        WebElement five = driver.findElement(By.name("five"));
+        WebElement eleven = driver.findElement(name("eleven"));
+        WebElement five = driver.findElement(name("five"));
         Actions builder = new Actions(driver);
         builder.moveToElement(five)   //**********************************************************
             .clickAndHold()
@@ -530,7 +532,7 @@ public class SeleniumTest {
 
         WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DoubleClick.html");
-        WebElement button = driver.findElement(By.name("dblClick"));
+        WebElement button = driver.findElement(name("dblClick"));
         Actions build = new Actions(driver);
         build.moveToElement(button).doubleClick().perform();
         sleep(5000);
@@ -543,7 +545,7 @@ public class SeleniumTest {
 
         WebDriver driver = new FirefoxDriver();
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/DoubleClick.html");
-        WebElement dblClick = driver.findElement(By.name("dblClick"));
+        WebElement dblClick = driver.findElement(name("dblClick"));
         Actions build = new Actions(driver);
         build.doubleClick(dblClick).perform();
         sleep(5000);
@@ -557,7 +559,7 @@ public class SeleniumTest {
         driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/contextClick.html");
         WebElement rightClick = driver.findElement(By.id("div-context"));
         Actions build = new Actions(driver);
-        build.contextClick(rightClick).click(driver.findElement(By.name("Item 3"))).perform();
+        build.contextClick(rightClick).click(driver.findElement(name("Item 3"))).perform();
         sleep(5000);
         driver.quit();  //below will not work because there is a window open
    }
@@ -773,14 +775,14 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 
     Actions doStuff = new Actions(erich);
     erich.switchTo().frame(0);
-    WebElement txt = erich.findElement(By.name("1"));
+    WebElement txt = erich.findElement(name("1"));
     txt.sendKeys("I'm fucking in one");
 
     sleep(3000);
     erich.switchTo().defaultContent();  //what is this????
 
     erich.switchTo().frame(1);
-    txt = erich.findElement(By.name("2"));
+    txt = erich.findElement(name("2"));
     txt.sendKeys("This is frame 2");
 
  }
@@ -810,7 +812,7 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     WebDriver driver = new ChromeDriver();
     driver.navigate().to("http://www.google.com");     //navigate.to
 
-    WebElement erich = driver.findElement(By.name("q"));
+    WebElement erich = driver.findElement(name("q"));
     erich.click();
 //    sleep(2000);
     erich.sendKeys("cnn");
@@ -837,10 +839,10 @@ public void switchToWindows() throws AWTException, InterruptedException     {
     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     driver.navigate().to("localhost:8080");  //THIS IS THE JENKINS SERVER RUNNING ON MY LAPTOP. NEED TO START USING SC start jenkins
 
-    WebElement jenkins = driver.findElement(By.name("j_username"));
+    WebElement jenkins = driver.findElement(name("j_username"));
     jenkins.sendKeys("esickert");
     sleep(2000);
-    WebElement jenkinsPass = driver.findElement(By.name("j_password"));
+    WebElement jenkinsPass = driver.findElement(name("j_password"));
     jenkinsPass.sendKeys("Claude111");
     jenkinsPass.sendKeys(ENTER);
 }
@@ -878,7 +880,7 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
 
 //    WebDriver driver = new FirefoxDriver(desiredCapabilities);
     driver.get("http://www.yahoo.com");
-    WebElement test = driver.findElement(By.name("p"));
+    WebElement test = driver.findElement(name("p"));
     test.click();
     test.sendKeys("cnn");
     test.sendKeys(ENTER);
@@ -905,7 +907,7 @@ public void cookies() throws InterruptedException  {
     driver.get("http://www.google.com");
 
 //  THIS IS AN EXAMPLE OF EXPLICIT WAIT.
-    WebElement pleaseWaitBuddy = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.name("q")));
+    WebElement pleaseWaitBuddy = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(name("q")));
 
 /*    WebElement element = (new WebDriverWait(driver, 5)).until(new ExpectedCondition<WebElement>() {
 
@@ -915,23 +917,41 @@ public void cookies() throws InterruptedException  {
         }
         });
 */
-    pleaseWaitBuddy.sendKeys("cnn");
+    pleaseWaitBuddy.sendKeys("cbs news");
 //    sleep(3000);
     pleaseWaitBuddy.sendKeys(ENTER);
 //    sleep(2000);
 
-    WebElement cnn = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
+    WebElement cbs = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
 //    WebDriver cnn = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)")));
-    cnn.click();
+    cbs.click();
     }
 
+    @Test
+    public void testGetCookieInfo() throws InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        WebDriver linkedin = new ChromeDriver();
+        linkedin.get("https://www.linkedin.com/uas/login");
+        linkedin.findElement(By.xpath("//*[@id=\"session_key-login\"]")).sendKeys("esickert@gmail.com");
+        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).sendKeys("Busby111");
+        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).submit();
+//        linkedin.findElement(By.xpath("//*[@id=\"btn-primary\"]")).click();
+
+        File browserData = new File("c:\\Temp\\browser.data");
+        try {
+            browserData.delete();
+            browserData.createNewFile();
+
+            FileWriter fos = new FileWriter(browserData);
 
 
 
-
-
-
-
-
+        }catch(Exception ex)    {
+            ex.printStackTrace();
+        }
+//        sleep(5000);
+//        linkedin.quit();
+    }
 
 } // end of SeleniumT
