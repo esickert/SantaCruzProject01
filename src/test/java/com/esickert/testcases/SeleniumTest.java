@@ -8,16 +8,13 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.logging.LoggingPreferences;
 
@@ -25,14 +22,8 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 
 import java.awt.event.KeyEvent;
-import java.io.File;  //used for File input/output
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
+import java.io.*;
 import java.util.*;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -47,8 +38,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
 import static org.openqa.selenium.By.name;
 import static org.openqa.selenium.Keys.ENTER;
 
@@ -898,6 +887,8 @@ public void testWithNewFireFoxSetup() throws InterruptedException {
     driver.quit();
     }
 
+//**********************************************************************************************************************
+//**********************************************************************************************************************
 @Test
 public void cookies() throws InterruptedException  {
 
@@ -928,30 +919,102 @@ public void cookies() throws InterruptedException  {
     }
 
     @Test
-    public void testGetCookieInfo() throws InterruptedException {
+    public void testStoreCookieInfo() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
-        WebDriver linkedin = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+//        WebDriver linkedin = new ChromeDriver();
+
+        System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+        FirefoxDriver linkedin = new FirefoxDriver();
+
         linkedin.get("https://www.linkedin.com/uas/login");
         linkedin.findElement(By.xpath("//*[@id=\"session_key-login\"]")).sendKeys("esickert@gmail.com");
         linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).sendKeys("Busby111");
         linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).submit();
 //        linkedin.findElement(By.xpath("//*[@id=\"btn-primary\"]")).click();
 
-        File browserData = new File("c:\\Temp\\browser.data");
+        File writeBrowserData = new File("c:\\Temp\\browser.txt");
         try {
-            browserData.delete();
-            browserData.createNewFile();
+//            browserData.delete();
+            writeBrowserData.createNewFile();
 
-            FileWriter fos = new FileWriter(browserData);
-
-
-
+            FileWriter fos = new FileWriter(writeBrowserData);
+            BufferedWriter bos = new BufferedWriter(fos);
+            for(Cookie ck: linkedin.manage().getCookies())    {   //using the NEW for loop
+                bos.write((ck.getName() + " ; " + ck.getValue() + " ; " + ck.getDomain() + " ; " + ck.getPath() + " ; " + ck.getExpiry() + " ; " + ck.isSecure()));
+                bos.newLine();
+                System.out.println(ck.getName() + " ; " + ck.getValue() + " ; " + ck.getDomain() + " ; " +  ck.getPath() + " ; " + ck.getExpiry() + " + " + ck.isSecure());
+            }
+            bos.flush();
+            bos.close();
+            fos.close();
         }catch(Exception ex)    {
             ex.printStackTrace();
         }
 //        sleep(5000);
 //        linkedin.quit();
+    }  //end of testStoreCookieInfo()
+
+    @Test
+    public void testLoadCookieInfo()    {
+
+        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+        WebDriver linkedin = new ChromeDriver();
+        linkedin.get("https://www.linkedin.com/uas/login");
+
+        try {
+            File readBrowserData = new File("c:\\Temp\\browser.data");
+            FileReader fr = new FileReader(readBrowserData);
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line=br.readLine()) != null)  {
+                StringTokenizer str = new StringTokenizer(line, ";");
+                while (str.hasMoreTokens()) {
+                    String name = str.nextToken();
+                    String value = str.nextToken();
+                    String domain = str.nextToken();
+                    String path = str.nextToken();
+                    Date expiry = null;
+                    String dt;
+                    if (!(dt=str.nextToken()).equals("null"))   {
+                       expiry = new Date(dt);
+                    }
+                    Boolean isSecure = new Boolean(str.nextToken()).booleanValue();
+                    Cookie ck = new Cookie(name,value,domain,path,expiry,isSecure);
+
+                    linkedin.manage().addCookie(ck);
+                }
+            }
+        }   catch(Exception ex)   {
+                ex.printStackTrace();
+        }
+        linkedin.get("https://www.linkedin.com/uas/login");
     }
+//**********************************************************************************************************************
+
+@Test
+public void softQEWebsite() throws InterruptedException {
+
+//    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+//    WebDriver driver = new ChromeDriver();
+
+    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+    FirefoxDriver driver = new FirefoxDriver();
+
+
+    driver.get("http://www.softqe.com");
+
+//    Cookie seleniumCookie = new Cookie("myCookie","name1=val1,name2=val2");
+    Cookie seleniumCookie = new Cookie("myCookie","name1=erich,name2=sickert");
+    driver.manage().addCookie(seleniumCookie);
+    sleep(5000);
+
+    for(Cookie cookieVar: driver.manage().getCookies())
+    {
+        System.out.println(cookieVar.getName() + " => " +cookieVar.getDomain()  );
+
+    }
+}
+
 
 } // end of SeleniumT
