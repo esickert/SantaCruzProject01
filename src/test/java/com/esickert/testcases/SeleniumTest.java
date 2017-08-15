@@ -23,6 +23,7 @@ import java.awt.event.InputEvent;
 
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.text.DateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -908,14 +909,14 @@ public void cookies() throws InterruptedException  {
         }
         });
 */
-    pleaseWaitBuddy.sendKeys("cbs news");
+    pleaseWaitBuddy.sendKeys("cbsNews news");
 //    sleep(3000);
     pleaseWaitBuddy.sendKeys(ENTER);
 //    sleep(2000);
 
-    WebElement cbs = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
+    WebElement cbsNews = driver.findElement(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)"));
 //    WebDriver cnn = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div._NId:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1)")));
-    cbs.click();
+    cbsNews.click();
     }
 
     @Test
@@ -927,27 +928,33 @@ public void cookies() throws InterruptedException  {
         System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
         FirefoxDriver linkedin = new FirefoxDriver();
 
-        linkedin.get("https://www.linkedin.com/uas/login");
-        linkedin.findElement(By.xpath("//*[@id=\"session_key-login\"]")).sendKeys("esickert@gmail.com");
-        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).sendKeys("Busby111");
-        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).submit();
+        linkedin.get("https://www.linkedin.com");
+
+     //   linkedin.findElement(By.xpath("//*[@id=\"session_key-login\"]")).sendKeys("esickert@gmail.com");
+        linkedin.findElement(By.name("session_key")).sendKeys("esickert.gmail.com");
+//        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).sendKeys("Busby111");
+        linkedin.findElement(By.name("session_password")).sendKeys("Busby111");
+//        linkedin.findElement(By.name("persistent")).click();    I DON'T KNOW WHAT THIS IS!!!!!!!!!!!!!
+//        linkedin.findElement(By.xpath("//*[@id=\"session_password-login\"]")).submit();
+ //      linkedin.findElement(By.id("login-submit")).submit();
+
 //        linkedin.findElement(By.xpath("//*[@id=\"btn-primary\"]")).click();
 
-        File writeBrowserData = new File("c:\\Temp\\browser.txt");
+        File writeBrowserData = new File("c:\\Temp\\browser.data");
         try {
 //            browserData.delete();
             writeBrowserData.createNewFile();
 
-            FileWriter fos = new FileWriter(writeBrowserData);
-            BufferedWriter bos = new BufferedWriter(fos);
-            for(Cookie ck: linkedin.manage().getCookies())    {   //using the NEW for loop
-                bos.write((ck.getName() + " ; " + ck.getValue() + " ; " + ck.getDomain() + " ; " + ck.getPath() + " ; " + ck.getExpiry() + " ; " + ck.isSecure()));
-                bos.newLine();
-                System.out.println(ck.getName() + " ; " + ck.getValue() + " ; " + ck.getDomain() + " ; " +  ck.getPath() + " ; " + ck.getExpiry() + " + " + ck.isSecure());
+            FileWriter fileWrite = new FileWriter(writeBrowserData);
+            BufferedWriter bufferWrite = new BufferedWriter(fileWrite);
+            for(Cookie myCookie: linkedin.manage().getCookies())    {   //using the NEW for loop
+                bufferWrite.write((myCookie.getName() + " ; " + myCookie.getValue() + " ; " + myCookie.getDomain() + " ; " + myCookie.getPath() + " ; " + myCookie.getExpiry() + " ; " + myCookie.isSecure()));
+                bufferWrite.newLine();
+                System.out.println(myCookie.getName() + " ; " + myCookie.getValue() + " ; " + myCookie.getDomain() + " ; " +  myCookie.getPath() + " ; " + myCookie.getExpiry() + " + " + myCookie.isSecure());
             }
-            bos.flush();
-            bos.close();
-            fos.close();
+            bufferWrite.flush();
+            bufferWrite.close();
+            fileWrite.close();
         }catch(Exception ex)    {
             ex.printStackTrace();
         }
@@ -958,16 +965,21 @@ public void cookies() throws InterruptedException  {
     @Test
     public void testLoadCookieInfo()    {
 
-        System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
-        WebDriver linkedin = new ChromeDriver();
-        linkedin.get("https://www.linkedin.com/uas/login");
+ //       System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+ //       WebDriver linkedin = new ChromeDriver();
+ //       linkedin.get("https://www.linkedin.com/uas/login");
+
+        System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+        FirefoxDriver linkedin = new FirefoxDriver();
+
+        linkedin.get("https://www.linkedin.com");
 
         try {
             File readBrowserData = new File("c:\\Temp\\browser.data");
-            FileReader fr = new FileReader(readBrowserData);
-            BufferedReader br = new BufferedReader(fr);
+            FileReader fileRead = new FileReader(readBrowserData);
+            BufferedReader bufferRead = new BufferedReader(fileRead);
             String line;
-            while ((line=br.readLine()) != null)  {
+            while ((line=bufferRead.readLine()) != null)  {
                 StringTokenizer str = new StringTokenizer(line, ";");
                 while (str.hasMoreTokens()) {
                     String name = str.nextToken();
@@ -980,15 +992,17 @@ public void cookies() throws InterruptedException  {
                        expiry = new Date(dt);
                     }
                     Boolean isSecure = new Boolean(str.nextToken()).booleanValue();
-                    Cookie ck = new Cookie(name,value,domain,path,expiry,isSecure);
+                    Cookie myCookie = new Cookie(name,value,domain,path,expiry,isSecure);
+                    System.out.println(myCookie.getName() + " ; " + myCookie.getValue() + " ; " + myCookie.getDomain() + " ; " +  myCookie.getPath() + " ; " + myCookie.getExpiry() + " + " + myCookie.isSecure());
 
-                    linkedin.manage().addCookie(ck);
+                   linkedin.manage().addCookie(myCookie);
                 }
             }
         }   catch(Exception ex)   {
                 ex.printStackTrace();
         }
-        linkedin.get("https://www.linkedin.com/uas/login");
+        linkedin.get("https://www.linkedin.com");
+//        linkedin.get("https://www.linkedin.com/uas/login");
     }
 //**********************************************************************************************************************
 
@@ -998,6 +1012,7 @@ public void softQEWebsite() throws InterruptedException {
 //    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
 //    WebDriver driver = new ChromeDriver();
 
+    //opens firefox web browser
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
     FirefoxDriver driver = new FirefoxDriver();
 
