@@ -43,8 +43,8 @@ public class File10 {
     /**
      * Created by esickert on 8/14/2017.
      */
-        @Test
-        public void fileIO()    {
+     @Test
+     public void fileIO()    {
 
 //        Scanner userInput = new Scanner(System.in);
 //        System.out.println("Please enter the full path for a file: ");
