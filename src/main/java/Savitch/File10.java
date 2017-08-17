@@ -49,14 +49,16 @@ public class File10 {
 //        Scanner userInput = new Scanner(System.in);
 //        System.out.println("Please enter the full path for a file: ");
 //        String filename = userInput.next();
-            String filename = "c:\\tmp\\outputFile.txt";   //a file String variable
+ //           String filename = "c:\\tmp\\outputFile.txt";   //a file String variable
+            File filename = new File("c:\\tmp\\outputFile.txt");
             PrintWriter outputStream  = null;    //creates a stream variable, also needs to be initialized.
+            System.out.println(filename.exists());
 
             try {
                 outputStream = new PrintWriter(filename);
 
                 outputStream.println("This is the end");  //outputs to file
-                outputStream.println("Beautiful friend");
+                outputStream.println("Beautiful friend");//stream variable "outputStream" uses print and println
             }
             catch(FileNotFoundException e)
             {
@@ -70,7 +72,37 @@ public class File10 {
             }
 
 
+     }
+
+     @Test
+     public void test() {
+
+        String filename = "c:\\tmp\\sam.txt";
+        PrintWriter outStream = null;
+
+        try {
+  //          outStream = new PrintWriter(filename);
+//            outStream.println("This is the end");
+//            outStream.println("beautiful friend");
+
+           outStream = new PrintWriter(new FileOutputStream(filename, true));
+          outStream.println("this is the end");      //this worked!! Problem: file created somewhere else!!
+           outStream.println("my only friend, the end");
+
         }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("ERROR:Opening the file: " + filename);
+            System.exit(0);
+        }
+        finally
+        {
+ //           if(outStream != null)
+                outStream.close();
+//        System.getProperty("sam.txt");
+        }
+     }
+
 }
 
 
