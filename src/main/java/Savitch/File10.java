@@ -79,7 +79,7 @@ public class File10 {
 
         String filename = "c:\\tmp\\sam.txt";
         PrintWriter outStream = null;
-
+     //   PrintWriter putStream = new PrintWriter(filename);
         try {
   //          outStream = new PrintWriter(filename);
 //            outStream.println("This is the end");
