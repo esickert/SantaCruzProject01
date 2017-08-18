@@ -44,21 +44,21 @@ public class File10 {
      * Created by esickert on 8/14/2017.
      */
      @Test
-     public void fileIO()    {
+     public void writeToFile()    {  //this creates file sam.txt and writes to it.
 
 //        Scanner userInput = new Scanner(System.in);
 //        System.out.println("Please enter the full path for a file: ");
 //        String filename = userInput.next();
- //           String filename = "c:\\tmp\\outputFile.txt";   //a file String variable
-            File filename = new File("c:\\tmp\\outputFile.txt");
-            PrintWriter outputStream  = null;    //creates a stream variable, also needs to be initialized.
-            System.out.println(filename.exists());
+           String filename = "c:\\tmp\\sam.txt";   //a file String variable
+//            File filename = new File("c:\\tmp\\sam.txt");    //this uses the File class to create a file            PrintWriter outputStream  = null;    //creates a stream variable, also needs to be initialized.
+//            System.out.println(filename.exists());
+            PrintWriter outputStream = null;
 
             try {
-                outputStream = new PrintWriter(filename);
+                outputStream = new PrintWriter(filename);  //stream variable
 
-                outputStream.println("This is the end");  //outputs to file
-                outputStream.println("Beautiful friend");//stream variable "outputStream" uses print and println
+                outputStream.println("This is the end, beautiful friend");  //outputs to file
+                outputStream.println("This is the end, my only friend, the end");//stream variable "outputStream" uses print and println
             }
             catch(FileNotFoundException e)
             {
@@ -75,7 +75,7 @@ public class File10 {
      }
 
      @Test
-     public void test() {
+     public void appendToFile() {  //this appends to a previously created file
 
         String filename = "c:\\tmp\\sam.txt";
         PrintWriter outStream = null;
@@ -86,8 +86,8 @@ public class File10 {
 //            outStream.println("beautiful friend");
 
            outStream = new PrintWriter(new FileOutputStream(filename, true));
-          outStream.println("this is the end");      //this worked!! Problem: file created somewhere else!!
-           outStream.println("my only friend, the end");
+          outStream.println("Of our elaboate plans, the end");      //this worked!! Problem: file created somewhere else!!
+           outStream.println("Of eveverything that stands, the end");
 
         }
         catch(FileNotFoundException e)
@@ -102,6 +102,35 @@ public class File10 {
 //        System.getProperty("sam.txt");
         }
      }
+
+    @Test
+    public void printFileContentsToScreen()    {
+        String filename = "c:\\tmp\\rtlSalesKY.txt";
+        Scanner inputStream = null;
+        System.out.println("The file " + filename + " contains the following lines: \n");
+
+        //   String filename = inputStream.nextLine();
+        //   System.out.println(filename);
+
+        try
+        {
+            inputStream = new Scanner(new File(filename));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("ERROR-trying to open file " + filename);
+            System.exit(0);
+        }
+        {
+            while (inputStream.hasNextLine())
+            {
+                String line = inputStream.nextLine();
+                System.out.println(line);
+            }
+            inputStream.close();
+        }
+    }
+
 
 }
 
