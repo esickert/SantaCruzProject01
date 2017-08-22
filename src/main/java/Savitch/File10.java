@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 import java.io.*;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Created by esickert on 8/4/2017.
  */
@@ -131,7 +133,48 @@ public class File10 {
         }
     }
 
+    @Test
+    public void question8Chap10() throws InterruptedException {
 
+        String myFilename = new String("c:\\tmp\\sam.txt");
+        PrintWriter textStream = null;
+
+        try {
+            textStream = new PrintWriter(myFilename);
+
+            textStream.println("Lions in the street and roaming");
+            textStream.println("Dogs in heat rabid foaming");
+
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("ERROR-File not found");
+            System.exit(0);
+        }
+        finally
+        {
+            textStream.close();
+        }
+
+        sleep(5000);
+
+        System.out.println("The contents of " + myFilename + " are: ");
+        Scanner inputStream = null;
+        try {
+            inputStream = new Scanner(new File(myFilename));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("ERROR- file not found");
+            System.exit(0);
+        }
+        while (inputStream.hasNextLine())
+        {
+            String line = inputStream.nextLine();
+            System.out.println(line);
+        }
+        inputStream.close();
+    }
 }
 
 
