@@ -44,7 +44,7 @@ public class InputFromTheKeyboard     {
             String line = inputStream.nextLine();
             System.out.println(line);
         }
- //       sleep(10000);
+        sleep(10000);
 
         inputStream.close();
 
