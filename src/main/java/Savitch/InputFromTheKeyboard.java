@@ -48,7 +48,7 @@ public class InputFromTheKeyboard     {
 
         inputStream.close();
 
-//        myFile.delete();
+        myFile.delete();
     }
 
 }
