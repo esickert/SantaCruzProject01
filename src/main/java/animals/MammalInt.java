@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 
 public class MammalInt implements Animal, Creature  {  //note that we are using 2 interfaces here!;
 
-Dogs poodle = new Dogs();  //declaring an instance of a class inside a class
+Dogs poodle = new Dogs();  //declaring an instance of a class inside a class. Poodle will access the varabile and methods of Dogs.
 
 
 MammalInt() {
