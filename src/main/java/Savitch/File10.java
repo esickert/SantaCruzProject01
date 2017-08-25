@@ -175,6 +175,15 @@ public class File10 {
         }
         inputStream.close();
     }
+
+    @Test
+    public void chap10Problem11()    {
+
+        File filename = new File("c:/tmp/sam.txt");
+        if (filename.exists())
+            if (filename.delete())
+                System.out.println(filename + " is deleted");
+    }
 }
 
 
