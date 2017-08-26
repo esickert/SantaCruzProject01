@@ -179,10 +179,17 @@ public class File10 {
     @Test
     public void chap10Problem11()    {
 
-        File filename = new File("c:/tmp/sam.txt");
-        if (filename.exists())
+        System.out.println("Please enter a filename and path: ");
+        Scanner userInput = new Scanner(System.in);
+        String file = userInput.nextLine();
+
+        File filename = new File(file);
+        if (filename.exists())  {
+            System.out.println("Yes, that file exists. Enter \"Y\" if you want to delete it. ");
+            String answer = userInput.nextLine();
             if (filename.delete())
                 System.out.println(filename + " is deleted");
+        }
     }
 }
 
