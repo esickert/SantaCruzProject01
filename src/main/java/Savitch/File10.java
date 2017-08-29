@@ -177,20 +177,35 @@ public class File10 {
     }
 
     @Test
-    public void chap10Problem11()    {
+    public void chap10Page795()    {    //this needs to be rewritten
 
-        System.out.println("Please enter a filename and path: ");
-        Scanner userInput = new Scanner(System.in);
-        String file = userInput.nextLine();
+        String filename = "c:/tmp/samatha.txt";
+        PrintWriter outputStream = null;
 
-        File filename = new File(file);
-        if (filename.exists())  {
-            System.out.println("Yes, that file exists. Enter \"Y\" if you want to delete it. ");
-            String answer = userInput.nextLine();
-            if (filename.delete())
-                System.out.println(filename + " is deleted");
+        try {
+        outputStream = openOutputTextFile(filename);
+        outputStream.println("The Secretary of State for war today recieved the following dispatch...");
+        outputStream.println("I regret to report a distereous engagment between the armies of the Zulu king...");
         }
+        catch(FileNotFoundException e) {
+            System.out.println("ERROR-file not found!!");
+            System.exit(0);
+        }
+        outputStream.close();
+   }
+
+    public static PrintWriter openOutputTextFile(String filename) throws FileNotFoundException  {
+
+        PrintWriter toFile = new PrintWriter(filename);
+        return toFile;
     }
+
+    @Test
+    public void proocessCSVFile()   {
+
+
+    }
+
 }
 
 
