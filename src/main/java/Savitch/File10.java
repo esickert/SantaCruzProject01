@@ -200,7 +200,44 @@ public class File10 {
         return toFile;
     }
 
+//**********************************************************************************************************************
+//**********************************************************************************************************************
+    @Test
+    public void csvParse()  {    //methjod to parse csv file into sting lines in an array.
 
+    String filename = "c:/tmp/Distributors.csv";
+    int rows = 3;
+    int columns = 3;
+
+    try
+    {
+        Scanner outputStream = new Scanner(new File(filename));
+
+            String line = outputStream.nextLine();  //this will skip to the next line
+
+//            while (outputStream.hasNextLine())
+        {
+                line = outputStream.nextLine();
+                String[] anArray = line.split(",");
+                for(String temp: anArray)
+                    System.out.print(temp + " ");
+                System.out.println();
+                String[][] twoD = new String[rows][columns];
+//                float x = Float.parseFloat(anArray[0]);
+                twoD[0][0] = x;
+                System.out.println(anArray[0]);
+                System.out.println(twoD[0][1]);
+        }
+    }
+    catch(FileNotFoundException e)
+    {
+        System.out.println("ERROR-file does not exist!!");
+        System.exit(0);
+    }
+
+
+
+    }
 }
 
 
