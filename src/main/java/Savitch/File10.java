@@ -203,13 +203,13 @@ public class File10 {
 //**********************************************************************************************************************
 //**********************************************************************************************************************
     @Test
-    public void csvParse()  {    //methjod to parse csv file into sting lines in an array.
+    public void csvParse()  {    //this works but the arrays are  still fucked up. Indices are weird.
 
         String filename = "c:/tmp/cellular_short_oneDecade.csv";
 //        String[] anArray = new String[10];
         double num = 0.0;
-        double[][] stats = new double[10][10];
-        int count = 0;
+        double[][] stats = new double[5][10];
+        int count = 1;
 
         try
         {
@@ -220,7 +220,7 @@ public class File10 {
             while (outputStuff.hasNextLine()) {
                 line = outputStuff.nextLine();
                 String anArray[] = line.split(",");
-                for(int i = 1; i <= anArray.length; i++)   {
+                for(int i = 1; i <= anArray.length-2; i++)   {
                     System.out.print(anArray[i] + "  ");
                     num = Double.parseDouble(anArray[i]);
                     stats[count][i] = num;
@@ -247,8 +247,13 @@ public class File10 {
             System.out.println("ERROR-file not found");
             System.exit(0);
         }
-
+        for(int i = 0; i <= stats.length-2; i++)  {
+            System.out.println();
+            for( int j = 0; j <= stats[i].length-2; j++) {
+                System.out.print(stats[i][j] + "  ");
+            }
         }
+    }
 }
 
 
