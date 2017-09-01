@@ -205,39 +205,50 @@ public class File10 {
     @Test
     public void csvParse()  {    //methjod to parse csv file into sting lines in an array.
 
-    String filename = "c:/tmp/Distributors.csv";
-    int rows = 3;
-    int columns = 3;
+        String filename = "c:/tmp/cellular_short_oneDecade.csv";
+//        String[] anArray = new String[10];
+        double num = 0.0;
+        double[][] stats = new double[10][10];
+        int count = 0;
 
-    try
-    {
-        Scanner outputStream = new Scanner(new File(filename));
-
-            String line = outputStream.nextLine();  //this will skip to the next line
-
-//            while (outputStream.hasNextLine())
+        try
         {
-                line = outputStream.nextLine();
-                String[] anArray = line.split(",");
-                for(String temp: anArray)
-                    System.out.print(temp + " ");
+            Scanner outputStuff = new Scanner(new File(filename));
+            String line = outputStuff.nextLine();
+            line = outputStuff.nextLine();
+
+            while (outputStuff.hasNextLine()) {
+                line = outputStuff.nextLine();
+                String anArray[] = line.split(",");
+                for(int i = 1; i <= anArray.length; i++)   {
+                    System.out.print(anArray[i] + "  ");
+                    num = Double.parseDouble(anArray[i]);
+                    stats[count][i] = num;
+//                    System.out.print(stats[count][i]);
+
+                }
                 System.out.println();
-                String[][] twoD = new String[rows][columns];
-//                float x = Float.parseFloat(anArray[0]);
-                twoD[0][0] = x;
-                System.out.println(anArray[0]);
-                System.out.println(twoD[0][1]);
+                count++;
+//                num  = Double.parseDouble(anArray[1]);
+                }
+
+
+                System.out.println("\n");
+                System.out.println("From String to number: " + num);
+                System.out.println();
+
+            stats[1][1] = num;
+            System.out.println("From 1D array to 2D array: " + (stats[1][1]));
+
+
         }
-    }
-    catch(FileNotFoundException e)
-    {
-        System.out.println("ERROR-file does not exist!!");
-        System.exit(0);
-    }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("ERROR-file not found");
+            System.exit(0);
+        }
 
-
-
-    }
+        }
 }
 
 
