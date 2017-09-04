@@ -224,7 +224,7 @@ public class File10 {
                     System.out.print(anArray[i] + "  ");
                     num = Double.parseDouble(anArray[i]);
                     stats[count][i] = num;
-//                    System.out.print(stats[count][i]);
+                    System.out.print(stats[count][i]);
 
                 }
                 System.out.println();
