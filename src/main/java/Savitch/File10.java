@@ -209,6 +209,7 @@ public class File10 {
 //        String[] anArray = new String[10];
         double num = 0.0;
         double[][] stats = new double[5][10];
+
         int count = 1;
 
         try
@@ -223,13 +224,14 @@ public class File10 {
                 for(int i = 1; i <= anArray.length-2; i++)   {
                     System.out.print(anArray[i] + "  ");
                     num = Double.parseDouble(anArray[i]);
+
                     stats[count][i] = num;
                     System.out.print(stats[count][i]);
 
                 }
                 System.out.println();
                 count++;
-//                num  = Double.parseDouble(anArray[1]);
+                num  = Double.parseDouble(anArray[1]);
                 }
 
 
