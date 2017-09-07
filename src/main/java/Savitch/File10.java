@@ -206,9 +206,10 @@ public class File10 {
     public void csvParse()  {    //this works but the arrays are  still fucked up. Indices are weird.
 
         String filename = "c:/tmp/cellular_short_oneDecade.csv";
-//        String[] anArray = new String[10];
+ //       String[] anArray = new String[10];
         double num = 0.0;
         double[][] stats = new double[5][10];
+//        String[][] stats = new String[5][10];
 
         int count = 1;
 
@@ -217,10 +218,15 @@ public class File10 {
             Scanner outputStuff = new Scanner(new File(filename));
             String line = outputStuff.nextLine();
             line = outputStuff.nextLine();
+//            String anArray0[] = line.split(",");
+//            for(int i = 0; i <= anArray0.length-1; i++) {
+//                System.out.println(anArray0[i] + " ");
+//            }
 
             while (outputStuff.hasNextLine()) {
                 line = outputStuff.nextLine();
                 String anArray[] = line.split(",");
+
                 for(int i = 1; i <= anArray.length-2; i++)   {
                     System.out.print(anArray[i] + "  ");
                     num = Double.parseDouble(anArray[i]);
@@ -232,7 +238,7 @@ public class File10 {
                 System.out.println();
                 count++;
                 num  = Double.parseDouble(anArray[1]);
-                }
+                }  //end of while loop
 
 
                 System.out.println("\n");
@@ -242,6 +248,7 @@ public class File10 {
             stats[1][1] = num;
             System.out.println("From 1D array to 2D array: " + (stats[1][1]));
 
+            outputStuff.close();
 
         }
         catch(FileNotFoundException e)
