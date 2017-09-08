@@ -262,8 +262,6 @@ public class File10 {
                 System.out.print(stats[i][j] + "  ");
             }
         }
+        System.out.println("\n\nIt's me, BoBo!!!");
     }
 }
-
-
-
