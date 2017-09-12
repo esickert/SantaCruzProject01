@@ -4,7 +4,7 @@ public class ForTestingOnly {
         System.out.println("Hello, World!!");
         System.out.println("Hello, It's me dodo!!!");
         while (x < 5) {
-            System.out.println(x++);
+            System.out.println(++x);
         }
 
     }
