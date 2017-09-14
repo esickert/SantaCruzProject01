@@ -6,7 +6,7 @@ public class ForTestingOnly {
         while (x < 5) {
             System.out.print(++x + " ");
         }
-        System.out.println("Hello There");
+        System.out.println("Letter from ");
 
         for(int i = 0; i <= 10; i++) {
             System.out.print(i + " ");
