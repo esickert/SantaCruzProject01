@@ -18,95 +18,86 @@ import static java.lang.Thread.sleep;
 public class File10 {
 
     @Test
-    public void writingTheGreatAmericanNovel()  {//throws IOException  {
+    public void writingTheGreatAmericanNovel() {//throws IOException  {
         String fileName = "c:\\Temp\\erich.txt";
         // this will create a file in the Temp directory. No
         // directory path, created in the home directory of program
         File theFile = new File(fileName);
         try {
-        theFile.createNewFile();
+            theFile.createNewFile();
 
-        PrintWriter outputStream = null;
-        outputStream = new PrintWriter(fileName);
-        outputStream.println("This is the end!!!");  //writes to the file
-        outputStream.println("Beautiful friend");    //writes to the file
-        outputStream.println("...and this file creating/writing worked!!!!");
-        outputStream.println("This is the end!!!");  //writes to the file
-        System.out.println("Does erich.txt exist??: " + theFile.exists());
+            PrintWriter outputStream = null;
+            outputStream = new PrintWriter(fileName);
+            outputStream.println("This is the end!!!");  //writes to the file
+            outputStream.println("Beautiful friend");    //writes to the file
+            outputStream.println("...and this file creating/writing worked!!!!");
+            outputStream.println("This is the end!!!");  //writes to the file
+            System.out.println("Does erich.txt exist??: " + theFile.exists());
 
-        outputStream.close();  //closes the created file
-        } catch (Exception e)   {
+            outputStream.close();  //closes the created file
+        } catch (Exception e) {
             e.printStackTrace();
         }//creates the file in the directory
     }
 
 
-
     /**
      * Created by esickert on 8/14/2017.
      */
-     @Test
-     public void writeToFile()    {  //this creates file sam.txt and writes to it.
+    @Test
+    public void writeToFile() {  //this creates file sam.txt and writes to it.
 
 //        Scanner userInput = new Scanner(System.in);
 //        System.out.println("Please enter the full path for a file: ");
 //        String filename = userInput.next();
-           String filename = "c:\\tmp\\sam.txt";   //a file String variable
+        String filename = "c:\\tmp\\sam.txt";   //a file String variable
 //            File filename = new File("c:\\tmp\\sam.txt");    //this uses the File class to create a file            PrintWriter outputStream  = null;    //creates a stream variable, also needs to be initialized.
 //            System.out.println(filename.exists());
-            PrintWriter outputStream = null;
+        PrintWriter outputStream = null;
 
-            try {
-                outputStream = new PrintWriter(filename);  //stream variable
+        try {
+            outputStream = new PrintWriter(filename);  //stream variable
 
-                outputStream.println("This is the end, beautiful friend");  //outputs to file
-                outputStream.println("This is the end, my only friend, the end");//stream variable "outputStream" uses print and println
-            }
-            catch(FileNotFoundException e)
-            {
-                System.out.println("File not found: " + filename);  //if file does not exist throws IO error.
-                System.exit(0);
-            }
-            finally
-            {
-                if (outputStream != null)   //remember the difference between assignment and "equals to". If == null, outputstream is empty.
-                    outputStream.close();   //if not null, buffer contains data to be sent to file?? .close sends whats in buffer to file.
-            }
+            outputStream.println("This is the end, beautiful friend");  //outputs to file
+            outputStream.println("This is the end, my only friend, the end");//stream variable "outputStream" uses print and println
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + filename);  //if file does not exist throws IO error.
+            System.exit(0);
+        } finally {
+            if (outputStream != null)   //remember the difference between assignment and "equals to". If == null, outputstream is empty.
+                outputStream.close();   //if not null, buffer contains data to be sent to file?? .close sends whats in buffer to file.
+        }
 
 
-     }
+    }
 
-     @Test
-     public void appendToFile() {  //this appends to a previously created file
+    @Test
+    public void appendToFile() {  //this appends to a previously created file
 
         String filename = "c:\\tmp\\sam.txt";
         PrintWriter outStream = null;
-     //   PrintWriter putStream = new PrintWriter(filename);
+        //   PrintWriter putStream = new PrintWriter(filename);
         try {
-  //          outStream = new PrintWriter(filename);
+            //          outStream = new PrintWriter(filename);
 //            outStream.println("This is the end");
 //            outStream.println("beautiful friend");
 
-           outStream = new PrintWriter(new FileOutputStream(filename, true));
-          outStream.println("Of our elaboate plans, the end");      //this worked!! Problem: file created somewhere else!!
-           outStream.println("Of eveverything that stands, the end");
+            outStream = new PrintWriter(new FileOutputStream(filename, true));
+            outStream.println("Of our elaboate plans, the end");      //this worked!! Problem: file created somewhere else!!
+            outStream.println("Of eveverything that stands, the end");
 
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR:Opening the file: " + filename);
             System.exit(0);
-        }
-        finally
-        {
- //           if(outStream != null)
-                outStream.close();
+        } finally {
+            //           if(outStream != null)
+            outStream.close();
 //        System.getProperty("sam.txt");
         }
-     }
+    }
 
     @Test
-    public void printFileContentsToScreen()    {
+    public void printFileContentsToScreen() {
         String filename = "c:\\tmp\\rtlSalesKY.txt";
         Scanner inputStream = null;
         System.out.println("The file " + filename + " contains the following lines: \n");
@@ -114,18 +105,14 @@ public class File10 {
         //   String filename = inputStream.nextLine();
         //   System.out.println(filename);
 
-        try
-        {
+        try {
             inputStream = new Scanner(new File(filename));
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR-trying to open file " + filename);
             System.exit(0);
         }
         {
-            while (inputStream.hasNextLine())
-            {
+            while (inputStream.hasNextLine()) {
                 String line = inputStream.nextLine();
                 System.out.println(line);
             }
@@ -145,14 +132,10 @@ public class File10 {
             textStream.println("Lions in the street and roaming");
             textStream.println("Dogs in heat rabid foaming");
 
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
             System.exit(0);
-        }
-        finally
-        {
+        } finally {
             textStream.close();
         }
 
@@ -162,14 +145,11 @@ public class File10 {
         Scanner inputStream = null;
         try {
             inputStream = new Scanner(new File(myFilename));
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR- file not found");
             System.exit(0);
         }
-        while (inputStream.hasNextLine())
-        {
+        while (inputStream.hasNextLine()) {
             String line = inputStream.nextLine();
             System.out.println(line);
         }
@@ -177,44 +157,42 @@ public class File10 {
     }
 
     @Test
-    public void chap10Page795()    {    //this needs to be rewritten
+    public void chap10Page795() {    //this needs to be rewritten
 
         String filename = "c:/tmp/samatha.txt";
         PrintWriter outputStream = null;
 
         try {
-        outputStream = openOutputTextFile(filename);
-        outputStream.println("The Secretary of State for war today recieved the following dispatch...");
-        outputStream.println("I regret to report a distereous engagment between the armies of the Zulu king...");
-        }
-        catch(FileNotFoundException e) {
+            outputStream = openOutputTextFile(filename);
+            outputStream.println("The Secretary of State for war today recieved the following dispatch...");
+            outputStream.println("I regret to report a distereous engagment between the armies of the Zulu king...");
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR-file not found!!");
             System.exit(0);
         }
         outputStream.close();
-   }
+    }
 
-    public static PrintWriter openOutputTextFile(String filename) throws FileNotFoundException  {
+    public static PrintWriter openOutputTextFile(String filename) throws FileNotFoundException {
 
         PrintWriter toFile = new PrintWriter(filename);
         return toFile;
     }
 
-//**********************************************************************************************************************
+    //**********************************************************************************************************************
 //**********************************************************************************************************************
     @Test
-    public void csvParse()  {    //this works but the arrays are  still fucked up. Indices are weird.
+    public void csvParse() {    //this works but the arrays are  still fucked up. Indices are weird.
 
         String filename = "c:/tmp/cellular_short_oneDecade.csv";
- //       String[] anArray = new String[10];
+        //       String[] anArray = new String[10];
         double num = 0.0;
         double[][] stats = new double[5][10];
 //        String[][] stats = new String[5][10];
 
         int count = 1;
 
-        try
-        {
+        try {
             Scanner outputStuff = new Scanner(new File(filename));
             String line = outputStuff.nextLine();
             line = outputStuff.nextLine();
@@ -227,7 +205,7 @@ public class File10 {
                 line = outputStuff.nextLine();
                 String anArray[] = line.split(",");
 
-                for(int i = 1; i <= anArray.length-2; i++)   {
+                for (int i = 1; i <= anArray.length - 2; i++) {
                     System.out.print(anArray[i] + "  ");
                     num = Double.parseDouble(anArray[i]);
 
@@ -237,31 +215,41 @@ public class File10 {
                 }
                 System.out.println();
                 count++;
-                num  = Double.parseDouble(anArray[1]);
-                }  //end of while loop
+                num = Double.parseDouble(anArray[1]);
+            }  //end of while loop
 
 
-                System.out.println("\n");
-                System.out.println("From String to number: " + num);
-                System.out.println();
+            System.out.println("\n");
+            System.out.println("From String to number: " + num);
+            System.out.println();
 
             stats[1][1] = num;
             System.out.println("From 1D array to 2D array: " + (stats[1][1]));
 
             outputStuff.close();
 
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("ERROR-file not found");
             System.exit(0);
         }
-        for(int i = 0; i <= stats.length-2; i++)  {
+        for (int i = 0; i <= stats.length - 2; i++) {
             System.out.println();
-            for( int j = 0; j <= stats[i].length-2; j++) {
+            for (int j = 0; j <= stats[i].length - 2; j++) {
                 System.out.print(stats[i][j] + "  ");
             }
         }
         System.out.println("\n\nIt's me, BoBo!!!");
     }
+//**********************************************************************************************************************
+
+    @Test
+    public void selfTestPage804() {
+
+        String filename = "c:/tmp/stuff.dat";
+        ObjectOutputStream outputBinaryStream = (new ObjectOutputStream(new FileOutputStream(filename)));
+
+    }
+
+
 }
+
