@@ -246,7 +246,28 @@ public class File10 {
     public void selfTestPage804() {
 
         String filename = "c:/tmp/stuff.dat";
-        ObjectOutputStream outputBinaryStream = (new ObjectOutputStream(new FileOutputStream(filename)));
+        double x1 = 1.00;
+        double x2 = 2.12;
+        double x3 = 3.123;
+
+        try {
+            ObjectOutputStream toFile = (new ObjectOutputStream(new FileOutputStream(filename)));
+            toFile.writeInt(123);
+            toFile.writeDouble(x1);
+            toFile.writeDouble(x2);
+            toFile.writeDouble(x3);
+
+            toFile.close();  //need to close the output stream so it writes to file. Stream stored in buffer till then.
+        }
+        catch(FileNotFoundException e)   {
+
+            System.out.println("ERROR- File not found");
+            System.exit(0);
+        }
+        catch(IOException e)  {
+        System.out.println("ERROR-IO exception");
+        System.exit(0);
+        }
 
     }
 
