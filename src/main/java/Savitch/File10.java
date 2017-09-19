@@ -272,5 +272,24 @@ public class File10 {
     }
 
 
+    @Test
+    public void stringToBinaryFile() {
+
+        String filename = "c:/tmp/erich.dat";
+
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
+            outputStream.writeUTF(" Hey dude");
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR-File not found");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("ERROR");
+            System.exit(0);
+        }
+
+    }
+
 }
 
