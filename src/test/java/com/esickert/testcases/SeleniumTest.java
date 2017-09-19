@@ -962,8 +962,8 @@ public void cookies() throws InterruptedException  {
 //        linkedin.quit();
     }  //end of testStoreCookieInfo()
 
-    @Test
-    public void testLoadCookieInfo()    {
+   @Test
+    public void testLoadCookieInfo()    {   //this runs but doesn't save info to cookies!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
  //       System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
  //       WebDriver linkedin = new ChromeDriver();
@@ -987,9 +987,12 @@ public void cookies() throws InterruptedException  {
                     String domain = str.nextToken();
                     String path = str.nextToken();
                     Date expiry = null;
+
+
+
                     String dt;
                     if (!(dt=str.nextToken()).equals("null"))   {
-                       expiry = new Date(dt);
+ //                      expiry = new Date(dt);                           //the class Date here is deprecated (obsolete).
                     }
                     Boolean isSecure = new Boolean(str.nextToken()).booleanValue();
                     Cookie myCookie = new Cookie(name,value,domain,path,expiry,isSecure);
@@ -1009,27 +1012,39 @@ public void cookies() throws InterruptedException  {
 @Test
 public void softQEWebsite() throws InterruptedException {
 
-//    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
-//    WebDriver driver = new ChromeDriver();
+    //    System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+    //    WebDriver driver = new ChromeDriver();
 
-    //opens firefox web browser
-    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
-    FirefoxDriver driver = new FirefoxDriver();
+        //opens firefox web browser
+        System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+        FirefoxDriver driver = new FirefoxDriver();
 
 
-    driver.get("http://www.softqe.com");
+        driver.get("http://www.softqe.com");
 
-//    Cookie seleniumCookie = new Cookie("myCookie","name1=val1,name2=val2");
-    Cookie seleniumCookie = new Cookie("myCookie","name1=erich,name2=sickert");
-    driver.manage().addCookie(seleniumCookie);
-    sleep(5000);
+    //    Cookie seleniumCookie = new Cookie("myCookie","name1=val1,name2=val2");
+        Cookie seleniumCookie = new Cookie("myCookie","name1=erich,name2=sickert");
+        driver.manage().addCookie(seleniumCookie);
+        sleep(5000);
 
-    for(Cookie cookieVar: driver.manage().getCookies())
-    {
-        System.out.println(cookieVar.getName() + " => " +cookieVar.getDomain()  );
+        for(Cookie cookieVar: driver.manage().getCookies())  //for loop prints out
+        {
+            System.out.println(cookieVar.getName() + " => " +cookieVar.getDomain()  );
+        }
+    }  //end 0f softQEWebsite
+
+@Test
+public void seleniumPractice() {
+
+       System.setProperty("webdriver.chrome.driver", "c:\\DriversForSelenium\\chromedriver.exe");
+       ChromeDriver driver = new ChromeDriver();
+
+        driver.get("http:www.google.com");
 
     }
-}
 
 
-} // end of SeleniumT
+
+
+
+} // end of SeleniumTest
