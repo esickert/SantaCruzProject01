@@ -258,28 +258,26 @@ public class File10 {
             toFile.writeDouble(x3);
 
             toFile.close();  //need to close the output stream so it writes to file. Stream stored in buffer till then.
-        }
-        catch(FileNotFoundException e)   {
+        } catch (FileNotFoundException e) {
 
             System.out.println("ERROR- File not found");
             System.exit(0);
-        }
-        catch(IOException e)  {
-        System.out.println("ERROR-IO exception");
-        System.exit(0);
+        } catch (IOException e) {
+            System.out.println("ERROR-IO exception");
+            System.exit(0);
         }
 
     }
 
 
     @Test
-    public void stringToBinaryFile() {
+    public void writeStringToBinaryFile() {
 
-        String filename = "c:/tmp/erich.dat";
+        String filename = "c:/tmp/binaryErich.dat";
 
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
-            outputStream.writeUTF(" Hey dude");
+            outputStream.writeUTF("Hey dude.I read the contents of a binary file");
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
@@ -288,8 +286,30 @@ public class File10 {
             System.out.println("ERROR");
             System.exit(0);
         }
-
     }
 
+    @Test
+    public void readStringFromBinaryFile() {
+
+        String filename = "c:/tmp/binaryErich.dat";
+
+        try {
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename));
+            System.out.println("Reading the contents of binary file " + filename);
+            String aString = inputStream.readUTF();
+            System.out.println(aString);
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR-file not found");
+            System.exit(0);
+        } catch (EOFException e) {
+            System.out.println("ERROR-reached end of file");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("ERROR-Problem reading file!");
+            System.exit(0);
+        }
+    }
 }
+
 
