@@ -277,7 +277,7 @@ public class File10 {
 
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
-            outputStream.writeUTF("Hey dude.I read the contents of a binary file");
+            outputStream.writeUTF("Lions in the street and roaming, dogs in heat rapid foaming");
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
