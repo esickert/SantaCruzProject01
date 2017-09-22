@@ -296,7 +296,7 @@ public class File10 {
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename));
             System.out.println("Reading the contents of binary file " + filename);
-            String aString = inputStream.readUTF();
+            String aString = inputStream.readUTF();   //binary file contains String, not integer. This is an experiment.
             System.out.println(aString);
             inputStream.close();
         } catch (FileNotFoundException e) {
