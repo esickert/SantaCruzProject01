@@ -277,7 +277,8 @@ public class File10 {
 
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
-            outputStream.writeUTF("Lions in the street and roaming, dogs in heat rapid foaming");
+            outputStream.writeUTF("Lions in the street and roaming,\ndogs in heat rabid foaming.\n");
+            outputStream.writeUTF("A beast caged in the heart of a city");   //Why isnt this storing in the binary file!!!
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
@@ -295,7 +296,7 @@ public class File10 {
 
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename));
-            System.out.println("Reading the contents of binary file " + filename);
+            System.out.println("Reading the contents of binary file " + filename + "\n");
             String aString = inputStream.readUTF();   //binary file contains String, not integer. This is an experiment.
             System.out.println(aString);
             inputStream.close();
