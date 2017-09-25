@@ -278,6 +278,7 @@ public class File10 {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
             outputStream.writeUTF("Lions in the street and roaming,\ndogs in heat rabid foaming.\n");
+            
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
