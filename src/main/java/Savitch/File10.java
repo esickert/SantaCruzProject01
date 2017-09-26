@@ -278,7 +278,7 @@ public class File10 {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
             outputStream.writeUTF("Lions in the street and roaming,\ndogs in heat rabid foaming.\n");
-            
+
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR-File not found");
@@ -311,6 +311,38 @@ public class File10 {
             System.exit(0);
         }
     }
+
+    @Test
+    public void questionsP811() {   //this is incomplete. Need to write question 21.
+
+        String filename = "c:/tmp/stuff.dat";
+
+        try
+        {
+            ObjectInputStream fromFile = new ObjectInputStream(new FileInputStream(filename));
+//            ObjectOutputStream toFile = new ObjectOutputStream(new FileOutputStream(filename)); //tis does not wook!!!!
+            int anInteger = fromFile.readInt();
+            System.out.println(anInteger);
+            double x1double = fromFile.readDouble();
+            double x2double = fromFile.readDouble();
+            double x3double = fromFile.readDouble();
+            System.out.println(x1double + " " + x2double + " " + x3double + "  YEAH!!!");
+//            toFile.writeInt(16); //this will not work
+//            fromFile.readInt();
+            fromFile.close();
+
+
+
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("File is not found");
+        }
+        catch(IOException e)
+        {
+            System.out.println("IOException occurred");
+        }
+    }
+
 }
 
 
