@@ -320,26 +320,25 @@ public class File10 {
         try
         {
             ObjectInputStream fromFile = new ObjectInputStream(new FileInputStream(filename));
-//            ObjectOutputStream toFile = new ObjectOutputStream(new FileOutputStream(filename)); //tis does not wook!!!!
+
             int anInteger = fromFile.readInt();
             System.out.println(anInteger);
             double x1double = fromFile.readDouble();
             double x2double = fromFile.readDouble();
             double x3double = fromFile.readDouble();
-            System.out.println(x1double + " " + x2double + " " + x3double + "  YEAH!!!");
-//            toFile.writeInt(16); //this will not work
-//            fromFile.readInt();
+           System.out.println(x1double + " " + x2double + " " + x3double + "  YEAH!!!");
+
             fromFile.close();
-
-
-
         }
         catch(FileNotFoundException e) {
             System.out.println("File is not found");
         }
-        catch(IOException e)
+        catch(EOFException e)
         {
-            System.out.println("IOException occurred");
+            System.out.println("EOFxception occurred");
+        }
+        catch(IOException e)   {
+            System.out.println("ERROR-IO exception");
         }
     }
 
