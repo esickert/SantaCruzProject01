@@ -326,7 +326,7 @@ public class File10 {
             double x1double = fromFile.readDouble();
             double x2double = fromFile.readDouble();
             double x3double = fromFile.readDouble();
-           System.out.println(x1double + " " + x2double + " " + x3double + "  YEAH!!!");
+           System.out.println(x1double + " " + x2double + " " + x3double + "  Happy Days!!!");
 
             fromFile.close();
         }
