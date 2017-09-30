@@ -32,7 +32,7 @@ public class ForTestingOnly {
             x = keyboard.next();
             switch(x)   {
                 case "y":
-                    System.out.println("Fucking awesome");
+                    System.out.println("Awesome");
                     break;
                 case "n":
                     System.out.println("Sorry, I fucked up!!!");
