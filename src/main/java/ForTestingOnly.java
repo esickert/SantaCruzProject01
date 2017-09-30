@@ -42,11 +42,12 @@ public class ForTestingOnly {
             }
 
             inputStream.close();
-        } catch (FileNotFoundException e) {
+        } catch(FileNotFoundException e) {
             System.out.println("ERROR-File not found!!!");
-        } catch (IOException e) {   //used because <binary stream>.close() will throw a IOException. In contrast to a text file which will NOT.
+        } catch(EOFException e) {
+            System.out.println("ERROR-End of file");
+        } catch(IOException e) {   //used because <binary stream>.close() will throw a IOException. In contrast to a text file which will NOT.
             System.out.println("Problem with output to file: " + filename);
-
         }
 
     }
