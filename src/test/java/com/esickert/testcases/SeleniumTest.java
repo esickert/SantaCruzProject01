@@ -55,6 +55,7 @@ public class SeleniumTest {
     private static final boolean truthy = true;
     private static final boolean falsey = false;
 
+
  //   @Ignore
     @Test
     public void checkIfEqual()  {
@@ -1034,7 +1035,7 @@ public void softQEWebsite() throws InterruptedException {
     }  //end 0f softQEWebsite
 
 @Test
-public void seleniumPractice() {
+public void seleniumPractice() throws InterruptedException{
 
        System.setProperty("webdriver.chrome.driver", "c:\\DriversForSelenium\\chromedriver.exe");
        ChromeDriver driver = new ChromeDriver();
@@ -1043,9 +1044,13 @@ public void seleniumPractice() {
 
         WebElement stuff = driver.findElement(By.className("gsfi"));
         stuff.sendKeys("microsft bing");
-        //????????????????????????????????????????????????????????????????
+        stuff.sendKeys(ENTER);
+        sleep(5000);
+        driver.executeScript("window.scrollBy(0,1000)", "");
 
-    }
+
+
+}
 
 
 
