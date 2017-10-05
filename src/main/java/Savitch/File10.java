@@ -326,6 +326,7 @@ public class File10 {
             double x1double = fromFile.readDouble();
             double x2double = fromFile.readDouble();
             double x3double = fromFile.readDouble();
+//            double x4double = fromFile.readDouble();  // will end with a EOFException as there is no fourth double in the file.
            System.out.println(x1double + " " + x2double + " " + x3double + "  Happy Days!!!");
 
             fromFile.close();
@@ -340,6 +341,47 @@ public class File10 {
         catch(IOException e)   {
             System.out.println("ERROR-IO exception");
         }
+    }
+
+    @Test
+    public void displayInBinaryFile()   {
+
+        String filename = "temperature.dat";
+
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename));
+            double one = 100.2;
+            double two = 98.3;
+            double three = 79.1;
+            double four = 80.5;
+
+            outputStream.writeDouble(one);
+            outputStream.writeDouble(two);
+            outputStream.writeDouble(three);
+            outputStream.writeDouble(four);
+
+            outputStream.close();
+
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename));
+
+            System.out.println(inputStream.readDouble());
+            System.out.println(inputStream.readDouble());
+            System.out.println(inputStream.readDouble());
+            System.out.println(inputStream.readDouble());
+//            System.out.println(inputStream.readDouble());  //this will cause an EndOfFileException
+
+            inputStream.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("A EndOfFileException has occurred!!!");
+        }
+        catch (EOFException e) {
+            System.out.println("A EndOfFileException has occurred!!!");
+        }
+        catch (IOException e)   {
+            System.out.println("An end of file excetion has occurred");
+        }
+
     }
 
 }
