@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
 /**
  * Created by esickert on 8/4/2017.
  */
-public class File10 {
+public class File10 implements Serializable{
 
     @Test
     public void writingTheGreatAmericanNovel() {//throws IOException  {
