@@ -8,6 +8,7 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Action;                          //NOTE: these are different!! One plural
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogType;
@@ -1035,25 +1036,40 @@ public void softQEWebsite() throws InterruptedException {
     }  //end 0f softQEWebsite
 
 @Test
-public void seleniumPractice() throws InterruptedException{
+public void seleniumPractice() throws InterruptedException {
 
-       System.setProperty("webdriver.chrome.driver", "c:\\DriversForSelenium\\chromedriver.exe");
-       ChromeDriver driver = new ChromeDriver();
+    System.setProperty("webdriver.chrome.driver", "c:\\DriversForSelenium\\chromedriver.exe");
+    ChromeDriver driver = new ChromeDriver();
 
-        driver.get("http:www.google.com");
+    driver.get("http://www.google.com");
 
-        WebElement stuff = driver.findElement(By.className("gsfi"));
-        stuff.sendKeys("microsft bing");
-        stuff.sendKeys(ENTER);
-        sleep(5000);
-        driver.executeScript("window.scrollBy(0,1000)", "");
-
-
-
+    WebElement stuff = driver.findElement(By.className("gsfi"));
+    stuff.sendKeys("microsft bing");
+    stuff.sendKeys(ENTER);
+    sleep(5000);
+    driver.executeScript("window.scrollBy(0,1000)", "");
 }
 
+@Test
+public void playingWithFirefox()    {
+
+    FirefoxProfile myFirstFFProfile = new FirefoxProfile();
+
+//    try
+//    {
+        myFirstFFProfile.addExtension(new File("c:\\tmp\\firebug-2.0.19.xpi"));
+/*    }
+    catch(IOException e)
+    {
+        e.printStackTrace();
+    }
+*/
+    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
+    FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);
 
 
 
+    theBook.get("http://www.google.com");
 
+    }
 } // end of SeleniumTest
