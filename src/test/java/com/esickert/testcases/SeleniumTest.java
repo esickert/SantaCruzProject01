@@ -1055,15 +1055,15 @@ public void playingWithFirefox()    {
 
     FirefoxProfile myFirstFFProfile = new FirefoxProfile();
 
-//    try
-//    {
+    try
+    {
         myFirstFFProfile.addExtension(new File("c:\\tmp\\firebug-2.0.19.xpi"));
-/*    }
-    catch(IOException e)
+    }
+    catch(Exception e)  //note this is the general exception class.
     {
         e.printStackTrace();
     }
-*/
+
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
     FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);
 
