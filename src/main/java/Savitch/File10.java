@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
 /**
  * Created by esickert on 8/4/2017.
  */
-public class File10 implements Serializable{
+public class File10 implements Serializable {
 
     @Test
     public void writingTheGreatAmericanNovel() {//throws IOException  {
@@ -317,8 +317,7 @@ public class File10 implements Serializable{
 
         String filename = "c:/tmp/stuff.dat";
 
-        try
-        {
+        try {
             ObjectInputStream fromFile = new ObjectInputStream(new FileInputStream(filename));
 
             int anInteger = fromFile.readInt();
@@ -327,24 +326,20 @@ public class File10 implements Serializable{
             double x2double = fromFile.readDouble();
             double x3double = fromFile.readDouble();
 //            double x4double = fromFile.readDouble();  // will end with a EOFException as there is no fourth double in the file.
-           System.out.println(x1double + " " + x2double + " " + x3double + "  Happy Days!!!");
+            System.out.println(x1double + " " + x2double + " " + x3double + "  Happy Days!!!");
 
             fromFile.close();
-        }
-        catch(FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File is not found");
-        }
-        catch(EOFException e)
-        {
+        } catch (EOFException e) {
             System.out.println("EOFxception occurred");
-        }
-        catch(IOException e)   {
+        } catch (IOException e) {
             System.out.println("ERROR-IO exception");
         }
     }
 
     @Test
-    public void displayInBinaryFile()   {
+    public void displayInBinaryFile() {
 
         String filename = "temperature.dat";
 
@@ -364,6 +359,7 @@ public class File10 implements Serializable{
 
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename));
 
+            System.out.println("Writing out the contents of the binary file " + filename);
             System.out.println(inputStream.readDouble());
             System.out.println(inputStream.readDouble());
             System.out.println(inputStream.readDouble());
@@ -371,14 +367,11 @@ public class File10 implements Serializable{
 //            System.out.println(inputStream.readDouble());  //this will cause an EndOfFileException
 
             inputStream.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("A EndOfFileException has occurred!!!");
-        }
-        catch (EOFException e) {
+        } catch (EOFException e) {
             System.out.println("A EndOfFileException has occurred!!!");
-        }
-        catch (IOException e)   {
+        } catch (IOException e) {
             System.out.println("An end of file excetion has occurred");
         }
 
