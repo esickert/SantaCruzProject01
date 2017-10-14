@@ -179,7 +179,7 @@ public class SeleniumTest {
         driver.close();
         }
 
-        @Test
+         @Test
         public void chapEightPage45() throws Exception   {
             System.out.println("Same code as above but condensed perform() internally calls build().");
 
