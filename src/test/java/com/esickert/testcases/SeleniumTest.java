@@ -1066,6 +1066,7 @@ public void playingWithFirefox()    {
 
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
     FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);
+    //this code installs firebuc into firefox
 
 
 
