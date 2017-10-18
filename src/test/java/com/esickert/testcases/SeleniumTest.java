@@ -1051,7 +1051,7 @@ public void seleniumPractice() throws InterruptedException {
 }
 
 @Test
-public void playingWithFirefox()    {
+public void playingWithFirefox()  throws InterruptedException  {
 
     FirefoxProfile myFirstFFProfile = new FirefoxProfile();
 
@@ -1071,6 +1071,9 @@ public void playingWithFirefox()    {
 
 
     theBook.get("http://www.google.com");
+    System.out.println("Please wait");
+    sleep(5000);
+    theBook.close();
 
     }
 } // end of SeleniumTest
