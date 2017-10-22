@@ -1048,6 +1048,8 @@ public void seleniumPractice() throws InterruptedException {
     stuff.sendKeys(ENTER);
     sleep(5000);
     driver.executeScript("window.scrollBy(0,1000)", "");
+    sleep(5000);
+//    driver.findElement(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).click();  //ERROR-this throws "element not clickable at point (183, -421).
 }
 
 @Test
