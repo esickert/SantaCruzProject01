@@ -1047,9 +1047,9 @@ public void seleniumPractice() throws InterruptedException {
     stuff.sendKeys("microsft bing");
     stuff.sendKeys(ENTER);
     sleep(5000);
-    driver.executeScript("window.scrollBy(0,1000)", "");
+    driver.executeScript("window.scrollBy(0,1000)", ""); // this is a javascript "player"
     sleep(5000);
-//    driver.findElement(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).click();  //ERROR-this throws "element not clickable at point (183, -421).
+ //   driver.findElement(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).click();  //ERROR-this is caused because the page is scrolled
 }
 
 @Test
