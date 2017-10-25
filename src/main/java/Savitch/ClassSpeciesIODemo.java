@@ -2,7 +2,7 @@ package Savitch;
 
 import java.io.*;
 
-public class ClassIODemo {
+public class ClassSpeciesIODemo {
     public static void main(String[] parameters) {
 
         ObjectOutputStream outputStream = null;
@@ -50,7 +50,7 @@ public class ClassIODemo {
         }
         catch(IOException e)
         {
-            System.out.println("ERROR-reading from input file " + filename);
+            System.out.println("ERROR-problem reading from input file " + filename);
             System.exit(0);
         }
         catch(ClassNotFoundException e)
