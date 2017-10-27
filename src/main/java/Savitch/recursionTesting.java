@@ -2,9 +2,9 @@ package Savitch;
 
 import org.junit.Test;
 
-public class RecursionTesting {  //THIS JUST FUCKING AROUND. i THINK THE TRICK WITH RECUSION IS PRACTICE.
+public class RecursionTesting {  //THIS JUST . i THINK THE TRICK WITH RECUSION IS PRACTICE.
     public static void main(String[] args) {
-//THIS IS FUCKING RECURSION!!!!!!!
+//THIS IS RECURSION!!!!!!!
 
         Shit(4);
 
