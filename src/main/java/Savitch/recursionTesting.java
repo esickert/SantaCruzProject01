@@ -2,7 +2,7 @@ package Savitch;
 
 import org.junit.Test;
 
-public class RecursionTesting {  //THIS JUST . i THINK THE TRICK WITH RECUSION IS PRACTICE.
+public class RecursionTesting {  //THIS JUST testing. i THINK THE TRICK WITH RECUSION IS PRACTICE.
     public static void main(String[] args) {
 //THIS IS RECURSION!!!!!!!
 
