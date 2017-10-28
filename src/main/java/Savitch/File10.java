@@ -330,7 +330,7 @@ public class File10 implements Serializable {
 
             fromFile.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File is not found");
+            System.out.println("File is not found exception");
         } catch (EOFException e) {
             System.out.println("EOFxception occurred");
         } catch (IOException e) {
