@@ -1075,7 +1075,7 @@ public void playingWithFirefox()  throws InterruptedException  {
     theBook.get("http://www.google.com");
     System.out.println("Please wait...");
     sleep(5000);
-//    theBook.close();
+    theBook.close();
 
     }
 } // end of SeleniumTest
