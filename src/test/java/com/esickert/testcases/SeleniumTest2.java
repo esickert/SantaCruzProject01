@@ -23,10 +23,11 @@ public class SeleniumTest2 {
         System.setProperty("webdriver.gecko.driver","C://DriversForSelenium//geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        String url2 = "http:ww.yahoo.com";
+        String url2 = "http:w.yahoo.com";
 
         driver.get("http:www.yahoo.com");
 
         Assert.assertEquals(url2,("http:www.yahoo.com"));
+//        assertThat(url2, is("http:111.com")) figure this out?????????????????????????????????????
     }
 }
