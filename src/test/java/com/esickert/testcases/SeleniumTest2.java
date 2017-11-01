@@ -6,6 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Assert;
 
+import java.io.IOException;
+
+import static java.lang.Thread.sleep;
+import static org.testng.AssertJUnit.assertEquals;
+
 
 public class SeleniumTest2 {
 
@@ -19,18 +24,21 @@ public class SeleniumTest2 {
     }
 
     @Test
-    public void firefoxTest()   {
+    public void firefoxTest() throws Exception {
 
         int x = 2;
         System.setProperty("webdriver.gecko.driver","C://DriversForSelenium//geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        String url2 = "http:www.yahoo.com";
+        String url2 = "http:www.monster.com";
 
-        driver.get("http:www.yahoo.com");
+        driver.get(url2);
+        sleep(5000);
+        driver.close();
 
-        Assert.assertEquals(url2,("http:www.yahoo.com"));
+        assertEquals(url2,("http:www.yahoo.com"));
 //        assertThat(url2, is("http:www.yahoo.com")) figure this out?????????????????????????????????????
-        Assert.assertEquals(x,(3));
+        assertEquals(x,(3));
+//        assertThat(x,is(1));     this doesn't work!!!!!!
     }
 }
