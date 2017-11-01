@@ -21,7 +21,7 @@ public class SeleniumTest2 {
     @Test
     public void firefoxTest()   {
 
-        int x = 1;
+        int x = 2;
         System.setProperty("webdriver.gecko.driver","C://DriversForSelenium//geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
