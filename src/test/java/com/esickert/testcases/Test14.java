@@ -35,9 +35,11 @@ public class Test14 {
         assertEquals("This is a test", x, y);
         assertFalse("Is this false?", x == 8);
         assertTrue("Is this false??", y == 7);
-        assertArrayEquals("Are arrays equal", anArray, anotherArray);
+
+        assertArrayEquals("Are arrays equal", anArray, anotherArray);  //assertArrayEquals ********************
+
         assertNotNull("Is this not null", x);
-        assertNotSame("Are they not the same?", z, y);
+        assertNotSame("Are they not the same?", z, y);  // assertNotSame
         assertNull("Is this null?", z);
         assertSame("Are they the same??", x , y);
     }
