@@ -25,5 +25,9 @@ public class ADT12 {
             System.out.println(cat.set(1, 200));
             for (Integer temp : cat)
                 System.out.print("This will print out the contents of the arraylist " + temp + "  \n");
+
+            for(int temp:cat)   {
+                System.out.print(temp + "  ");
+            }
         }
 }
