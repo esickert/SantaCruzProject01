@@ -1059,6 +1059,7 @@ public void playingWithFirefox()  throws InterruptedException  {
 
     try
     {
+//        File addFile = new File("c:\\tmp\\firebug-2.0.19.xpi");//this is the same below
         myFirstFFProfile.addExtension(new File("c:\\tmp\\firebug-2.0.19.xpi"));
     }
     catch(Exception e)  //note this is the general exception class.
@@ -1067,7 +1068,7 @@ public void playingWithFirefox()  throws InterruptedException  {
     }
 
     System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
-    FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);
+    FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);  //this creates a session of firefox with profile "myFirstFFProfile"
     //this code installs firebuc into firefox
 
 
@@ -1075,7 +1076,8 @@ public void playingWithFirefox()  throws InterruptedException  {
     theBook.get("http://www.google.com");
     System.out.println("Please wait...");
     sleep(5000);
-    theBook.close();
-
+//    theBook.close();
     }
+
+
 } // end of SeleniumTest
