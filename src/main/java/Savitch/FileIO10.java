@@ -348,7 +348,7 @@ public class FileIO10 implements Serializable {
             double one = 100.2;
             double two = 98.3;
             double three = 79.1;
-            double four = 80.5;
+            double four = 100.3;
 
             outputStream.writeDouble(one);
             outputStream.writeDouble(two);
