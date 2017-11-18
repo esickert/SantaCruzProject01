@@ -39,7 +39,7 @@ public class ADT12 {
             Collection<Integer> collect = new ArrayList<Integer>();
 
             collect.add(123);
-            System.out.println("Is this correct??? " + collect.get(0));
+            System.out.println("Is this correct??? " + collect.iterator());   //this is not correct, i believe it returns a memory address
 
         }
 }
