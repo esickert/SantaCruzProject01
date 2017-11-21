@@ -40,7 +40,9 @@ public class ADT12 {
 
             collect.add(123);
             //correct below????????
-            System.out.println("Is this correct??? " + collect.iterator());   //this is not correct, i believe it returns a memory address
-
+            System.out.println("Is this correct??? " + collect.iterator() + "    NO!!!!");   //this is not correct, i believe it returns a memory address
+            System.out.println("FROM WHAT I READ YOU CANNOT GET THE ELEMENTS\n"
+                    + " OF A COLLECTION BECAUSE THERE IS NO GUAREENTEE WHICH \n"
+                    + " ELEMENT WOULD BE RETURNED AS IT'S A COLLECTION!! \n");
         }
 }
