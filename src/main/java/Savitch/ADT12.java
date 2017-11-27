@@ -45,4 +45,12 @@ public class ADT12 {
                     + " OF A COLLECTION BECAUSE THERE IS NO GUAREENTEE WHICH \n"
                     + " ELEMENT WOULD BE RETURNED AS IT'S A COLLECTION(none ordered elements!! \n");
         }
+
+        @Test
+        public void list()  {
+
+            List<String> aList = new ArrayList<String>();
+                aList.add("Lions");
+            System.out.println(aList);
+        }
 }
