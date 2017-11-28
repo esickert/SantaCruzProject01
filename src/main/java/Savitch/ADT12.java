@@ -54,7 +54,7 @@ public class ADT12 {
                 aList.add("in the street");
                 aList.add("and roaming");
 
-            System.out.println(aList + "\n");
+            System.out.println(aList);
             for(String temp:aList)
                 System.out.println(temp);
         }
