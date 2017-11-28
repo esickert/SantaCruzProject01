@@ -51,6 +51,9 @@ public class ADT12 {
 
             List<String> aList = new ArrayList<String>();
                 aList.add("Lions");
+                aList.add("in the street");
+                aList.add("and roaming");
+                aList.add("This produces an array??");
             System.out.println(aList);
         }
 }
