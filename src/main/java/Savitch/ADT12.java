@@ -53,7 +53,9 @@ public class ADT12 {
                 aList.add("Lions");
                 aList.add("in the street");
                 aList.add("and roaming");
-                aList.add("This produces an array??");
-            System.out.println(aList);
+
+            System.out.println(aList + "\n");
+            for(String temp:aList)
+                System.out.println(temp);
         }
 }
