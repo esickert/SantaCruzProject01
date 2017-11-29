@@ -37,13 +37,19 @@ public class ADT12 {
         public void collection()   {
 
             Collection<Integer> collect = new ArrayList<Integer>();
+            Object[] anArray;
 
             collect.add(123);
+            collect.add(6549);
+            collect.add(45);
 
-
-            System.out.println("FROM WHAT I READ YOU CANNOT GET THE ELEMENTS \n"
+            System.out.println("FROM WHAT I READ YOU CANNOT 'GET' THE ELEMENTS \n"
                     + " OF A COLLECTION BECAUSE THERE IS NO GUAREENTEE WHICH \n"
                     + " ELEMENT WOULD BE RETURNED AS IT'S A COLLECTION(none ordered elements!! \n");
+            //This will convert the collection into an array of objects. Convert the objects to strings
+            anArray = collect.toArray();
+            for(Object temp: anArray)    //note that the array is of type object.
+                System.out.print(temp + "  ");
         }
 
         @Test
@@ -55,6 +61,7 @@ public class ADT12 {
                 aList.add("and roaming");
 
             System.out.println(aList);
+
             for(String temp:aList)
                 System.out.println(temp);
         }
