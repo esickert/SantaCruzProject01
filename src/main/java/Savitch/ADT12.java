@@ -66,6 +66,31 @@ public class ADT12 {
                 System.out.println(temp);
         }
 
-//        @Test
-//        public void
+        @Test
+        public void hashSet() {
+            HashSet<Integer> hashMe = new HashSet<>();
+            hashMe.add(2);
+            hashMe.add(7);
+            hashMe.add(7);  //gets ignored
+            hashMe.add(3);
+
+            printSet(hashMe);    //method printMe
+            hashMe.remove(3);
+    //        hashMe.iterator();
+            printSet(hashMe);
+
+            System.out.println("System contains 3: " + hashMe.contains(3));
+            System.out.println("System contains 7: " + hashMe.contains(7));
+        }
+
+        public void printSet( HashSet stuff) {
+
+            System.out.println(stuff);
+            for (Object temp : stuff)
+                System.out.print("\n" + temp + " ");
+
+        }
+
+
 }
+
