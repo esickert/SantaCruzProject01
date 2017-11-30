@@ -60,9 +60,12 @@ public class ADT12 {
                 aList.add("in the street");
                 aList.add("and roaming");
 
-            System.out.println(aList);
+            System.out.println(aList);  //this prints out the array output.
 
             for(String temp:aList)
                 System.out.println(temp);
         }
+
+//        @Test
+//        public void
 }
