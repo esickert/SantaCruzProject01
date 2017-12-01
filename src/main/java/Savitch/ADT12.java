@@ -74,6 +74,8 @@ public class ADT12 {
             hashMe.add(7);  //gets ignored
             hashMe.add(3);
 
+//            hashMe.iterator();
+
             printSet(hashMe);    //method printMe
             hashMe.remove(3);
     //        hashMe.iterator();
