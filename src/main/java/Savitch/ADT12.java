@@ -93,6 +93,33 @@ public class ADT12 {
 
         }
 
+        @Test
+        public void aMap() {
 
+            HashMap<Integer, String> aMap = new HashMap<>(); NOTE
+            aMap.put(123,"Lions");
+            aMap.put(456,"In the street");
+            aMap.put(987,"and roaming");
+            System.out.println("Contents of aMap at line 104");
+            printMap(aMap);
+            System.out.println("Is something there?: " + aMap.containsKey("Lions"));
+            System.out.println();
+
+            System.out.println("Changing the key of Lions. ");
+            aMap.put(666, "Lions");
+            System.out.println("Contents of aMap at line 111");
+            printMap(aMap);
+            System.out.println("The value asociatrewd with " + aMap.containsKey(666));
+        }
+
+        public void printMap(HashMap<Integer, String> map)   {
+
+            System.out.println("aMap contains:");
+            for(Integer temp:map.keySet())   {
+                String number = map.get(temp);
+                System.out.println(temp + " is a number: " + number.intValue());
+
+            }
+        }
 }
 
