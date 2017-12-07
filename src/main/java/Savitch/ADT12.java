@@ -2,7 +2,12 @@ package Savitch;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
+import java.util.LinkedList;
 import java.util.*;
+
 
 public class ADT12 {
 //    public static void main(String[] arguments) {
@@ -96,7 +101,7 @@ public class ADT12 {
         @Test
         public void aMap() {
 
-            HashMap<Integer, String> aMap = new HashMap<>(); NOTE
+            HashMap<Integer, String> aMap = new HashMap<>();
             aMap.put(123,"Lions");
             aMap.put(456,"In the street");
             aMap.put(987,"and roaming");
@@ -109,7 +114,7 @@ public class ADT12 {
             aMap.put(666, "Lions");
             System.out.println("Contents of aMap at line 111");
             printMap(aMap);
-            System.out.println("The value asociatrewd with " + aMap.containsKey(666));
+            System.out.println("The value associated with " + aMap.containsKey(666));
         }
 
         public void printMap(HashMap<Integer, String> map)   {
@@ -117,9 +122,20 @@ public class ADT12 {
             System.out.println("aMap contains:");
             for(Integer temp:map.keySet())   {
                 String number = map.get(temp);
-                System.out.println(temp + " is a number: " + number.intValue());
+                //System.out.println(temp + " is a number: " + number.intValue());
 
             }
+        }
+//*****************************************************************************************
+//          LINKEDLIST FOR     
+        @Test
+        public void aLinkedList()   {  //this is not using this correctly!!!!!!!!!
+
+            LinkedList<String> aLinkedList = new LinkedList<>();
+
+            aLinkedList.add("Hello There");
+            System.out.println(aLinkedList.get(0));
+
         }
 }
 
