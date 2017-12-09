@@ -965,7 +965,7 @@ public void cookies() throws InterruptedException  {
     }  //end of testStoreCookieInfo()
 
    @Test
-    public void testLoadCookieInfo()    {   //this runs but doesn't save info to cookies!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void testLoadCookieInfo()    {   //this runs but doesn't save info to cookies!!!!!!!!!!!!!!!!!!!!!!!
 
  //       System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
  //       WebDriver linkedin = new ChromeDriver();
