@@ -1,6 +1,4 @@
-package Savitch;
-
-import org.junit.Test;
+package LinkedList.Savitch;
 
 
 public class ListNode {
@@ -30,6 +28,10 @@ public class ListNode {
         link = newLink;
     }
 
-}
+    public ListNode getLink()   {
+        return link;
+    }
+
+}// end of class ListNode.
 
 
