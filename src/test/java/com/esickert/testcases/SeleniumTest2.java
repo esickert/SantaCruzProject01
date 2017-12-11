@@ -9,6 +9,7 @@ import org.junit.Assert;
 import java.io.IOException;
 
 import static java.lang.Thread.sleep;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.AssertJUnit.assertEquals;
 
 
@@ -37,8 +38,8 @@ public class SeleniumTest2 {
 //        driver.close();
 
         assertEquals(url2,("http:www.yahoo.com"));
-//       assertThat(url2, is("http:www.yahoo.com")) figure this out??????????????????????
-//        assertEquals(x,(3));
-//        assertThat(x,is(1));     this doesn't work!!!!!!
+        assertThat(url2, is("http:www.yahoo.com")); //figure this out??????????????????????
+        assertEquals(x,(3));
+        assertThat(x,is(1));     //this doesn't work!!!!!!
     }
 }
