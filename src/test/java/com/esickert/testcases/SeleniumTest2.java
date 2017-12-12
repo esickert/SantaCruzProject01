@@ -38,8 +38,8 @@ public class SeleniumTest2 {
 //        driver.close();
 
         assertEquals(url2,("http:www.yahoo.com"));
-        assertThat(url2, is("http:www.yahoo.com")); //figure this out??????????????????????
+//        assertThat(url2, is("http:www.yahoo.com")); //figure this out??????????????????????
         assertEquals(x,(3));
-        assertThat(x,is(1));     //this doesn't work!!!!!!
+//        assertThat(x,is(1));     //this doesn't work!!!!!!
     }
 }
