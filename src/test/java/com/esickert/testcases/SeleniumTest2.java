@@ -34,8 +34,8 @@ public class SeleniumTest2 {
         String url2 = "http:www.monster.com";
 
         driver.get(url2);
-//        sleep(5000);
-//        driver.close();
+        sleep(5000);
+        driver.close();
 
         assertEquals(url2,("http:www.yahoo.com"));
 //        assertThat(url2, is("http:www.yahoo.com")); //figure this out??????????????????????
