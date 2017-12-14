@@ -809,7 +809,8 @@ public void switchToWindows() throws AWTException, InterruptedException     {
 //    sleep(2000);
     erich.sendKeys("cnn");
 //    sleep(3000);
-    WebElement eric = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/h3/a"));
+ //   WebElement eric = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/div/h3/a"));  BAD XPATH. see below
+     WebElement eric = driver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[3]/center/input[1]"));
     eric.click();
 
     driver.navigate().back();             //navigate().back()
