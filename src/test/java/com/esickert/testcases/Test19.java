@@ -20,7 +20,7 @@ import static junit.framework.TestCase.assertTrue;
  * Created by esickert on 7/9/2017.
  */
 public class Test19 {
-//**********************************************************************************************************************
+
 //**********************************************************************************************************************
 /**
 * This may make more sense after covering File/IO Chap 10 in savitch's book!!
