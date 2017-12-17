@@ -24,7 +24,7 @@ public class SaveToFileStuff {
             System.out.println("IOExcetion has occurred");
             System.exit(0);
         }
-            outputStream.println("We the people of the United States");
+            outputStream.println("We the people vvof the United States");
             outputStream.println("in order to form a more perfect union");
             System.out.println("Text has been witten to createTextFile");
             outputStream.close();  //we need to close the stream so the text is written to the file
