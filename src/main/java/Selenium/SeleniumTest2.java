@@ -58,6 +58,7 @@ public class SeleniumTest2 {
 
         Map capabilitiesMap = new HashMap();
         capabilitiesMap.put("takeScreenShot", true);
+        System.out.println(capabilitiesMap.get("takeScreenShot"));  //this is the key value for capabilitiesMap!!
 
         DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
         WebDriver driver = new FirefoxDriver(capabilities);
