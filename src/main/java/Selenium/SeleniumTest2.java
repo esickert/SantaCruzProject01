@@ -67,7 +67,7 @@ public class SeleniumTest2 {
         File fileName = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 //        FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
         System.out.println(fileName.getAbsolutePath());
-        //********************************************************************************************************
+        //****************************************************************************************************
         try {
             FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
         }
