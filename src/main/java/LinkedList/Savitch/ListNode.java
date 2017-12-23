@@ -17,6 +17,7 @@ public class ListNode {
     }
 
     public void setData(String newData) {
+
         data = newData;
     }
 
@@ -29,6 +30,7 @@ public class ListNode {
     }
 
     public ListNode getLink()   {
+
         return link;
     }
 
