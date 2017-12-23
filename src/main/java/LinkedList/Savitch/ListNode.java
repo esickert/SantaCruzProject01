@@ -4,7 +4,7 @@ package LinkedList.Savitch;
 public class ListNode {
 
     private String data;
-    private ListNode link;  //this is confusing
+    private ListNode link;  //I think I understand this...maybe
 
     public ListNode() {
         data = null;
