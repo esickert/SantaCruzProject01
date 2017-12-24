@@ -46,6 +46,7 @@ public class SeleniumTest2 {
 
         Assert.assertEquals(url2,("http:www.monster.com"));
 //        assertThat(url2, is("http:www.yahoo.com")); //figure this out?????????????????
+                
         Assert.assertEquals(x,(2));
 //        assertThat(x,is(1));     //this doesn't work!!!!!!
     }
