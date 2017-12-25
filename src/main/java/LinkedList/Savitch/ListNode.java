@@ -6,12 +6,12 @@ public class ListNode {
     private String data;
     private ListNode link;  //I think I understand this...maybe
 
-    public ListNode() {
+    public ListNode() {   //a constructor that creates new instance of ListNode.
         data = null;
         link = null;
     }
 
-    public ListNode(String newData, ListNode linkData) {
+    public ListNode(String newData, ListNode linkData) {   // a constructor that creates new instance of ListNode
         data = newData;
         link = linkData;
     }
