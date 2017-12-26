@@ -2,7 +2,7 @@ package LinkedList.Savitch;
 
 public class StringLinkedList {
 
-    private ListNode head;   //This is confusing
+    private ListNode head;
 
     public StringLinkedList() {
 
@@ -15,13 +15,14 @@ public class StringLinkedList {
     public void showList() {
         ListNode position = head;
         while (position != null) {
+            System.out.println(position.getLink());   //i added this for testing, Should return null
             System.out.println(position.getData());
             position = position.getLink();
         }
     }//end of method showList()
 
     /**
-     * Returns the number of nodes on the kist
+     * Returns the number of nodes on the list
      */
     public int length() {
         int count = 0;
@@ -30,11 +31,12 @@ public class StringLinkedList {
             count++;
             position = position.getLink();
         }
+        System.out.println("The length of the linkedList is " + count);
         return count;
     }
 
     /**
-     * Adds a node containing the addDat the start of the lists.
+     * Adds a node containing the addData the start of the lists.
      */
     public void addNodeToStart(String addData) {
         head = new ListNode(addData, head);
