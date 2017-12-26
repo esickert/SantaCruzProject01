@@ -8,7 +8,7 @@ public class LinkedListtOfStrings {
         StringLinkedList linked = new StringLinkedList();
 
         linked.addNodeToStart("Hello");
-         //this will now reference a memory link to the next node
+         //this will now reference a memory link to the next node.....
         System.out.println(linked.length());
         linked.showList();
     }
