@@ -1,4 +1,4 @@
-package com.esickert.testcases;
+package Selenium;
 
 import com.esickert.cases.TheMonster;
 
@@ -77,7 +77,9 @@ public class SeleniumTest {
            String temp = "9";
            System.out.println("This is a double = " + aVariable);
            System.out.println("Use this case for selenium");
+           System.setProperty("webdriver.gecko.driver","c://DriversForSelenium/geckoDriver.exe");
            WebDriver driver = new FirefoxDriver();
+//           WebDriver driver = new FirefoxDriver();       OLD FIREFOX SELENIUM DRIVER SETUP!!!
            driver.get("file:///C:/Users/esickert/Desktop/SeleniumHTML/Selectable.html");
            //use intellij to code the selenium features.
 
