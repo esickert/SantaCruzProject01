@@ -79,8 +79,8 @@ public class SeleniumTest2 {
         //*******************************************************************************************************
 
 //        Assert.assertEquals(fileName,"c:\\tmp\\screenshot.png");//this fails because the entire string comparison fails.
-        sleep(5000);
-        driver.close();
+//        sleep(5000);
+ //       driver.close();
 
     }
 }
