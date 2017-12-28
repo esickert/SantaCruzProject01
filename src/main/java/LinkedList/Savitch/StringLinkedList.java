@@ -9,9 +9,7 @@ public class StringLinkedList {
         head = null;
     }
 
-    /**
-     * displays data on the list
-     */
+
     public void showList() {
         ListNode position = head;
         while (position != null) {
@@ -21,9 +19,7 @@ public class StringLinkedList {
         }
     }//end of method showList()
 
-    /**
-     * Returns the number of nodes on the list
-     */
+
     public int length() {
         int count = 0;
         ListNode position = head;
@@ -35,16 +31,12 @@ public class StringLinkedList {
         return count;
     }
 
-    /**
-     * Adds a node containing the addData the start of the lists.
-     */
+
     public void addNodeToStart(String addData) {
         head = new ListNode(addData, head);
     }
 
-    /**
-     * Deletes the first node on the list;
-     */
+
     public void deleteHeadNode() {
         if (head != null)
             head = head.getLink();
@@ -54,9 +46,7 @@ public class StringLinkedList {
         }
     }
 
-    /**
-     * Sees whether target is on the list
-     */
+   
     public boolean onList(String target) {
         return find(target) != null;
     }
