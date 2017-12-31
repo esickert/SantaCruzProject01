@@ -14,7 +14,7 @@ public class StringLinkedList {
         ListNode position = head;
         while (position != null) {
             System.out.println(position.getLink());   //i added this for testing, Should return null
-            System.out.println(position.getData());
+            System.out.println("This is the data = " + position.getData());
             position = position.getLink();
         }
     }//end of method showList()
@@ -23,6 +23,7 @@ public class StringLinkedList {
     public int length() {
         int count = 0;
         ListNode position = head;
+        System.out.println("position equals " + position.getLink());
         while (position != null) {
             count++;
             position = position.getLink();
@@ -46,7 +47,6 @@ public class StringLinkedList {
         }
     }
 
-   
     public boolean onList(String target) {
         return find(target) != null;
     }
