@@ -55,14 +55,20 @@ public class SeleniumTest2 {
     @Test   ///this is in #3
     public void desiredProperties() throws IOException, InterruptedException {
 
-        System.setProperty("webdriver.gecko.driver","c://DriversForSelenium//Geckodriver.exe");
+//        System.setProperty("webdriver.gecko.driver","c://DriversForSelenium//Geckodriver.exe");
+
+        System.setProperty("webdriver.chrome.driver","C://DriversForSelenium//chromedriver.exe");
+
 
         Map capabilitiesMap = new HashMap();
         capabilitiesMap.put("takeScreenShot", true);
         System.out.println(capabilitiesMap.get("takeScreenShot"));  //this is the key value for capabilitiesMap!!
 
         DesiredCapabilities capabilities = new DesiredCapabilities(capabilitiesMap);
-        WebDriver driver = new FirefoxDriver(capabilities);
+//        WebDriver driver = new FirefoxDriver(capabilities);
+
+        WebDriver driver = new ChromeDriver(capabilities);
+
         driver.get("http://www.bing.com");
         sleep(5000);
         File fileName = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
