@@ -82,7 +82,7 @@ public class SeleniumTest2 {
         {
             System.out.println("ERROR");
         }
-        //*******************************************************************************************************
+        //***************************************************************************************************
 
 //        Assert.assertEquals(fileName,"c:\\tmp\\screenshot.png");//this fails because the entire string comparison fails.
 //        sleep(5000);
