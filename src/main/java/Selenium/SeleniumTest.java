@@ -1052,35 +1052,7 @@ public void seleniumPractice() throws InterruptedException {
     sleep(5000);
     driver.executeScript("window.scrollBy(0,1000)", ""); // this is a javascript "player"
     sleep(5000);
- //   driver.findElement(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).click();  //ERROR-this is caused because the page is scrolled
+    driver.findElement(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).click();  //ERROR-this is caused because the page is scrolled
 }
-
-@Test
-public void playingWithFirefox()  throws InterruptedException  {
-
-    FirefoxProfile myFirstFFProfile = new FirefoxProfile();
-
-    try
-    {
-//        File addFile = new File("c:\\tmp\\firebug-2.0.19.xpi");//this is the same below
-        myFirstFFProfile.addExtension(new File("c:\\tmp\\firebug-2.0.19.xpi"));
-    }
-    catch(Exception e)  //note this is the general exception class.
-    {
-        e.printStackTrace();
-    }
-
-    System.setProperty("webdriver.firefox.marionette", "c:\\DriversForSelenium\\geckodriver.exe");
-    FirefoxDriver theBook = new FirefoxDriver(myFirstFFProfile);  //this creates a session of firefox with profile "myFirstFFProfile"
-    //this code installs firebuc into firefox
-
-
-
-    theBook.get("http://www.google.com");
-    System.out.println("Please wait...");
-    sleep(5000);
-//    theBook.close();
-    }
-
 
 } // end of SeleniumTest
