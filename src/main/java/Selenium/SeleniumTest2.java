@@ -76,7 +76,7 @@ public class SeleniumTest2 {
         System.out.println(fileName.getAbsolutePath());
         //****************************************************************************************************
         try {
-            FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
+            FileUtils.copyFile(fileName, new File("C:\\Users\\esickert\\AppData\\Local\\Temp\\screenshot.png"));
         }
         catch(IOException e)
         {
@@ -84,9 +84,12 @@ public class SeleniumTest2 {
         }
         //***************************************************************************************************
 
-//        Assert.assertEquals(fileName,"c:\\tmp\\screenshot.png");//this fails because the entire string comparison fails.
+//        Assert.assertEquals(fileName.getAbsolutePath(),"C:\\tmp\\screenshot.png");    //this fails because the entire string comparison fails.
 //        sleep(5000);
  //       driver.close();
+
+//    @Test
+//    public void
 
     }
 }
