@@ -13,6 +13,7 @@ public class LinkedListtOfStrings {
          //this will now reference a memory link to the next node.....
         System.out.println(linked.length());
         linked.showList();
+        System.out.println(linked.onList("hello"));
 
     }
 }
