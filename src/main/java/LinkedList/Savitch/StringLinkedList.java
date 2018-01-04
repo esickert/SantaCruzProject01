@@ -1,5 +1,8 @@
 package LinkedList.Savitch;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 public class StringLinkedList {
 
     private ListNode head;
@@ -8,7 +11,6 @@ public class StringLinkedList {
 
         head = null;
     }
-
 
     public void showList() {
         ListNode position = head;
