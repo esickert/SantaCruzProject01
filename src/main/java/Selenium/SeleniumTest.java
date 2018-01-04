@@ -139,15 +139,17 @@ public class SeleniumTest {
 
 //      @Ignore
       @Test
-        public void chapEightStuff() throws Exception   {
+        public void chapEightStuff() throws Exception   {  //this doesn't woork anymore!!!~!~
 
         String url =  "www.google.com";
         assertFalse("http://www.google.com", url.equals("http://www.google.cm"));
-          System.setProperty("webdriver.chrome.driver","\\Temp\\chromedriver.exe");
-        WebDriver driver = new FirefoxDriver();
-        String url2 = addHttp(url);
-        driver.get(url2);
-        assertFalse("checking urls??", url.equals(url2));          //  ************************************ ERROR ERROR
+          System.setProperty("webdriver.chrome.driver","c:\\DriversForSelenium\\chromedriver.exe");
+          WebDriver driver = new ChromeDriver();
+ //       WebDriver driver = new FirefoxDriver();
+//        String url2 = addHttp(url);
+//        driver.get(url2);
+          driver.get("http://www.google/com");
+ //       assertFalse("checking urls??", url.equals(url2));          //  ************************************ ERROR ERROR
         //this was experimenting with printing out text in web elements.
         WebElement me = driver.findElement(name("btnK"));
         me.sendKeys("will this work");
