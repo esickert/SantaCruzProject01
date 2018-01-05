@@ -14,6 +14,6 @@ public class LinkedListtOfStrings {
         System.out.println(linked.length());
         linked.showList();
         System.out.println(linked.onList("hello"));
-
+        linked.onList("star wars");
     }
 }
