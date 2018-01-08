@@ -1014,7 +1014,7 @@ public void cookies() throws InterruptedException  {
         linkedin.get("https://www.linkedin.com");
 //        linkedin.get("https://www.linkedin.com/uas/login");
     }
-//*************************************************************************************************************
+//*********************************************************************************************************
 
 @Test
 public void softQEWebsite() throws InterruptedException {
