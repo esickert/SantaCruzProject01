@@ -71,6 +71,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.machinepublishers</groupId>
+            <artifactId>jbrowserdriver</artifactId>
+            <version>1.0.0-RC1</version>
+        </dependency>
+
 
         <!--
                 <dependency>
