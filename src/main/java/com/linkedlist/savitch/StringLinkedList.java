@@ -1,7 +1,4 @@
-package LinkedList.Savitch;
-
-import org.junit.Ignore;
-import org.junit.Test;
+package com.linkedlist.savitch;
 
 public class StringLinkedList {
 

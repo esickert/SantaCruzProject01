@@ -1,4 +1,4 @@
-package Selenium;
+package com.selenium;
 
 import com.esickert.cases.TheMonster;
 

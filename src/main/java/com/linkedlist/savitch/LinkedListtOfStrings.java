@@ -1,6 +1,4 @@
-package LinkedList.Savitch;
-
-import java.util.*;
+package com.linkedlist.savitch;
 
 public class LinkedListtOfStrings {
     public static void main(String[] args)  {

@@ -1,4 +1,4 @@
-package LinkedList.Savitch;
+package com.linkedlist.savitch;
 
 
 public class ListNode {
