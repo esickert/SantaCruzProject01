@@ -19,7 +19,7 @@ public class UserTest {
         System.out.println("The initial username is: " + erich.getUsername());
         System.out.println("The initial password is: " + erich.getPassword());
 //        assertEquals("checking password","admin" , (erich.getPassword()));
-        System.out.println("******************************************");
+        System.out.println("**************************************");
         System.out.print("Resetting pasword...");
         erich.setPassword("Admin111");
         System.out.println(erich.getPassword());
