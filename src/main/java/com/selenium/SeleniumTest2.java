@@ -90,7 +90,7 @@ public class SeleniumTest2 {
 //    public void
 
     }
-
+//**********************************************************************************************************************
     @Test
     public void handlePopupAlerts() throws Exception    {
 
@@ -104,8 +104,11 @@ public class SeleniumTest2 {
         element.click();
         Alert alert = driver.switchTo().alert();
 
-        sleep(5000);
+        sleep(3000);
 
+
+        System.out.println(driver.switchTo().alert().getText());
         driver.switchTo().alert().dismiss();
+
     }
 }
