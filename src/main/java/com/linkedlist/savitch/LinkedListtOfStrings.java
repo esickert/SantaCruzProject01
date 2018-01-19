@@ -13,6 +13,6 @@ public class LinkedListtOfStrings {
         linked.showList();
         System.out.println(linked.findOnList("hello"));
         linked.findOnList("star wars");
-        
+
     }
 }

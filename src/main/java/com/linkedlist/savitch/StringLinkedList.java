@@ -46,7 +46,7 @@ public class StringLinkedList {
         }
     }
 
-    public boolean onList(String target) {
+    public boolean findOnList(String target) {
         return find(target) != null;
     }
 
