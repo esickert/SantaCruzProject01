@@ -2,9 +2,7 @@ package com.selenium;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Assert;
@@ -72,7 +70,7 @@ public class SeleniumTest2 {
         driver.get("http://www.bing.com");
         sleep(5000);
         File fileName = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//        FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
+        FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
         System.out.println(fileName.getAbsolutePath());
         //****************************************************************************************************
         try {
@@ -84,12 +82,30 @@ public class SeleniumTest2 {
         }
         //***************************************************************************************************
 
-//        Assert.assertEquals(fileName.getAbsolutePath(),"C:\\tmp\\screenshot.png");    //this fails because the entire string comparison fails.
-//        sleep(5000);
- //       driver.close();
+        Assert.assertEquals(fileName.getAbsolutePath(),"C:\\tmp\\screenshot.png");    //this fails because the entire string comparison fails.
+        sleep(5000);
+       driver.close();
 
 //    @Test
 //    public void
 
+    }
+
+    @Test
+    public void handlePopupAlerts() throws Exception    {
+
+        System.setProperty("webdriver.gecko.driver","c://SeleniumDrivers//geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+
+        driver.get("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
+        sleep(5000);
+
+        WebElement element = driver.findElement(By.xpath("html/body/fieldset/button"));
+        element.click();
+        Alert alert = driver.switchTo().alert();
+
+        sleep(5000);
+
+        driver.switchTo().alert().dismiss();
     }
 }
