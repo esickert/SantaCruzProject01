@@ -55,7 +55,7 @@ public class SeleniumTest2 {
 
 //        System.setProperty("webdriver.gecko.driver","c://DriversForSelenium//Geckodriver.exe");
 
-        System.setProperty("webdriver.chrome.driver","C://DriversForSelenium//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C://SeleniumDrivers//chromedriver.exe");
 
 
         Map capabilitiesMap = new HashMap();
