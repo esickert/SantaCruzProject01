@@ -19,7 +19,7 @@ public class FileIO10 implements Serializable {
 
     @Test
     public void writingTheGreatAmericanNovel() {//throws IOException  {
-        String fileName = "c:\\Temp\\erich.txt";
+        String fileName = "c:\\Tmp\\erich.txt";
         // this will create a file in the Temp directory. No
         // directory path, created in the home directory of program
         File theFile = new File(fileName);
