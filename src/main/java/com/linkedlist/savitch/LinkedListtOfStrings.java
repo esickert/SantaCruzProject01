@@ -12,7 +12,7 @@ public class LinkedListtOfStrings {
         System.out.println(linked.length());
         linked.showList();
         System.out.println(linked.findOnList("hello"));
-        linked.findOnList("star wars");
+        System.out.println(linked.findOnList("star wars"));
 
     }
 }
