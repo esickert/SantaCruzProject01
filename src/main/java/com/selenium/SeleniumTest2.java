@@ -15,6 +15,7 @@ import java.util.Map;
 
 import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 //import static org.testng.AssertJUnit.assertEquals;
 
 
@@ -92,23 +93,41 @@ public class SeleniumTest2 {
     }
 //**********************************************************************************************************************
     @Test
-    public void handlePopupAlerts() throws Exception    {
+    //testing if text inside alert button is correct.
+    public void handleAlerts() throws Exception {
 
-        System.setProperty("webdriver.gecko.driver","c://SeleniumDrivers//geckodriver.exe");
-        WebDriver driver = new FirefoxDriver();
+        System.setProperty("webdriver.gecko.driver", "c://SeleniumDrivers//geckodriver.exe");
+        WebDriver driver;
 
-        driver.get("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
+        driver = new FirefoxDriver();
+
+        driver.navigate().to("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
         sleep(5000);
 
+        //finding the location of the button "Click on me"
         WebElement element = driver.findElement(By.xpath("html/body/fieldset/button"));
         element.click();
+
+        //using switchT0() to switch focus on the alert window
         Alert alert = driver.switchTo().alert();
 
         sleep(3000);
 
-
         System.out.println(driver.switchTo().alert().getText());
-        driver.switchTo().alert().dismiss();
+//        driver.switchTo().alert().dismiss();
 
+        String expectedMessage = "I am an example for alert box!";
+        String actualText = driver.switchTo().alert().getText();
+        assertThat(expectedMessage, is(actualText));
+//        sleep(3000);
+        driver.quit();
+//        quitDriver(driver);
     }
+
+        public static void quitDriver(WebDriver driver )  {
+            driver.quit();
+        }
+
+
+
 }
