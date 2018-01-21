@@ -123,7 +123,7 @@ public class SeleniumTest2 {
         driver.quit();
 //        quitDriver(driver);
     }
-
+        //one of the helper webpage did it this way. Not sure why.
         public static void quitDriver(WebDriver driver )  {
             driver.quit();
         }
