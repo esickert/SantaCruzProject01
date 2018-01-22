@@ -118,8 +118,10 @@ public class SeleniumTest2 {
 
         String expectedMessage = "I am an example for alert box!";
         String actualText = driver.switchTo().alert().getText();
+
         assertThat(expectedMessage, is(actualText));
-//        sleep(3000);
+//
+//       sleep(3000);
         driver.quit();
 //        quitDriver(driver);
     }
@@ -127,7 +129,24 @@ public class SeleniumTest2 {
         public static void quitDriver(WebDriver driver )  {
             driver.quit();
         }
+//**********************************************************************************************************************
+    @Test
+    public void handlesModalAlerts() {
 
+        System.setProperty("webdriver.gecko.driver", "c://seleniumDrivers//geckodriver.exe");
+        WebDriver driver = null;
 
+        //this is not correctly setup
+        Map setCaps = new HashMap();
+        setCaps.put("handlesAlert", false);
+
+        DesiredCapabilities capabilities = new DesiredCapabilities(setCaps);
+
+        driver = new FirefoxDriver(capabilities);
+        driver.navigate().to("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
+
+        WebElement element = driver.findElement(By.xpath("html/body/fieldset/button"));
+        element.click();
+    }
 
 }
