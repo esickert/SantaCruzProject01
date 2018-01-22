@@ -145,7 +145,6 @@ public class SeleniumTest2 {
 
 
 //        DesiredCapabilities capabilities = new DesiredCapabilities(setCaps);
-//******this is from Stack Overflow  https://stackoverflow.com/questions/35258079/how-to-get-browser-name-using-selenium-webdriver-with-java/35263148
         Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         System.out.println(browserName);
