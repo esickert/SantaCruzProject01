@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -137,25 +138,26 @@ public class SeleniumTest2 {
         WebDriver driver = null;
 
         //this is not correctly setup
-        Map setCaps = new HashMap();
-        
+ //       Map setCaps = new HashMap();
+
+        driver = new FirefoxDriver();
+        driver.navigate().to("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
 
 
-        DesiredCapabilities capabilities = new DesiredCapabilities(setCaps);
+//        DesiredCapabilities capabilities = new DesiredCapabilities(setCaps);
 //******this is from Stack Overflow  https://stackoverflow.com/questions/35258079/how-to-get-browser-name-using-selenium-webdriver-with-java/35263148
- /*       Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         System.out.println(browserName);
         String os = cap.getPlatform().toString();
-        System.out.println(os);
-        String v = cap.getVersion().toString();
-        System.out.println(v);
-*/
-        driver = new FirefoxDriver(capabilities);
-        driver.navigate().to("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
 
-        WebElement element = driver.findElement(By.xpath("html/body/fieldset/button"));
-        element.click();
+        System.out.println("This is os: " + os);
+        String v = cap.getVersion().toString();
+        System.out.println("This is version: " + v);
+
+
+//        WebElement element = driver.findElement(By.xpath("html/body/fieldset/button"));
+//        element.click();
     }
 
 }
