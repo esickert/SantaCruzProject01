@@ -138,19 +138,19 @@ public class SeleniumTest2 {
 
         //this is not correctly setup
         Map setCaps = new HashMap();
-        setCaps.put("handlesAlert", false);
+        
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities(setCaps);
 //******this is from Stack Overflow  https://stackoverflow.com/questions/35258079/how-to-get-browser-name-using-selenium-webdriver-with-java/35263148
-        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+ /*       Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         System.out.println(browserName);
         String os = cap.getPlatform().toString();
         System.out.println(os);
         String v = cap.getVersion().toString();
         System.out.println(v);
-
+*/
         driver = new FirefoxDriver(capabilities);
         driver.navigate().to("file:///C:/SeleniumTestPages/SeleniumBookStuff/Alerts.html");
 
