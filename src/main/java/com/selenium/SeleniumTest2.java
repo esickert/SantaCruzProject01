@@ -135,7 +135,7 @@ public class SeleniumTest2 {
     public void handlesModalAlerts() {
 
         System.setProperty("webdriver.gecko.driver", "c://seleniumDrivers//geckodriver.exe");
-        WebDriver driver = null;
+        WebDriver driver;
 
         //this is not correctly setup
  //       Map setCaps = new HashMap();
