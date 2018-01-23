@@ -151,7 +151,7 @@ public class SeleniumTest2 {
         String os = cap.getPlatform().toString();
 
         System.out.println("This is os: " + os);
-        String v = cap.getVersion().toString();
+        String v = cap.getVersion();
         System.out.println("This is version: " + v);
 
 
