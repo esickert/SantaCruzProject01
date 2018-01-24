@@ -74,7 +74,7 @@ public class SeleniumTest2 {
         File fileName = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(fileName, new File("c:\\tmp\\screenshot.png"));
         System.out.println(fileName.getAbsolutePath());
-        //****************************************************************************************************
+        //*********************************************************************************************
         try {
             FileUtils.copyFile(fileName, new File("C:\\Users\\esickert\\AppData\\Local\\Temp\\screenshot.png"));
         }
@@ -82,7 +82,7 @@ public class SeleniumTest2 {
         {
             System.out.println("ERROR");
         }
-        //***************************************************************************************************
+        //*********************************************************************************************
 
         Assert.assertEquals(fileName.getAbsolutePath(),"C:\\tmp\\screenshot.png");    //this fails because the entire string comparison fails.
         sleep(5000);
