@@ -20,7 +20,7 @@ public class Node {
     public Node getLink() {
         return link;
     }
-
+    //okay pretty surer these will not work!!
     public Node setLink()    {
         Node head = new Node();
         return head;
@@ -29,7 +29,7 @@ public class Node {
     public String getStuff()   {
         return stuff;
     }
-                            //okay pretty surer these will not work!!!
+                            
     public String setStuff(String newStuff)    {
         stuff = newStuff;
         return stuff;
