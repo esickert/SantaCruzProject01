@@ -21,9 +21,17 @@ public class Node {
         return link;
     }
 
-    public Node setLink(Node newLink)    {
-        return null;
+    public Node setLink()    {
+        Node head = new Node();
+        return head;
     }
-
-
+//****************************************************************************
+    public String getStuff()   {
+        return stuff;
+    }
+                            //okay pretty surer these will not work!!!
+    public String setStuff(String newStuff)    {
+        stuff = newStuff;
+        return stuff;
+    }
 }
