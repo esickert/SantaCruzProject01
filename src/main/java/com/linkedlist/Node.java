@@ -20,16 +20,15 @@ public class Node {
     public Node getLink() {
         return link;
     }
-    //okay pretty surer these will not work!!
-    public Node setLink()    {
-        Node head = new Node();
-        return head;
+
+    public void setLink(Node newLink)    {
+        link = newLink;
     }
 //****************************************************************************
     public String getStuff()   {
         return stuff;
     }
-                            
+
     public String setStuff(String newStuff)    {
         stuff = newStuff;
         return stuff;
