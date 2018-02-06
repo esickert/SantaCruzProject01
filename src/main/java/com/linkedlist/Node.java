@@ -24,7 +24,7 @@ public class Node {
     public void setLink(Node newLink)    {
         link = newLink;
     }
-//****************************************************************************
+//************************************************************************
     public String getStuff()   {
         return stuff;
     }
