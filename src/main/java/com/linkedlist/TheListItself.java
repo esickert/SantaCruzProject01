@@ -3,20 +3,22 @@ package com.linkedlist;
 public class TheListItself {
     public static void main(String[] args)  {
 
-        LinkedList list = new LinkedList();
+    LinkedList list = new LinkedList();
 
-        System.out.println(list.length());
 
-        list.addToList( "chair");
-        list.addToList( "chair");
-        list.addToList( "chair");
+    System.out.println(list.length());
+    //list.addToList("junk");
+    System.out.println(list.length());
+    list.printList();
+    //for(int i = 0; i <= 3; i++) {
+    //v      list.addToList("more junk");
 
-        list.showList();
-        System.out.println(list.length());
-        list.deleteFirstNode();
-        list.showList();
-        System.out.println(list.length());
+  //  }
+    list.printList();
+    System.out.println("The number of nodes is " + list.numberOfNodes);
+    System.out.println(list.length());
 
+    list.isEmpty();
 
     }
 }
