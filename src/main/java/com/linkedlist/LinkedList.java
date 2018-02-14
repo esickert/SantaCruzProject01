@@ -34,12 +34,7 @@ public class LinkedList {
         }
     }
 
-    public void findElement(String target)   {
-        Node position = head;
-        while (position != null)    {
-            if position.getStuff()
-
-        }
+    
     }
 
 }
