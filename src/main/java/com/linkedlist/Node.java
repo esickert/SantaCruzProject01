@@ -4,33 +4,31 @@ import org.junit.Test;
 
 public class Node {
 
-    private String stuff;
-    private Node link;
+ String stuff = "";
+ Node link = null;
 
-    public Node()   {
-        stuff = "stuff";
-        link = null;
-    }
+ Node() {
+ }
 
-    public Node(String stuff, Node link)    {
-        this.stuff = stuff;
-        this.link = link;
-    }
+ Node(String newStuff, Node newLink)    {
+     this.stuff = newStuff;
+     this.link = newLink;
+ }
 
-    public Node getLink() {
-        return link;
-    }
+ public void setStuff(String newStuff)  {
+     stuff = newStuff;
+ }
 
-    public void setLink(Node newLink)    {
-        link = newLink;
-    }
-//*************************************************************
-    public String getStuff()   {
-        return stuff;
-    }
+ public String getStuff()   {
+     return stuff;
+ }
 
-    public String setStuff(String newStuff)    {
-        stuff = newStuff;
-        return stuff;
-    }
+ public void setLink(Node newLink)  {
+     link = newLink;
+ }
+
+ public Node getLink()  {
+     return link;
+ }
+
 }

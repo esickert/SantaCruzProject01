@@ -34,7 +34,15 @@ public class LinkedList {
         }
     }
 
-    
+    public void isEmpty() {
+        if (head == null)
+            System.out.println("The list is empty");
+        else
+            System.out.println("The list is not empty");
     }
-
 }
+
+
+
+
+

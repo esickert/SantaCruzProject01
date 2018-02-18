@@ -14,7 +14,7 @@ public class TheListItself {
           list.addToList("more junk");
     }
     list.printList();
-    System.out.println("The number of nodes is " + list.numberOfNodes);
+//    System.out.println("The number of nodes is " + list.numberOfNodes);
     System.out.println(list.length());
 
     list.isEmpty();
