@@ -40,6 +40,27 @@ public class LinkedList {
         else
             System.out.println("The list is not empty");
     }
+
+    public void found(String stuff)  {
+
+      System.out.println(search(stuff));
+    }
+
+    public Boolean search(String justStuff)  {
+        Node position = head;
+        Boolean result = false;
+        while (position != null)    {
+            if (position.getStuff().equals(justStuff))   {
+                result = true;
+
+            else {
+                position = position.getLink();
+            }
+        }
+        return result;
+    }
+
+
 }
 
 
