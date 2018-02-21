@@ -11,13 +11,17 @@ public class TheListItself {
     System.out.println(list.length());
     list.printList();
     for(int i = 0; i <= 3; i++) {
-          list.addToList("more junk");
+          list.addToList("junk");
     }
     list.printList();
 //     System.out.println("The number of nodes is " + list.numberOfNodes);
     System.out.println(list.length());
 
     list.isEmpty();
+    System.out.println("Is the item in the list? " + list.found("junk"));
+
+
+    System.exit(0);
 
     }
 }
