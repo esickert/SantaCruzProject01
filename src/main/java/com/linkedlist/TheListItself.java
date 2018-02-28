@@ -20,7 +20,7 @@ public class TheListItself {
     list.isEmpty();
     System.out.println("Is the item in the list? " + list.found("junk"));
 
-    System.exit(0);
+//    System.exit(0);
 
     }
 }
