@@ -1,5 +1,9 @@
 package com.linkedlist;
 
+import org.junit.Assert;
+
+import static org.hamcrest.CoreMatchers.is;
+
 public class TheListItself {
     public static void main(String[] args)  {
 
@@ -19,6 +23,7 @@ public class TheListItself {
 
     list.isEmpty();
     System.out.println("Is the item in the list? " + list.found("junk"));
+    Assert.assertEquals(false, list.found("junk"));
 
 //    System.exit(0);
 
