@@ -41,18 +41,20 @@ public class LinkedList {
             System.out.println("The list is not empty");
     }
 
-    public void found(String stuff)  {
-
-      System.out.println(search(stuff));
+    public Boolean found(String stuff)  {
+        Boolean result = search(stuff);
+        System.out.println(search(stuff));
+        return result;
     }
 
     public Boolean search(String justStuff)  {
         Node position = head;
         Boolean result = false;
-        while (position != null)    {
-            if (position.getStuff().equals(justStuff))   {
+        while ((position != null))   {
+            if (position.getStuff().equals(justStuff)) {
                 result = true;
-
+                position = null;
+            }
             else {
                 position = position.getLink();
             }
