@@ -23,7 +23,7 @@ public class TheListItself {
 
     list.isEmpty();
     System.out.println("Is the item in the list? " + list.found("junk"));
-    Assert.assertEquals(false, list.found("junk"));
+    Assert.assertEquals("Are they equal??", false, list.found("junk"));
 
 //    System.exit(0);
 
