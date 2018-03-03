@@ -7,23 +7,24 @@ import static org.hamcrest.CoreMatchers.is;
 public class TheListItself {
     public static void main(String[] args)  {
 
-    LinkedList list = new LinkedList();
+    LinkedList alist = new LinkedList();
 
 
-    System.out.println(list.length());
-    //list.addToList("junk");
-    System.out.println(list.length());
-    list.printList();
+    System.out.println(alist.length());
+    //alist.addToList("junk");
+    System.out.println(alist.length());
+    alist.printList();
     for(int i = 0; i <= 3; i++) {
-          list.addToList("junk");
+          alist.addToList("junk");
     }
-    list.printList();
-//     System.out.println("The number of nodes is " + list.numberOfNodes);
-    System.out.println(list.length());
+    alist.printList();
+//     System.out.println("The number of nodes is " + alist.numberOfNodes);
+    System.out.println(alist.length());
 
-    list.isEmpty();
-    System.out.println("Is the item in the list? " + list.found("junk"));
-    Assert.assertEquals("Are they equal??", false, list.found("junk"));
+    alist.isEmpty();
+    System.out.println("Is the item in the alist? " + alist.found("junk"));
+    Assert.assertFalse(alist.found("junk"));
+    Assert.assertEquals("Are they equal??", true, alist.found("junk"));
 
 //    System.exit(0);
 
