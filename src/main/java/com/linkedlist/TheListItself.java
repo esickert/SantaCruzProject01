@@ -1,14 +1,12 @@
 package com.linkedlist;
 
 import org.junit.Assert;
-
-import static org.hamcrest.CoreMatchers.is;
+//import static org.hamcrest.CoreMatchers.is;
 
 public class TheListItself {
     public static void main(String[] args)  {
 
     LinkedList alist = new LinkedList();
-
 
     System.out.println(alist.length());
     //alist.addToList("junk");
@@ -23,10 +21,12 @@ public class TheListItself {
 
     alist.isEmpty();
     System.out.println("Is the item in the alist? " + alist.found("junk"));
-    Assert.assertFalse(alist.found("junk"));
+
+
+    Assert.assertTrue(alist.found("junk"));
     Assert.assertEquals("Are they equal??", true, alist.found("junk"));
 
-//    System.exit(0);
+    System.exit(0);
 
     }
 }

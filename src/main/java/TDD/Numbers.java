@@ -8,7 +8,7 @@ public class Numbers implements AddTwoPlusTwo, SubtractNumbers {
     }
 
     @Override
-    public int minusTwoNumbers(int... oprands) {
+    public int minusTwoNumbers(int... operands) {
         return 0;
     }
 }
