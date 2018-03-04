@@ -1,6 +1,7 @@
 package com;
 
-import org.junit.Test;
+
+import org.junit.Test;   //?????????
 
 import java.io.Serializable;
 
@@ -16,7 +17,7 @@ class Species implements Serializable{
         population = 0;
         growthRate = 0;
     }
-//@Test
+@Test
     public Species(String initialName, int initialPopulation, double initialGrowthRate) {
 
     name = initialName;
