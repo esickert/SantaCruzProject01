@@ -1,12 +1,10 @@
-package Savitch;
-
-import java.io.Serializable;
+package com;
 
 import org.junit.Test;
 
 import java.io.Serializable;
 
-public class Species implements Serializable {
+class Species implements Serializable{
 
     private String name;
     private int population;
@@ -18,18 +16,18 @@ public class Species implements Serializable {
         population = 0;
         growthRate = 0;
     }
-    //@Test
+//@Test
     public Species(String initialName, int initialPopulation, double initialGrowthRate) {
 
-        name = initialName;
-        if (initialPopulation >= 0)
-            population = initialPopulation;
+    name = initialName;
+    if (initialPopulation >= 0)
+        population = initialPopulation;
 //       population = initialPopulation;
-        else {
-            System.out.println("ERROR-negative population");
-            System.exit(0);
-        }
-        growthRate = initialGrowthRate;
+    else {
+        System.out.println("ERROR-negative population");
+        System.exit(0);
+    }
+    growthRate = initialGrowthRate;
     }
 
     @Override
@@ -44,5 +42,4 @@ public class Species implements Serializable {
 
 
 }
-
 
