@@ -78,7 +78,7 @@ public class Test18 {
     @Test
         public void getChromeStuff()    {
             //this is just playing with System.getProperty();
-            System.setProperty("webdriver.chrome.driver","\\DriversForSelenium\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","\\SeleniumDrivers\\chromedriver.exe");
             ChromeDriver driver = new ChromeDriver();
             driver.get("file:///C:/Temp/alerts.html");
     }

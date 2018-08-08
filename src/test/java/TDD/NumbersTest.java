@@ -21,7 +21,7 @@ public class NumbersTest {
 
     @Test
     public void testTwominusTwo() throws Exception  {
-        int result = 3;
+        int result = 0;
 
         assertEquals(result, testClass.minusTwoNumbers());
     }
